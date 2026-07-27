@@ -1,9 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useWedding } from "@/lib/use-wedding";
 
-import ceremonyImg from "@/assets/ceremony.jpg";
 import { Countdown } from "@/components/Countdown";
+import { PhotoImage } from "@/components/PhotoImage";
 import { SectionHeading } from "@/components/SectionHeading";
+import { photoById } from "@/lib/photos";
+
 
 export const Route = createFileRoute("/_gated/celebration")({
   head: () => ({
