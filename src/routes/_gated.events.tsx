@@ -44,7 +44,7 @@ function Events() {
   const { content } = useWedding();
 
   return (
-    <div className="mx-auto w-full max-w-5xl px-5 py-20 sm:py-28">
+    <div className="mx-auto w-full max-w-5xl px-5 py-14 sm:py-28">
       <SectionHeading
         eyebrow="20 — 22 February 2027"
         title="The Weekend"

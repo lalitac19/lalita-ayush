@@ -26,7 +26,7 @@ function Faq() {
   const { content } = useWedding();
 
   return (
-    <div className="mx-auto w-full max-w-3xl px-5 py-20 sm:py-28">
+    <div className="mx-auto w-full max-w-3xl px-5 py-14 sm:py-28">
       <SectionHeading
         eyebrow="Good to know"
         title="Q&A"

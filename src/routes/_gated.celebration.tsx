@@ -70,7 +70,7 @@ function Celebration() {
           className="absolute inset-0"
           style={{ background: "var(--gradient-hero)" }}
         />
-        <div className="relative mx-auto w-full max-w-4xl px-6 py-24 text-center sm:py-32">
+        <div className="relative mx-auto w-full max-w-4xl px-5 py-20 text-center sm:px-6 sm:py-32">
           <p className="eyebrow text-background/80">Welcome, we're so glad you're here</p>
           <h1 className="mt-4 font-display text-4xl text-background sm:text-6xl">
             Three days in Sri Lanka
@@ -102,7 +102,7 @@ function Celebration() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-6xl px-5 py-20 sm:py-28">
+      <section className="mx-auto w-full max-w-6xl px-5 py-14 sm:py-28">
         <SectionHeading
           eyebrow="Everything you need"
           title="Explore"

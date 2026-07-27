@@ -27,7 +27,7 @@ function GettingThere() {
   const { content } = useWedding();
 
   return (
-    <div className="mx-auto w-full max-w-4xl px-5 py-20 sm:py-28">
+    <div className="mx-auto w-full max-w-4xl px-5 py-14 sm:py-28">
       <SectionHeading
         eyebrow="Travel"
         title={content.travel.heading}
