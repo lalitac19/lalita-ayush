@@ -1,6 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 
+import { PhotoImage } from "@/components/PhotoImage";
 import { SectionHeading } from "@/components/SectionHeading";
+import { photoById } from "@/lib/photos";
+
 
 export const Route = createFileRoute("/_gated/our-story")({
   head: () => ({
@@ -25,6 +28,7 @@ const chapters = [
   {
     number: "I",
     title: "A Swipe Right",
+    photo: "p16",
     paragraphs: [
       "Like many modern love stories, ours began with a swipe right on Hinge.",
       "Lalita was in Singapore on a work trip while Ayush was away on holiday, so although we matched, we didn't get to meet. Most people would have let the conversation fizzle out. Somehow, we kept talking.",
@@ -34,6 +38,7 @@ const chapters = [
   {
     number: "II",
     title: "Long Distance",
+    photo: "p13",
     paragraphs: [
       "Somewhere between the awkward jokes, endless conversations, and getting to know each other from opposite sides of the world, Ayush stopped trying to impress Lalita and simply got to know her for who she really was.",
       "Then life threw us an unexpected curveball. While we were still 3,500 miles apart, Lalita was injured and unable to walk. It wasn't the romantic chapter we'd imagined, but it became one of the most meaningful. From afar, Ayush made sure her favourite desserts kept arriving at her door and was never more than a WhatsApp video call away (thanks to a VPN).",
@@ -43,6 +48,7 @@ const chapters = [
   {
     number: "III",
     title: "The First Meeting",
+    photo: "p06",
     paragraphs: [
       "Months later, and with a little encouragement from his best friend's wife (thank you, Alisha!), Ayush finally booked a flight to Dubai. We met for the first time on Valentine's Day.",
       "The moment we met, everything just clicked. Since then, we've shared countless flights, adventures, new cities, and memories we'll treasure forever.",
@@ -75,6 +81,16 @@ function OurStory() {
                 </p>
               ))}
             </div>
+            <div className="surface-card mt-7 overflow-hidden rounded-sm">
+              <div className="aspect-4/3 sm:aspect-16/9">
+                <PhotoImage
+                  photo={photoById(c.photo)}
+                  alt={`Lalita and Ayush — ${c.title}`}
+                  sizes="(max-width: 768px) 92vw, 720px"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </div>
           </article>
         ))}
       </div>
@@ -84,6 +100,16 @@ function OurStory() {
           title="And now, Sri Lanka"
           intro="Three days, one island, and every person we love in one place."
         />
+        <div className="surface-card mt-10 overflow-hidden rounded-sm">
+          <div className="aspect-4/3 sm:aspect-16/9">
+            <PhotoImage
+              photo={photoById("p25")}
+              alt="Lalita and Ayush just after the proposal"
+              sizes="(max-width: 768px) 92vw, 720px"
+              className="h-full w-full object-cover"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -1,9 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useWedding } from "@/lib/use-wedding";
 
-import ceremonyImg from "@/assets/ceremony.jpg";
 import { Countdown } from "@/components/Countdown";
+import { PhotoImage } from "@/components/PhotoImage";
 import { SectionHeading } from "@/components/SectionHeading";
+import { photoById } from "@/lib/photos";
+
 
 export const Route = createFileRoute("/_gated/celebration")({
   head: () => ({
@@ -59,13 +61,14 @@ function Celebration() {
   return (
     <>
       <section className="relative isolate overflow-hidden">
-        <img
-          src={ceremonyImg}
-          alt="Beach ceremony arch at dusk"
-          width={1200}
-          height={900}
+        <PhotoImage
+          photo={photoById("p05")}
+          alt="Lalita and Ayush hand in hand"
+          sizes="100vw"
+          priority
           className="absolute inset-0 h-full w-full object-cover"
         />
+
         <div
           className="absolute inset-0"
           style={{ background: "var(--gradient-hero)" }}

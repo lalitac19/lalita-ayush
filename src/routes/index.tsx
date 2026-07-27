@@ -2,7 +2,9 @@ import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
 
-import heroImg from "@/assets/hero-beach.jpg";
+import { PhotoImage } from "@/components/PhotoImage";
+import { photoById } from "@/lib/photos";
+
 import { Countdown } from "@/components/Countdown";
 import { Monogram } from "@/components/Monogram";
 import { unlockSite } from "@/lib/gate.functions";
@@ -58,13 +60,14 @@ function Landing() {
 
   return (
     <main className="relative min-h-screen w-full overflow-hidden">
-      <img
-        src={heroImg}
-        alt="Sunset over a palm-fringed beach in Sri Lanka"
-        width={1920}
-        height={1280}
+      <PhotoImage
+        photo={photoById("p01")}
+        alt="Lalita and Ayush walking under the palms"
+        sizes="100vw"
+        priority
         className="absolute inset-0 h-full w-full object-cover"
       />
+
       <div
         className="absolute inset-0"
         style={{ background: "var(--gradient-hero)" }}
