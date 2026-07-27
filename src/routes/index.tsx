@@ -2,7 +2,9 @@ import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
 
-import heroImg from "@/assets/hero-beach.jpg";
+import { PhotoImage } from "@/components/PhotoImage";
+import { photoById } from "@/lib/photos";
+
 import { Countdown } from "@/components/Countdown";
 import { Monogram } from "@/components/Monogram";
 import { unlockSite } from "@/lib/gate.functions";
