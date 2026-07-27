@@ -73,7 +73,7 @@ function Landing() {
       <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-3xl flex-col items-center justify-center px-6 py-16 text-center">
         <Monogram light className="h-24 w-auto opacity-95 sm:h-32" />
 
-        <p className="eyebrow mt-8 text-background/80">Together with their families</p>
+        <p className="eyebrow mt-8 text-background/80">{"\n"}</p>
 
         <h1 className="mt-4 font-display text-5xl leading-[1.05] text-background sm:text-7xl">
           Lalita
