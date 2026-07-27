@@ -72,7 +72,7 @@ function Celebration() {
         />
         <div className="relative mx-auto w-full max-w-4xl px-5 py-20 text-center sm:px-6 sm:py-32">
           <p className="eyebrow text-background/80">Welcome, we're so glad you're here</p>
-          <h1 className="mt-4 font-display text-4xl text-background sm:text-6xl">
+          <h1 className="mt-4 font-display text-[2.25rem] leading-[1.08] font-semibold text-background sm:text-6xl">
             Three days in Sri Lanka
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-[0.95rem] leading-relaxed text-background/85">
@@ -113,7 +113,7 @@ function Celebration() {
             <Link
               key={c.to}
               to={c.to}
-              className="surface-card group flex flex-col rounded-sm p-8 transition hover:-translate-y-1"
+              className="surface-card group flex flex-col rounded-sm p-6 sm:p-8 transition hover:-translate-y-1"
             >
               <span className="eyebrow">{c.label}</span>
               <span className="mt-3 font-display text-2xl">{c.label}</span>

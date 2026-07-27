@@ -55,7 +55,7 @@ function OurStory() {
     <div className="mx-auto w-full max-w-3xl px-5 py-14 sm:py-28">
       <div className="text-center">
         <p className="eyebrow">Our Story</p>
-        <h1 className="mt-4 font-display text-5xl leading-[1.05] sm:text-6xl">
+        <h1 className="mt-4 font-display text-4xl leading-[1.08] font-medium sm:text-6xl">
           Miles Apart,
           <br />
           <span className="italic">Meant to Be</span>

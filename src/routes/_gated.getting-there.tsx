@@ -40,12 +40,12 @@ function GettingThere() {
         loading="lazy"
         width={1200}
         height={900}
-        className="mt-14 h-72 w-full rounded-sm object-cover sm:h-96"
+        className="mt-14 h-52 w-full rounded-sm object-cover sm:h-72 sm:h-96"
       />
 
       <div className="mt-14 grid gap-5 sm:grid-cols-2">
         {content.travel.points.map((p) => (
-          <div key={p.title} className="surface-card rounded-sm p-8">
+          <div key={p.title} className="surface-card rounded-sm p-6 sm:p-8">
             <h3 className="font-display text-2xl">{p.title}</h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
               {p.detail}
@@ -54,7 +54,7 @@ function GettingThere() {
         ))}
       </div>
 
-      <div className="surface-card mt-8 rounded-sm p-9 text-center">
+      <div className="surface-card mt-8 rounded-sm p-6 sm:p-9 text-center">
         <p className="eyebrow">The Venue</p>
         <h3 className="mt-3 font-display text-3xl">{content.venue.name}</h3>
         <p className="mt-2 text-sm text-muted-foreground">{content.venue.location}</p>

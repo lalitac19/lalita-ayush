@@ -42,7 +42,7 @@ function Faq() {
         ))}
       </div>
 
-      <div className="surface-card mt-6 rounded-sm p-9">
+      <div className="surface-card mt-6 rounded-sm p-6 sm:p-9">
         <p className="eyebrow">Honeymoon fund</p>
         <div className="mt-4 space-y-1.5 text-sm leading-relaxed text-muted-foreground">
           {content.honeymoon.map((line: string) => (
@@ -51,7 +51,7 @@ function Faq() {
         </div>
       </div>
 
-      <div className="surface-card mt-8 rounded-sm p-9 text-center">
+      <div className="surface-card mt-8 rounded-sm p-6 sm:p-9 text-center">
         <p className="eyebrow">WhatsApp us</p>
         <div className="mt-5 flex flex-wrap justify-center gap-4">
           {content.contacts.map((c: { name: string; phone: string }) => (
