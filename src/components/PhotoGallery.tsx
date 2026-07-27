@@ -32,7 +32,7 @@ export function PhotoGallery() {
             onClick={() => setOpenIndex(i)}
             className="surface-card group relative block w-full cursor-pointer overflow-hidden rounded-sm bg-secondary"
           >
-            <div className={p.ratio < 1 ? "aspect-3/4" : "aspect-4/3"}>
+            <div className="aspect-3/4">
               <PhotoImage
                 photo={p}
                 alt={p.caption}
