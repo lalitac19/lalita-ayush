@@ -9,38 +9,161 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as GatedRouteImport } from './routes/_gated'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as GatedSriLankaRouteImport } from './routes/_gated.sri-lanka'
+import { Route as GatedOurStoryRouteImport } from './routes/_gated.our-story'
+import { Route as GatedMomentsRouteImport } from './routes/_gated.moments'
+import { Route as GatedGettingThereRouteImport } from './routes/_gated.getting-there'
+import { Route as GatedFaqRouteImport } from './routes/_gated.faq'
+import { Route as GatedEventsRouteImport } from './routes/_gated.events'
+import { Route as GatedCelebrationRouteImport } from './routes/_gated.celebration'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GatedRoute = GatedRouteImport.update({
+  id: '/_gated',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GatedSriLankaRoute = GatedSriLankaRouteImport.update({
+  id: '/sri-lanka',
+  path: '/sri-lanka',
+  getParentRoute: () => GatedRoute,
+} as any)
+const GatedOurStoryRoute = GatedOurStoryRouteImport.update({
+  id: '/our-story',
+  path: '/our-story',
+  getParentRoute: () => GatedRoute,
+} as any)
+const GatedMomentsRoute = GatedMomentsRouteImport.update({
+  id: '/moments',
+  path: '/moments',
+  getParentRoute: () => GatedRoute,
+} as any)
+const GatedGettingThereRoute = GatedGettingThereRouteImport.update({
+  id: '/getting-there',
+  path: '/getting-there',
+  getParentRoute: () => GatedRoute,
+} as any)
+const GatedFaqRoute = GatedFaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => GatedRoute,
+} as any)
+const GatedEventsRoute = GatedEventsRouteImport.update({
+  id: '/events',
+  path: '/events',
+  getParentRoute: () => GatedRoute,
+} as any)
+const GatedCelebrationRoute = GatedCelebrationRouteImport.update({
+  id: '/celebration',
+  path: '/celebration',
+  getParentRoute: () => GatedRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/celebration': typeof GatedCelebrationRoute
+  '/events': typeof GatedEventsRoute
+  '/faq': typeof GatedFaqRoute
+  '/getting-there': typeof GatedGettingThereRoute
+  '/moments': typeof GatedMomentsRoute
+  '/our-story': typeof GatedOurStoryRoute
+  '/sri-lanka': typeof GatedSriLankaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/celebration': typeof GatedCelebrationRoute
+  '/events': typeof GatedEventsRoute
+  '/faq': typeof GatedFaqRoute
+  '/getting-there': typeof GatedGettingThereRoute
+  '/moments': typeof GatedMomentsRoute
+  '/our-story': typeof GatedOurStoryRoute
+  '/sri-lanka': typeof GatedSriLankaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_gated': typeof GatedRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/_gated/celebration': typeof GatedCelebrationRoute
+  '/_gated/events': typeof GatedEventsRoute
+  '/_gated/faq': typeof GatedFaqRoute
+  '/_gated/getting-there': typeof GatedGettingThereRoute
+  '/_gated/moments': typeof GatedMomentsRoute
+  '/_gated/our-story': typeof GatedOurStoryRoute
+  '/_gated/sri-lanka': typeof GatedSriLankaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/sitemap.xml'
+    | '/celebration'
+    | '/events'
+    | '/faq'
+    | '/getting-there'
+    | '/moments'
+    | '/our-story'
+    | '/sri-lanka'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/sitemap.xml'
+    | '/celebration'
+    | '/events'
+    | '/faq'
+    | '/getting-there'
+    | '/moments'
+    | '/our-story'
+    | '/sri-lanka'
+  id:
+    | '__root__'
+    | '/'
+    | '/_gated'
+    | '/sitemap.xml'
+    | '/_gated/celebration'
+    | '/_gated/events'
+    | '/_gated/faq'
+    | '/_gated/getting-there'
+    | '/_gated/moments'
+    | '/_gated/our-story'
+    | '/_gated/sri-lanka'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  GatedRoute: typeof GatedRouteWithChildren
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_gated': {
+      id: '/_gated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof GatedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +171,85 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_gated/sri-lanka': {
+      id: '/_gated/sri-lanka'
+      path: '/sri-lanka'
+      fullPath: '/sri-lanka'
+      preLoaderRoute: typeof GatedSriLankaRouteImport
+      parentRoute: typeof GatedRoute
+    }
+    '/_gated/our-story': {
+      id: '/_gated/our-story'
+      path: '/our-story'
+      fullPath: '/our-story'
+      preLoaderRoute: typeof GatedOurStoryRouteImport
+      parentRoute: typeof GatedRoute
+    }
+    '/_gated/moments': {
+      id: '/_gated/moments'
+      path: '/moments'
+      fullPath: '/moments'
+      preLoaderRoute: typeof GatedMomentsRouteImport
+      parentRoute: typeof GatedRoute
+    }
+    '/_gated/getting-there': {
+      id: '/_gated/getting-there'
+      path: '/getting-there'
+      fullPath: '/getting-there'
+      preLoaderRoute: typeof GatedGettingThereRouteImport
+      parentRoute: typeof GatedRoute
+    }
+    '/_gated/faq': {
+      id: '/_gated/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof GatedFaqRouteImport
+      parentRoute: typeof GatedRoute
+    }
+    '/_gated/events': {
+      id: '/_gated/events'
+      path: '/events'
+      fullPath: '/events'
+      preLoaderRoute: typeof GatedEventsRouteImport
+      parentRoute: typeof GatedRoute
+    }
+    '/_gated/celebration': {
+      id: '/_gated/celebration'
+      path: '/celebration'
+      fullPath: '/celebration'
+      preLoaderRoute: typeof GatedCelebrationRouteImport
+      parentRoute: typeof GatedRoute
+    }
   }
 }
 
+interface GatedRouteChildren {
+  GatedCelebrationRoute: typeof GatedCelebrationRoute
+  GatedEventsRoute: typeof GatedEventsRoute
+  GatedFaqRoute: typeof GatedFaqRoute
+  GatedGettingThereRoute: typeof GatedGettingThereRoute
+  GatedMomentsRoute: typeof GatedMomentsRoute
+  GatedOurStoryRoute: typeof GatedOurStoryRoute
+  GatedSriLankaRoute: typeof GatedSriLankaRoute
+}
+
+const GatedRouteChildren: GatedRouteChildren = {
+  GatedCelebrationRoute: GatedCelebrationRoute,
+  GatedEventsRoute: GatedEventsRoute,
+  GatedFaqRoute: GatedFaqRoute,
+  GatedGettingThereRoute: GatedGettingThereRoute,
+  GatedMomentsRoute: GatedMomentsRoute,
+  GatedOurStoryRoute: GatedOurStoryRoute,
+  GatedSriLankaRoute: GatedSriLankaRoute,
+}
+
+const GatedRouteWithChildren = GatedRoute._addFileChildren(GatedRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  GatedRoute: GatedRouteWithChildren,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
