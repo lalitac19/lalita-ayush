@@ -1,6 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 
+import { PhotoImage } from "@/components/PhotoImage";
 import { SectionHeading } from "@/components/SectionHeading";
+import { photoById } from "@/lib/photos";
+
 
 export const Route = createFileRoute("/_gated/our-story")({
   head: () => ({
