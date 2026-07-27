@@ -22,8 +22,6 @@ import p10s from "@/assets/photos/p10-640.webp.asset.json";
 import p10l from "@/assets/photos/p10-1440.webp.asset.json";
 import p11s from "@/assets/photos/p11-640.webp.asset.json";
 import p11l from "@/assets/photos/p11-1440.webp.asset.json";
-import p12s from "@/assets/photos/p12-640.webp.asset.json";
-import p12l from "@/assets/photos/p12-1440.webp.asset.json";
 import p13s from "@/assets/photos/p13-640.webp.asset.json";
 import p13l from "@/assets/photos/p13-1440.webp.asset.json";
 import p14s from "@/assets/photos/p14-640.webp.asset.json";
