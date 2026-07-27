@@ -51,7 +51,7 @@ function Events() {
         intro="A beach ceremony, a garden dinner, an afternoon by the pool and a night of Bollywood glam. Here is how it all unfolds."
       />
 
-      <div className="mt-16 space-y-20">
+      <div className="mt-12 space-y-14 sm:space-y-20">
         {content.days.map((day) => (
           <section key={day.date}>
             <div className="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-5">
@@ -81,10 +81,10 @@ function Events() {
                         src={img.src}
                         alt={img.alt}
                         loading="lazy"
-                        className="h-56 w-full object-cover object-top sm:h-72"
+                        className="h-44 w-full object-cover object-top sm:h-72"
                       />
                     ) : null}
-                    <div className="p-7 sm:p-9">
+                    <div className="p-6 sm:p-9">
                       <p className="text-[0.68rem] tracking-[0.26em] text-accent uppercase">
                         {ev.time}
                       </p>

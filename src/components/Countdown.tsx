@@ -30,11 +30,11 @@ export function Countdown({ light = false }: { light?: boolean }) {
   ];
 
   return (
-    <div className="flex items-start justify-center gap-5 sm:gap-10">
+    <div className="flex items-start justify-center gap-4 sm:gap-10">
       {units.map(([label, value]) => (
-        <div key={label} className="min-w-14 text-center sm:min-w-20">
+        <div key={label} className="min-w-[3.25rem] text-center sm:min-w-20">
           <div
-            className={`font-display text-3xl leading-none tabular-nums sm:text-5xl ${
+            className={`font-display text-3xl leading-none font-medium tabular-nums sm:text-5xl ${
               light ? "text-background" : "text-foreground"
             }`}
           >

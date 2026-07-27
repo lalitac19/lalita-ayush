@@ -73,7 +73,7 @@ function Faq() {
 
       <div className="mt-16 text-center">
         <p className="eyebrow">Join our celebration</p>
-        <h2 className="mt-3 font-display text-4xl">RSVP</h2>
+        <h2 className="mt-3 font-display text-3xl sm:text-4xl">RSVP</h2>
         <p className="mx-auto mt-5 max-w-xl leading-relaxed text-muted-foreground">
           We can't wait to celebrate with you. Please let us know if you'll be
           joining us by 1st December 2026, so we can make the necessary
