@@ -128,7 +128,7 @@ function Landing() {
             {busy ? "Opening…" : "Enter"}
           </button>
           <p className="mt-4 text-[0.7rem] leading-relaxed text-background/65">
-            The password is on your invitation. Lost it? WhatsApp us.
+            The password is on your invitation message. Lost it? WhatsApp us.
           </p>
         </form>
       </div>
