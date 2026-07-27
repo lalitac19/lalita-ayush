@@ -1,14 +1,9 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
 User-agent: *
-Allow: /
+Allow: /$
+Disallow: /celebration
+Disallow: /our-story
+Disallow: /events
+Disallow: /getting-there
+Disallow: /sri-lanka
+Disallow: /moments
+Disallow: /faq
