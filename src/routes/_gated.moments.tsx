@@ -36,7 +36,7 @@ const captions = [
 
 function Moments() {
   return (
-    <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:py-28">
+    <div className="mx-auto w-full max-w-6xl px-5 py-14 sm:py-28">
       <SectionHeading
         eyebrow="The Album"
         title="Moments Together"

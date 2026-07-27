@@ -70,33 +70,33 @@ function Landing() {
         style={{ background: "var(--gradient-hero)" }}
       />
 
-      <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-3xl flex-col items-center justify-center px-6 py-16 text-center">
-        <Monogram light className="h-24 w-auto opacity-95 sm:h-32" />
+      <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-3xl flex-col items-center justify-center px-5 py-14 text-center sm:px-6 sm:py-16">
+        <Monogram light className="h-20 w-auto opacity-95 sm:h-32" />
 
-        <p className="eyebrow mt-8 text-background/80">{"\n"}</p>
+        <p className="eyebrow mt-6 text-background/80 sm:mt-8">{"\n"}</p>
 
-        <h1 className="mt-4 font-display text-5xl leading-[1.05] text-background sm:text-7xl">
+        <h1 className="mt-3 font-display text-[2.75rem] leading-[1.05] font-semibold text-background sm:mt-4 sm:text-7xl">
           Lalita
-          <span className="mx-3 italic opacity-80">&amp;</span>
+          <span className="mx-2 italic opacity-80 sm:mx-3">&amp;</span>
           Ayush
         </h1>
 
-        <div className="rule-gold mt-7 w-40" />
+        <div className="rule-gold mt-6 w-32 sm:mt-7 sm:w-40" />
 
-        <p className="mt-6 font-display text-xl tracking-[0.18em] text-background sm:text-2xl">
+        <p className="mt-5 font-display text-lg tracking-[0.14em] text-background sm:mt-6 sm:text-2xl sm:tracking-[0.18em]">
           20 — 22 FEBRUARY 2027
         </p>
-        <p className="mt-2 text-[0.72rem] tracking-[0.3em] text-background/75 uppercase">
+        <p className="mt-2 text-[0.65rem] tracking-[0.22em] text-background/75 uppercase sm:text-[0.72rem] sm:tracking-[0.3em]">
           Avani Kalutara · Sri Lanka
         </p>
 
-        <div className="mt-12 w-full">
+        <div className="mt-10 w-full sm:mt-12">
           <Countdown light />
         </div>
 
         <form
           onSubmit={onSubmit}
-          className="mt-14 w-full max-w-sm rounded-sm border border-background/25 bg-background/10 p-6 backdrop-blur-md"
+          className="mt-10 w-full max-w-sm rounded-sm border border-background/25 bg-background/10 p-5 backdrop-blur-md sm:mt-14 sm:p-6"
         >
           <label
             htmlFor="password"
@@ -112,8 +112,8 @@ function Landing() {
             value={password}
             maxLength={100}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter password"
-            className="mt-4 w-full rounded-sm border border-background/35 bg-background/10 px-4 py-3 text-center text-background tracking-[0.2em] outline-none transition placeholder:text-background/45 focus:border-accent"
+            placeholder="Enter the weekend"
+            className="mt-4 w-full rounded-sm border border-background/35 bg-background/10 px-4 py-3 text-center text-base text-background tracking-[0.2em] outline-none transition placeholder:text-background/45 focus:border-accent"
           />
           {error ? (
             <p className="mt-3 text-xs tracking-wide text-background/90">
@@ -123,12 +123,21 @@ function Landing() {
           <button
             type="submit"
             disabled={busy}
-            className="mt-4 w-full cursor-pointer rounded-sm bg-accent px-4 py-3 text-[0.7rem] font-medium tracking-[0.3em] text-accent-foreground uppercase transition hover:opacity-90 disabled:opacity-60"
+            className="mt-4 w-full cursor-pointer rounded-sm bg-accent px-4 py-3.5 text-[0.7rem] font-medium tracking-[0.3em] text-accent-foreground uppercase transition hover:opacity-90 disabled:opacity-60"
           >
             {busy ? "Opening…" : "Enter"}
           </button>
           <p className="mt-4 text-[0.7rem] leading-relaxed text-background/65">
-            The password is on your invitation message. Lost it? WhatsApp us.
+            The password is on your invitation message. Lost it?{" "}
+            <a
+              href="https://wa.me/447565790424?text=Hey,%20what%20is%20the%20password?"
+              target="_blank"
+              rel="noreferrer"
+              className="underline underline-offset-4 transition hover:text-background"
+            >
+              WhatsApp us
+            </a>
+            .
           </p>
         </form>
       </div>

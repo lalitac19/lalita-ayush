@@ -44,26 +44,26 @@ function Events() {
   const { content } = useWedding();
 
   return (
-    <div className="mx-auto w-full max-w-5xl px-5 py-20 sm:py-28">
+    <div className="mx-auto w-full max-w-5xl px-5 py-14 sm:py-28">
       <SectionHeading
         eyebrow="20 — 22 February 2027"
         title="The Weekend"
         intro="A beach ceremony, a garden dinner, an afternoon by the pool and a night of Bollywood glam. Here is how it all unfolds."
       />
 
-      <div className="mt-16 space-y-20">
+      <div className="mt-12 space-y-14 sm:space-y-20">
         {content.days.map((day) => (
           <section key={day.date}>
             <div className="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-5">
               <div className="shrink-0 text-center">
-                <div className="font-display text-5xl leading-none">{day.date}</div>
+                <div className="font-display text-4xl leading-none sm:text-5xl">{day.date}</div>
                 <div className="mt-1 text-[0.6rem] tracking-[0.24em] text-muted-foreground uppercase">
                   Feb
                 </div>
               </div>
               <div className="min-w-0">
                 <p className="eyebrow">{day.weekday}</p>
-                <h2 className="truncate font-display text-3xl">{day.label}</h2>
+                <h2 className="font-display text-2xl leading-tight sm:text-3xl">{day.label}</h2>
               </div>
             </div>
             <div className="rule-gold mt-6" />
@@ -81,10 +81,10 @@ function Events() {
                         src={img.src}
                         alt={img.alt}
                         loading="lazy"
-                        className="h-56 w-full object-cover object-top sm:h-72"
+                        className="h-44 w-full object-cover object-top sm:h-72"
                       />
                     ) : null}
-                    <div className="p-7 sm:p-9">
+                    <div className="p-6 sm:p-9">
                       <p className="text-[0.68rem] tracking-[0.26em] text-accent uppercase">
                         {ev.time}
                       </p>
@@ -113,7 +113,7 @@ function Events() {
         ))}
       </div>
 
-      <div className="surface-card mt-20 rounded-sm p-9 text-center">
+      <div className="surface-card mt-20 rounded-sm p-6 sm:p-9 text-center">
         <p className="eyebrow">A gentle note on outfits</p>
         <p className="mx-auto mt-4 max-w-xl leading-relaxed text-muted-foreground">
           Sri Lanka in February is warm and humid — think breathable fabrics, and

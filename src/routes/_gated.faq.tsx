@@ -26,7 +26,7 @@ function Faq() {
   const { content } = useWedding();
 
   return (
-    <div className="mx-auto w-full max-w-3xl px-5 py-20 sm:py-28">
+    <div className="mx-auto w-full max-w-3xl px-5 py-14 sm:py-28">
       <SectionHeading
         eyebrow="Good to know"
         title="Q&A"
@@ -42,7 +42,7 @@ function Faq() {
         ))}
       </div>
 
-      <div className="surface-card mt-6 rounded-sm p-9">
+      <div className="surface-card mt-6 rounded-sm p-6 sm:p-9">
         <p className="eyebrow">Honeymoon fund</p>
         <div className="mt-4 space-y-1.5 text-sm leading-relaxed text-muted-foreground">
           {content.honeymoon.map((line: string) => (
@@ -51,7 +51,7 @@ function Faq() {
         </div>
       </div>
 
-      <div className="surface-card mt-8 rounded-sm p-9 text-center">
+      <div className="surface-card mt-8 rounded-sm p-6 sm:p-9 text-center">
         <p className="eyebrow">WhatsApp us</p>
         <div className="mt-5 flex flex-wrap justify-center gap-4">
           {content.contacts.map((c: { name: string; phone: string }) => (
@@ -73,7 +73,7 @@ function Faq() {
 
       <div className="mt-16 text-center">
         <p className="eyebrow">Join our celebration</p>
-        <h2 className="mt-3 font-display text-4xl">RSVP</h2>
+        <h2 className="mt-3 font-display text-3xl sm:text-4xl">RSVP</h2>
         <p className="mx-auto mt-5 max-w-xl leading-relaxed text-muted-foreground">
           We can't wait to celebrate with you. Please let us know if you'll be
           joining us by 1st December 2026, so we can make the necessary

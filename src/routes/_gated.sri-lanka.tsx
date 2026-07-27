@@ -28,7 +28,7 @@ function SriLanka() {
   const { content } = useWedding();
 
   return (
-    <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:py-28">
+    <div className="mx-auto w-full max-w-6xl px-5 py-14 sm:py-28">
       <SectionHeading
         eyebrow="The Island"
         title="About Sri Lanka"
@@ -41,7 +41,7 @@ function SriLanka() {
         loading="lazy"
         width={1400}
         height={900}
-        className="mt-14 h-72 w-full rounded-sm object-cover sm:h-[26rem]"
+        className="mt-14 h-52 w-full rounded-sm object-cover sm:h-72 sm:h-[26rem]"
       />
 
       <section className="mt-20">
@@ -49,7 +49,7 @@ function SriLanka() {
         <div className="rule-gold mt-5 max-w-32" />
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {content.attractions.map((a: { name: string; note: string }) => (
-            <div key={a.name} className="surface-card rounded-sm p-7">
+            <div key={a.name} className="surface-card rounded-sm p-6 sm:p-7">
               <h3 className="font-display text-xl leading-snug">{a.name}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 {a.note}
@@ -75,7 +75,7 @@ function SriLanka() {
                 {area.spots.map((s) => (
                   <div
                     key={s.name}
-                    className="surface-card flex flex-col rounded-sm p-7"
+                    className="surface-card flex flex-col rounded-sm p-6 sm:p-7"
                   >
                     <span className="text-[0.6rem] tracking-[0.26em] text-accent uppercase">
                       {s.kind}
