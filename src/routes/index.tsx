@@ -3,7 +3,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
 
 import { PhotoImage } from "@/components/PhotoImage";
-import { photoById } from "@/lib/photos";
+import { heroPhoto } from "@/lib/photos";
 
 import { Countdown } from "@/components/Countdown";
 import { Monogram } from "@/components/Monogram";
@@ -61,13 +61,14 @@ function Landing() {
   return (
     <main className="relative min-h-screen w-full overflow-hidden">
       <PhotoImage
-        photo={photoById("p01")}
+        photo={heroPhoto}
         alt="Lalita and Ayush walking under the palms"
         sizes="100vw"
         priority
         className="absolute inset-0 h-full w-full object-cover"
       />
 
+      <div className="absolute inset-0 bg-[oklch(0.24_0.025_62)]/45" />
       <div
         className="absolute inset-0"
         style={{ background: "var(--gradient-hero)" }}
