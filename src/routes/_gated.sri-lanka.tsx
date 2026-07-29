@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useWedding } from "@/lib/use-wedding";
 
-import mapImg from "@/assets/srilanka-guest-map.png.asset.json";
+import mapSmall from "@/assets/opt/srilanka-guest-map-640.webp.asset.json";
+import mapLarge from "@/assets/opt/srilanka-guest-map-1440.webp.asset.json";
 import { SectionHeading } from "@/components/SectionHeading";
 
 export const Route = createFileRoute("/_gated/sri-lanka")({
@@ -36,12 +37,15 @@ function SriLanka() {
       />
 
       <img
-        src={mapImg.url}
+        src={mapSmall.url}
+        srcSet={`${mapSmall.url} 640w, ${mapLarge.url} 1440w`}
+        sizes="(max-width: 768px) 92vw, 1100px"
         alt="Illustrated guest map of Sri Lanka showing Avani Kalutara Resort and destinations across the island"
         loading="lazy"
-        width={1268}
-        height={1782}
-        className="mt-14 w-full rounded-sm"
+        decoding="async"
+        width={1270}
+        height={1770}
+        className="mt-10 w-full rounded-sm sm:mt-14"
       />
 
       <section className="mt-20">

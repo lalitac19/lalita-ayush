@@ -1,15 +1,8 @@
-import {
-  createFileRoute,
-  Link,
-  Outlet,
-  redirect,
-  useRouter,
-} from "@tanstack/react-router";
-import { useServerFn } from "@tanstack/react-start";
+import { createFileRoute, Link, Outlet, redirect } from "@tanstack/react-router";
 import { useState } from "react";
 
 import { Monogram } from "@/components/Monogram";
-import { getWeddingContent, lockSite } from "@/lib/gate.functions";
+import { getWeddingContent } from "@/lib/gate.functions";
 import type { WeddingContent } from "@/lib/wedding-types";
 
 export const Route = createFileRoute("/_gated")({
@@ -34,14 +27,8 @@ const links = [
 
 function GatedLayout() {
   const { content } = Route.useLoaderData();
-  const router = useRouter();
-  const lock = useServerFn(lockSite);
   const [open, setOpen] = useState(false);
 
-  async function signOut() {
-    await lock({});
-    await router.navigate({ to: "/" });
-  }
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
@@ -136,14 +123,8 @@ function GatedLayout() {
             >
               {content.venue.name}
             </a>
-            <span aria-hidden>·</span>
-            <button
-              onClick={signOut}
-              className="cursor-pointer tracking-[0.2em] uppercase transition hover:text-foreground"
-            >
-              Lock site
-            </button>
           </div>
+
         </div>
       </footer>
     </div>

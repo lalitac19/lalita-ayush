@@ -3,8 +3,10 @@ import { useWedding } from "@/lib/use-wedding";
 
 import ceremonyImg from "@/assets/ceremony.jpg";
 import receptionImg from "@/assets/reception.jpg";
-import poolAsset from "@/assets/pool-party.png.asset.json";
-import sangeetAsset from "@/assets/sangeet.png.asset.json";
+import poolSmall from "@/assets/opt/pool-party-640.webp.asset.json";
+import poolLarge from "@/assets/opt/pool-party-1440.webp.asset.json";
+import sangeetSmall from "@/assets/opt/sangeet-640.webp.asset.json";
+import sangeetLarge from "@/assets/opt/sangeet-1440.webp.asset.json";
 import { SectionHeading } from "@/components/SectionHeading";
 
 export const Route = createFileRoute("/_gated/events")({
@@ -27,15 +29,20 @@ export const Route = createFileRoute("/_gated/events")({
   component: Events,
 });
 
-const imageMap: Record<string, { src: string; alt: string }> = {
+const imageMap: Record<
+  string,
+  { src: string; srcSet?: string; alt: string }
+> = {
   ceremony: { src: ceremonyImg, alt: "Beach ceremony arch at dusk" },
   reception: { src: receptionImg, alt: "Garden reception under string lights" },
   pool: {
-    src: poolAsset.url,
+    src: poolSmall.url,
+    srcSet: `${poolSmall.url} 640w, ${poolLarge.url} 1440w`,
     alt: "Pool party dress code illustration — resort beach chic",
   },
   sangeet: {
-    src: sangeetAsset.url,
+    src: sangeetSmall.url,
+    srcSet: `${sangeetSmall.url} 640w, ${sangeetLarge.url} 1440w`,
     alt: "Sangeet dress code illustration — Indian and Indo-Western glam",
   },
 };
@@ -79,9 +86,12 @@ function Events() {
                     {img ? (
                       <img
                         src={img.src}
+                        srcSet={img.srcSet}
+                        sizes="(max-width: 768px) 92vw, 900px"
                         alt={img.alt}
                         loading="lazy"
-                        className="h-44 w-full object-cover object-top sm:h-72"
+                        decoding="async"
+                        className="h-52 w-full object-cover object-top sm:h-72"
                       />
                     ) : null}
                     <div className="p-6 sm:p-9">
