@@ -52,8 +52,10 @@ import p26s from "@/assets/photos/p26-640.webp.asset.json";
 import p26l from "@/assets/photos/p26-1440.webp.asset.json";
 import p27s from "@/assets/photos/p27-640.webp.asset.json";
 import p27l from "@/assets/photos/p27-1440.webp.asset.json";
-import heroS from "@/assets/photos/hero-new-640.webp.asset.json";
-import heroL from "@/assets/photos/hero-new-1440.webp.asset.json";
+import heroS from "@/assets/photos/hero2-640.webp.asset.json";
+import heroL from "@/assets/photos/hero2-1440.webp.asset.json";
+import celS from "@/assets/photos/cel-640.webp.asset.json";
+import celL from "@/assets/photos/cel-1440.webp.asset.json";
 
 export type Photo = { id: string; small: string; large: string; caption: string; ratio: number };
 
@@ -62,8 +64,17 @@ export const heroPhoto: Photo = {
   small: heroS.url,
   large: heroL.url,
   caption: "Lalita & Ayush",
-  ratio: 1.4993,
+  ratio: 0.9369,
 };
+
+export const celebrationPhoto: Photo = {
+  id: "celebration",
+  small: celS.url,
+  large: celL.url,
+  caption: "Lalita & Ayush",
+  ratio: 0.6667,
+};
+
 
 export const photos: Photo[] = [
   { id: "p01", small: p01s.url, large: p01l.url, caption: "Island walks", ratio: 0.6665 },
