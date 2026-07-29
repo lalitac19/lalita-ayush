@@ -1,15 +1,8 @@
-import {
-  createFileRoute,
-  Link,
-  Outlet,
-  redirect,
-  useRouter,
-} from "@tanstack/react-router";
-import { useServerFn } from "@tanstack/react-start";
+import { createFileRoute, Link, Outlet, redirect } from "@tanstack/react-router";
 import { useState } from "react";
 
 import { Monogram } from "@/components/Monogram";
-import { getWeddingContent, lockSite } from "@/lib/gate.functions";
+import { getWeddingContent } from "@/lib/gate.functions";
 import type { WeddingContent } from "@/lib/wedding-types";
 
 export const Route = createFileRoute("/_gated")({
