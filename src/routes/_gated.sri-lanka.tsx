@@ -37,12 +37,15 @@ function SriLanka() {
       />
 
       <img
-        src={mapImg.url}
+        src={mapSmall.url}
+        srcSet={`${mapSmall.url} 640w, ${mapLarge.url} 1440w`}
+        sizes="(max-width: 768px) 92vw, 1100px"
         alt="Illustrated guest map of Sri Lanka showing Avani Kalutara Resort and destinations across the island"
         loading="lazy"
-        width={1268}
-        height={1782}
-        className="mt-14 w-full rounded-sm"
+        decoding="async"
+        width={1270}
+        height={1770}
+        className="mt-10 w-full rounded-sm sm:mt-14"
       />
 
       <section className="mt-20">
