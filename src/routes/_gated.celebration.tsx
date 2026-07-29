@@ -74,33 +74,35 @@ function Celebration() {
           style={{ background: "var(--gradient-hero)" }}
         />
         <div className="relative mx-auto w-full max-w-4xl px-5 py-20 text-center sm:px-6 sm:py-32">
-          <p className="eyebrow text-background/80">Welcome, we're so glad you're here</p>
+          <p className="eyebrow text-background/80">Welcome</p>
           <h1 className="mt-4 font-display text-[2.25rem] leading-[1.08] font-semibold text-background sm:text-6xl">
-            Three days in Sri Lanka
+            We're getting married!
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-[0.95rem] leading-relaxed text-background/85">
-            An Indo-Western fusion celebration at {content.venue.name}, where the
-            Kalu river meets the Indian Ocean. Barefoot on the sand, dancing until
-            far too late — and all of it better with you there.
+            After countless flights, adventures, and far too many airport
+            goodbyes, we're finally celebrating our greatest adventure yet.
+          </p>
+          <p className="mx-auto mt-3 max-w-xl text-[0.95rem] leading-relaxed text-background/85">
+            We can't wait to celebrate with you in Sri Lanka!
           </p>
           <div className="mt-12">
             <Countdown light />
           </div>
           <div className="mt-12 flex flex-wrap justify-center gap-3">
+            <Link
+              to="/events"
+              className="rounded-sm bg-accent px-8 py-3.5 text-[0.7rem] tracking-[0.3em] text-accent-foreground uppercase transition hover:opacity-90"
+            >
+              The Weekend Celebrations
+            </Link>
             <a
               href={content.rsvpUrl}
               target="_blank"
               rel="noreferrer"
-              className="rounded-sm bg-accent px-8 py-3.5 text-[0.7rem] tracking-[0.3em] text-accent-foreground uppercase transition hover:opacity-90"
+              className="rounded-sm border border-background/50 px-8 py-3.5 text-[0.7rem] tracking-[0.3em] text-background uppercase transition hover:bg-background/10"
             >
               RSVP
             </a>
-            <Link
-              to="/events"
-              className="rounded-sm border border-background/50 px-8 py-3.5 text-[0.7rem] tracking-[0.3em] text-background uppercase transition hover:bg-background/10"
-            >
-              The Weekend
-            </Link>
           </div>
         </div>
       </section>
