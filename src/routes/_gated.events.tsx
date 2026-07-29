@@ -86,9 +86,12 @@ function Events() {
                     {img ? (
                       <img
                         src={img.src}
+                        srcSet={img.srcSet}
+                        sizes="(max-width: 768px) 92vw, 900px"
                         alt={img.alt}
                         loading="lazy"
-                        className="h-44 w-full object-cover object-top sm:h-72"
+                        decoding="async"
+                        className="h-52 w-full object-cover object-top sm:h-72"
                       />
                     ) : null}
                     <div className="p-6 sm:p-9">
