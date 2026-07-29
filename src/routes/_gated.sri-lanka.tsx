@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useWedding } from "@/lib/use-wedding";
 
-import srilankaImg from "@/assets/srilanka.jpg";
+import mapImg from "@/assets/srilanka-guest-map.png.asset.json";
 import { SectionHeading } from "@/components/SectionHeading";
 
 export const Route = createFileRoute("/_gated/sri-lanka")({
@@ -31,18 +31,32 @@ function SriLanka() {
     <div className="mx-auto w-full max-w-6xl px-5 py-14 sm:py-28">
       <SectionHeading
         eyebrow="The Island"
-        title="About Sri Lanka"
-        intro="Tea hills, leopards, surf towns and some of the best food in Asia — all within a few hours of the resort. Come early, stay late."
+        title="Discover Sri Lanka"
+        intro="Our wedding is just the beginning. From surfing on the south coast and wandering through tea country to spotting elephants on safari, there's so much to discover beyond our celebrations."
       />
 
       <img
-        src={srilankaImg}
-        alt="Misty tea plantation hills in Sri Lanka at sunrise"
+        src={mapImg.url}
+        alt="Illustrated guest map of Sri Lanka showing Avani Kalutara Resort and destinations across the island"
         loading="lazy"
-        width={1400}
-        height={900}
-        className="mt-14 h-52 w-full rounded-sm object-cover sm:h-72 sm:h-[26rem]"
+        width={1268}
+        height={1782}
+        className="mt-14 w-full rounded-sm"
       />
+
+      <section className="mt-20">
+        <h2 className="font-display text-3xl sm:text-4xl">
+          Places Worth Visiting
+        </h2>
+        <div className="rule-gold mt-5 max-w-32" />
+        <div className="mt-8 max-w-3xl space-y-5">
+          {content.discover.map((p: string) => (
+            <p key={p} className="leading-relaxed text-muted-foreground">
+              {p}
+            </p>
+          ))}
+        </div>
+      </section>
 
       <section className="mt-20">
         <h2 className="font-display text-3xl sm:text-4xl">Must-see</h2>
@@ -58,6 +72,7 @@ function SriLanka() {
           ))}
         </div>
       </section>
+
 
       <section className="mt-20">
         <h2 className="font-display text-3xl sm:text-4xl">
