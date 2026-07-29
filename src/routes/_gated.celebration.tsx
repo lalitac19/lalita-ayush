@@ -4,7 +4,7 @@ import { useWedding } from "@/lib/use-wedding";
 import { Countdown } from "@/components/Countdown";
 import { PhotoImage } from "@/components/PhotoImage";
 import { SectionHeading } from "@/components/SectionHeading";
-import { photoById } from "@/lib/photos";
+import { celebrationPhoto } from "@/lib/photos";
 
 
 export const Route = createFileRoute("/_gated/celebration")({
