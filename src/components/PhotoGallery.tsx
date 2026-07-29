@@ -56,8 +56,11 @@ export function PhotoGallery() {
           aria-label={active.caption}
         >
           <img
-            src={active.large}
+            src={active.small}
+            srcSet={`${active.small} 640w, ${active.large} 1440w`}
+            sizes="100vw"
             alt={active.caption}
+            decoding="async"
             className="max-h-[80vh] w-auto max-w-full rounded-sm object-contain"
             onClick={(e) => e.stopPropagation()}
           />
