@@ -102,11 +102,21 @@ function Landing() {
           onSubmit={onSubmit}
           className="mt-10 w-full max-w-sm rounded-sm border border-background/25 bg-background/10 p-5 backdrop-blur-md sm:mt-14 sm:p-6"
         >
-          <label
-            htmlFor="password"
-            className="block text-[0.68rem] tracking-[0.28em] text-background/85 uppercase"
-          >
-            Guest password
+          <label htmlFor="password" className="block">
+            <span className="block text-[0.68rem] tracking-[0.28em] text-background/85 uppercase">
+              Welcome
+            </span>
+            <span className="mt-3 block font-display text-xl leading-snug text-background sm:text-2xl">
+              We&apos;re getting married!
+            </span>
+            <span className="mt-3 block text-sm leading-relaxed text-background/80">
+              After countless flights, adventures, and far too many airport
+              goodbyes, we&apos;re finally celebrating our greatest adventure
+              yet.
+            </span>
+            <span className="mt-2 block text-sm leading-relaxed text-background/80">
+              We can&apos;t wait to celebrate with you in Sri Lanka!
+            </span>
           </label>
           <input
             id="password"
@@ -116,7 +126,7 @@ function Landing() {
             value={password}
             maxLength={100}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter the weekend"
+            placeholder="Guest password"
             className="mt-4 w-full rounded-sm border border-background/35 bg-background/10 px-4 py-3 text-center text-base text-background tracking-[0.2em] outline-none transition placeholder:text-background/45 focus:border-accent"
           />
           {error ? (
@@ -129,7 +139,7 @@ function Landing() {
             disabled={busy}
             className="mt-4 w-full cursor-pointer rounded-sm bg-accent px-4 py-3.5 text-[0.7rem] font-medium tracking-[0.3em] text-accent-foreground uppercase transition hover:opacity-90 disabled:opacity-60"
           >
-            {busy ? "Opening…" : "Enter"}
+            {busy ? "Opening…" : "Enter the weekend"}
           </button>
           <p className="mt-4 text-[0.7rem] leading-relaxed text-background/65">
             The password is on your invitation message. Lost it?{" "}
