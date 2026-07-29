@@ -38,9 +38,37 @@ function Faq() {
           <div key={f.q} className="border-b border-border pb-8 last:border-0">
             <h2 className="font-display text-2xl">{f.q}</h2>
             <p className="mt-3 leading-relaxed text-muted-foreground">{f.a}</p>
+            {f.q.startsWith("Can I arrive earlier") ? (
+              <a
+                href={content.venue.url}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-3 inline-block text-[0.68rem] tracking-[0.24em] uppercase underline underline-offset-4 transition hover:text-accent"
+              >
+                Book at Avani Kalutara →
+              </a>
+            ) : null}
           </div>
         ))}
       </div>
+
+      <section className="mt-16">
+        <h2 className="font-display text-3xl sm:text-4xl">
+          Other important information
+        </h2>
+        <div className="rule-gold mt-5 max-w-32" />
+        <div className="mt-8 grid gap-5 sm:grid-cols-2">
+          {content.travelInfo.map((t) => (
+            <div key={t.title} className="surface-card rounded-sm p-6 sm:p-7">
+              <h3 className="font-display text-xl leading-snug">{t.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                {t.detail}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
 
       <div className="surface-card mt-6 rounded-sm p-6 sm:p-9">
         <p className="eyebrow">Honeymoon fund</p>

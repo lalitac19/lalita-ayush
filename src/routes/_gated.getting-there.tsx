@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useWedding } from "@/lib/use-wedding";
 
-import receptionImg from "@/assets/reception.jpg";
+import venueImg from "@/assets/avani-watercolour.png.asset.json";
 import { SectionHeading } from "@/components/SectionHeading";
 
 export const Route = createFileRoute("/_gated/getting-there")({
@@ -35,13 +35,14 @@ function GettingThere() {
       />
 
       <img
-        src={receptionImg}
-        alt="Garden reception under string lights"
+        src={venueImg.url}
+        alt="Watercolour illustration of Avani Kalutara Resort between the Kalu river and the Indian Ocean"
         loading="lazy"
-        width={1200}
-        height={900}
-        className="mt-14 h-52 w-full rounded-sm object-cover sm:h-72 sm:h-96"
+        width={1349}
+        height={1024}
+        className="mt-14 w-full rounded-sm"
       />
+
 
       <div className="mt-14 grid gap-5 sm:grid-cols-2">
         {content.travel.points.map((p) => (
