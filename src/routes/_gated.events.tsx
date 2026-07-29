@@ -3,8 +3,10 @@ import { useWedding } from "@/lib/use-wedding";
 
 import ceremonyImg from "@/assets/ceremony.jpg";
 import receptionImg from "@/assets/reception.jpg";
-import poolAsset from "@/assets/pool-party.png.asset.json";
-import sangeetAsset from "@/assets/sangeet.png.asset.json";
+import poolSmall from "@/assets/opt/pool-party-640.webp.asset.json";
+import poolLarge from "@/assets/opt/pool-party-1440.webp.asset.json";
+import sangeetSmall from "@/assets/opt/sangeet-640.webp.asset.json";
+import sangeetLarge from "@/assets/opt/sangeet-1440.webp.asset.json";
 import { SectionHeading } from "@/components/SectionHeading";
 
 export const Route = createFileRoute("/_gated/events")({
