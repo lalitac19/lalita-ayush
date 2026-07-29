@@ -29,15 +29,20 @@ export const Route = createFileRoute("/_gated/events")({
   component: Events,
 });
 
-const imageMap: Record<string, { src: string; alt: string }> = {
+const imageMap: Record<
+  string,
+  { src: string; srcSet?: string; alt: string }
+> = {
   ceremony: { src: ceremonyImg, alt: "Beach ceremony arch at dusk" },
   reception: { src: receptionImg, alt: "Garden reception under string lights" },
   pool: {
-    src: poolAsset.url,
+    src: poolSmall.url,
+    srcSet: `${poolSmall.url} 640w, ${poolLarge.url} 1440w`,
     alt: "Pool party dress code illustration — resort beach chic",
   },
   sangeet: {
-    src: sangeetAsset.url,
+    src: sangeetSmall.url,
+    srcSet: `${sangeetSmall.url} 640w, ${sangeetLarge.url} 1440w`,
     alt: "Sangeet dress code illustration — Indian and Indo-Western glam",
   },
 };
