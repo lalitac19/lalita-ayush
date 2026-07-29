@@ -65,7 +65,7 @@ function Landing() {
         alt="Lalita and Ayush walking under the palms"
         sizes="100vw"
         priority
-        className="absolute inset-0 h-full w-full object-cover object-[72%_center] sm:object-center"
+        className="absolute inset-0 h-full w-full object-cover object-center"
       />
 
       <div className="absolute inset-0 bg-[oklch(0.24_0.025_62)]/45" />
