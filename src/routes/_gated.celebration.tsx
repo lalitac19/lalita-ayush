@@ -62,7 +62,7 @@ function Celebration() {
     <>
       <section className="relative isolate overflow-hidden">
         <PhotoImage
-          photo={photoById("p05")}
+          photo={celebrationPhoto}
           alt="Lalita and Ayush hand in hand"
           sizes="100vw"
           priority
