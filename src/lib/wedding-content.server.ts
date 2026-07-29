@@ -86,7 +86,7 @@ export const weddingContent: WeddingContent = {
   ],
   travel: {
     heading: "Getting There",
-    body: "We are celebrating at the Avani Kalutara Resort, on the west coast of Sri Lanka where the Kalu river meets the Indian Ocean — roughly an hour and a half south of Colombo's Bandaranaike International Airport (CMB).",
+    body: "Our wedding celebrations will take place at the beautiful Avani Kalutara Resort, a tropical beachfront escape where the Kalu Ganga River meets the Indian Ocean. Roughly an hour and a half south of Colombo's Bandaranaike International Airport (CMB).",
     points: [
       {
         title: "Flights",
@@ -110,6 +110,47 @@ export const weddingContent: WeddingContent = {
       },
     ],
   },
+  travelInfo: [
+    {
+      title: "Ride-Hailing Apps (Most Recommended)",
+      detail:
+        "The easiest and most flexible way to reach Bentota is by using Uber or PickMe. Both services are available from the airport.",
+    },
+    {
+      title: "Train (Scenic Coastal Route)",
+      detail:
+        "For a uniquely Sri Lankan experience, take a train from Colombo Fort Railway Station to Kalutara South Railway Station. The journey takes approximately 1.5–2 hours, offering beautiful coastal views along the way. From the station, the resort is just a short tuk-tuk or taxi ride away.",
+    },
+    {
+      title: "Private Transfers",
+      detail:
+        "If you prefer to arrange a ride in advance, we highly recommend checking out colomboairporttransfers.com",
+    },
+    {
+      title: "Currency Exchange",
+      detail:
+        "You can exchange money or withdraw Sri Lankan Rupees (LKR) at the airport, but for better rates it's recommended to use local banks or trusted authorised money exchangers in the city or before you travel. We'd recommend bringing cash with you for tips and taxis.",
+    },
+    {
+      title: "Visa & Entry Requirements",
+      detail:
+        "All travellers visiting Sri Lanka must apply for an Electronic Travel Authorization (ETA) before arrival. Apply only via the official site https://www.eta.gov.lk/slvisa/visainfo/apply.jsp?locale=en_US — and make sure your passport is valid for at least 6 months beyond your travel dates.",
+    },
+    {
+      title: "SIM Cards",
+      detail:
+        "You can easily purchase a local SIM card upon arrival. Major providers like Dialog and Mobitel have stalls in the arrival lobby at the airport with tourist-friendly data, call and SMS packages.",
+    },
+  ],
+  discover: [
+    "Sri Lanka may be small, but it's wonderfully diverse — and we'd love for you to make the most of your time here after the wedding.",
+    "Explore the cultural wonders of Sigiriya, Dambulla, Kandy, Anuradhapura and Polonnaruwa, where ancient temples, royal cities and rich history bring the island's heritage to life.",
+    "Head to the hill country to discover Ella, Nuwara Eliya and Haputale, home to rolling tea plantations, breathtaking viewpoints, waterfalls and some of the world's most scenic train journeys.",
+    "For wildlife, venture into Yala, Udawalawe, Wilpattu or Minneriya National Parks, where you can spot elephants, leopards, sloth bears, crocodiles and an incredible variety of birdlife.",
+    "If you're drawn to the coast, soak up the laid-back atmosphere of Mirissa, Weligama, Unawatuna, Tangalle, Arugam Bay, Trincomalee, Nilaveli and Pasikudah — each offering its own mix of golden beaches, surfing, snorkelling, whale watching and crystal-clear waters.",
+    "For something a little different, visit the colonial streets of Galle Fort, explore the unique culture of Jaffna, or take a boat trip to Pigeon Island or Delft Island for unforgettable island experiences.",
+    "We've put together a guest map (see above) to help you plan your adventures. Consider this your invitation to stay a little longer and discover the many sides of Sri Lanka.",
+  ],
   faqs: [
     {
       q: "Are kids welcome?",
@@ -128,10 +169,15 @@ export const weddingContent: WeddingContent = {
       a: "For those arriving Saturday and leaving Monday, transportation will be provided. We will be collecting your arrival and departure information closer to the time. You're more than welcome to arrive earlier or leave later — see the Getting There page for more information.",
     },
     {
+      q: "Can I arrive earlier, or stay at Avani longer?",
+      a: "For those wanting to arrive on Friday 19th Feb, or stay an extra night on 22nd Feb 2027, we've negotiated a special rate for you. Enter the promo code XXXX when you book your room directly through the hotel website.",
+    },
+    {
       q: "Whom should I call with questions?",
       a: "You can WhatsApp either of us on the numbers below.",
     },
   ],
+
   contacts: [
     { name: "Ayush", phone: "+65 8401 8517" },
     { name: "Lalita", phone: "+44 7565 790424" },
