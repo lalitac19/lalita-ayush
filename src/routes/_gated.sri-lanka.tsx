@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useWedding } from "@/lib/use-wedding";
 
-import mapImg from "@/assets/srilanka-guest-map.png.asset.json";
+import mapSmall from "@/assets/opt/srilanka-guest-map-640.webp.asset.json";
+import mapLarge from "@/assets/opt/srilanka-guest-map-1440.webp.asset.json";
 import { SectionHeading } from "@/components/SectionHeading";
 
 export const Route = createFileRoute("/_gated/sri-lanka")({
