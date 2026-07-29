@@ -136,14 +136,8 @@ function GatedLayout() {
             >
               {content.venue.name}
             </a>
-            <span aria-hidden>·</span>
-            <button
-              onClick={signOut}
-              className="cursor-pointer tracking-[0.2em] uppercase transition hover:text-foreground"
-            >
-              Lock site
-            </button>
           </div>
+
         </div>
       </footer>
     </div>
