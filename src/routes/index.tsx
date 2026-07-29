@@ -126,7 +126,7 @@ function Landing() {
             value={password}
             maxLength={100}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter the weekend"
+            placeholder="Guest password"
             className="mt-4 w-full rounded-sm border border-background/35 bg-background/10 px-4 py-3 text-center text-base text-background tracking-[0.2em] outline-none transition placeholder:text-background/45 focus:border-accent"
           />
           {error ? (
