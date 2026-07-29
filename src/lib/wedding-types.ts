@@ -32,6 +32,8 @@ export type WeddingContent = {
     body: string;
     points: { title: string; detail: string }[];
   };
+  travelInfo: { title: string; detail: string }[];
+  discover: string[];
   faqs: Faq[];
   contacts: { name: string; phone: string }[];
   honeymoon: string[];
