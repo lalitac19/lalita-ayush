@@ -27,14 +27,8 @@ const links = [
 
 function GatedLayout() {
   const { content } = Route.useLoaderData();
-  const router = useRouter();
-  const lock = useServerFn(lockSite);
   const [open, setOpen] = useState(false);
 
-  async function signOut() {
-    await lock({});
-    await router.navigate({ to: "/" });
-  }
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
