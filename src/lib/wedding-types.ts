@@ -4,6 +4,13 @@ export type EventItem = {
   detail: string;
   theme?: string;
   image?: "ceremony" | "reception" | "pool" | "sangeet";
+  /** Venue name shown under the event */
+  location?: string;
+  /** Google Maps link for the Directions button */
+  mapsUrl?: string;
+  /** UTC start/end in ICS basic format, e.g. 20270220T073000Z */
+  start?: string;
+  end?: string;
 };
 
 export type DayItem = {
