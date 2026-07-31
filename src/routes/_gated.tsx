@@ -71,7 +71,8 @@ function GatedLayout() {
         </div>
 
         {open ? (
-          <nav className="flex flex-col gap-1 border-t border-border px-5 pb-5 lg:hidden">
+          <nav className="glass-panel flex flex-col gap-1 border-t px-5 pb-5 lg:hidden">
+
             {links.map((l) => (
               <Link
                 key={l.to}
