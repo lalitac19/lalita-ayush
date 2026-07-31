@@ -118,8 +118,9 @@ function Celebration() {
             <Link
               key={c.to}
               to={c.to}
-              className="surface-card group flex flex-col rounded-sm p-6 sm:p-8 transition hover:-translate-y-1"
+              className="surface-card glass-sheen group flex flex-col rounded-sm p-6 sm:p-8 hover:-translate-y-1"
             >
+
               <span className="eyebrow">{c.label}</span>
               <span className="mt-3 font-display text-2xl">{c.label}</span>
               <span className="mt-3 text-sm leading-relaxed text-muted-foreground">
