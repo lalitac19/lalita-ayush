@@ -31,9 +31,10 @@ function GatedLayout() {
 
 
   return (
-    <div className="flex min-h-screen flex-col bg-background">
-      <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur">
+    <div className="flex min-h-screen flex-col">
+      <header className="glass-panel sticky top-0 z-50 border-b">
         <div className="mx-auto grid w-full max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-3 lg:flex lg:justify-between">
+
           <Link to="/celebration" className="flex min-w-0 items-center gap-3">
             <Monogram className="h-9 w-auto shrink-0" />
             <span className="truncate font-display text-lg">Lalita &amp; Ayush</span>
