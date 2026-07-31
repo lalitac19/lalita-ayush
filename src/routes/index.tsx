@@ -100,8 +100,9 @@ function Landing() {
 
         <form
           onSubmit={onSubmit}
-          className="mt-10 w-full max-w-sm rounded-sm border border-background/25 bg-background/10 p-5 backdrop-blur-md sm:mt-14 sm:p-6"
+          className="glass-dark glass-sheen mt-10 w-full max-w-sm rounded-sm p-5 sm:mt-14 sm:p-6"
         >
+
           <label
             htmlFor="password"
             className="block text-[0.68rem] tracking-[0.28em] text-background/85 uppercase"
