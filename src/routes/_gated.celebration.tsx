@@ -4,9 +4,8 @@ import { useWedding } from "@/lib/use-wedding";
 import { Countdown } from "@/components/Countdown";
 import { PhotoImage } from "@/components/PhotoImage";
 import { SectionHeading } from "@/components/SectionHeading";
-import { WeekendTimeline } from "@/components/WeekendTimeline";
-import { QandA, RsvpCta } from "@/components/QandA";
 import { celebrationPhoto } from "@/lib/photos";
+
 
 export const Route = createFileRoute("/_gated/celebration")({
   head: () => ({
@@ -70,26 +69,23 @@ function Celebration() {
           className="absolute inset-0 h-full w-full object-cover"
         />
 
-        <div className="absolute inset-0 bg-[oklch(0.18_0.02_62)]/60" />
         <div
           className="absolute inset-0"
           style={{ background: "var(--gradient-hero)" }}
         />
         <div className="relative mx-auto w-full max-w-4xl px-5 py-20 text-center sm:px-6 sm:py-32">
-          <p className="eyebrow text-background/90 [text-shadow:0_1px_10px_oklch(0.15_0.02_62/0.75)]">
-            Welcome
-          </p>
-          <h1 className="mt-4 font-display text-[2.25rem] leading-[1.08] font-semibold text-background [text-shadow:0_2px_18px_oklch(0.15_0.02_62/0.8)] sm:text-6xl">
+          <p className="eyebrow text-background/80">Welcome</p>
+          <h1 className="mt-4 font-display text-[2.25rem] leading-[1.08] font-semibold text-background sm:text-6xl">
             We're getting married!
           </h1>
-          <p className="mx-auto mt-5 max-w-xl text-[0.95rem] leading-relaxed text-background [text-shadow:0_1px_12px_oklch(0.15_0.02_62/0.85)]">
+          <p className="mx-auto mt-5 max-w-xl text-[0.95rem] leading-relaxed text-background/85">
             After countless flights, adventures, and far too many airport
             goodbyes, we're finally celebrating our greatest adventure yet.
           </p>
-          <p className="mx-auto mt-3 max-w-xl text-[0.95rem] leading-relaxed text-background [text-shadow:0_1px_12px_oklch(0.15_0.02_62/0.85)]">
+          <p className="mx-auto mt-3 max-w-xl text-[0.95rem] leading-relaxed text-background/85">
             We can't wait to celebrate with you in Sri Lanka!
           </p>
-          <div className="mt-12 [text-shadow:0_1px_12px_oklch(0.15_0.02_62/0.8)]">
+          <div className="mt-12">
             <Countdown light />
           </div>
           <div className="mt-12 flex flex-wrap justify-center gap-3">
@@ -103,7 +99,7 @@ function Celebration() {
               href={content.rsvpUrl}
               target="_blank"
               rel="noreferrer"
-              className="rounded-sm border border-background/60 bg-background/10 px-8 py-3.5 text-[0.7rem] tracking-[0.3em] text-background uppercase transition hover:bg-background/20"
+              className="rounded-sm border border-background/50 px-8 py-3.5 text-[0.7rem] tracking-[0.3em] text-background uppercase transition hover:bg-background/10"
             >
               RSVP
             </a>
@@ -124,6 +120,7 @@ function Celebration() {
               to={c.to}
               className="surface-card glass-sheen group flex flex-col rounded-sm p-6 sm:p-8 hover:-translate-y-1"
             >
+
               <span className="eyebrow">{c.label}</span>
               <span className="mt-3 font-display text-2xl">{c.label}</span>
               <span className="mt-3 text-sm leading-relaxed text-muted-foreground">
@@ -134,29 +131,6 @@ function Celebration() {
               </span>
             </Link>
           ))}
-        </div>
-      </section>
-
-      <section className="mx-auto w-full max-w-5xl px-5 pb-14 sm:pb-24">
-        <SectionHeading
-          eyebrow="20 — 22 February 2027"
-          title="The Weekend"
-          intro="A beach ceremony, a garden dinner, an afternoon by the pool and a night of Bollywood glam. Here is how it all unfolds."
-        />
-        <div className="mt-12">
-          <WeekendTimeline content={content} />
-        </div>
-      </section>
-
-      <section className="mx-auto w-full max-w-3xl px-5 pb-16 sm:pb-28">
-        <SectionHeading
-          eyebrow="Good to know"
-          title="Q&A"
-          intro="And if we've missed anything at all, just message us."
-        />
-        <div className="mt-12">
-          <QandA content={content} />
-          <RsvpCta rsvpUrl={content.rsvpUrl} />
         </div>
       </section>
     </>
