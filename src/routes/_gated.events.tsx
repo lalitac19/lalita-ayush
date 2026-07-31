@@ -1,5 +1,36 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { CalendarPlus, MapPin, Navigation, Shirt } from "lucide-react";
 import { useWedding } from "@/lib/use-wedding";
+import type { EventItem } from "@/lib/wedding-types";
+
+function downloadIcs(ev: EventItem) {
+  if (!ev.start) return;
+  const ics = [
+    "BEGIN:VCALENDAR",
+    "VERSION:2.0",
+    "PRODID:-//Lalita and Ayush//Wedding//EN",
+    "BEGIN:VEVENT",
+    `UID:${ev.start}-${ev.title.replace(/\s+/g, "-").toLowerCase()}@lalita-ayush`,
+    `DTSTAMP:${ev.start}`,
+    `DTSTART:${ev.start}`,
+    `DTEND:${ev.end ?? ev.start}`,
+    `SUMMARY:${ev.title} — Lalita & Ayush`,
+    `DESCRIPTION:${ev.detail.replace(/,/g, "\\,")}`,
+    `LOCATION:${(ev.location ?? "Avani Kalutara Resort").replace(/,/g, "\\,")}`,
+    "END:VEVENT",
+    "END:VCALENDAR",
+  ].join("\r\n");
+  const url = URL.createObjectURL(
+    new Blob([ics], { type: "text/calendar;charset=utf-8" }),
+  );
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `${ev.title.replace(/\s+/g, "-").toLowerCase()}.ics`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
 
 import ceremonyImg from "@/assets/ceremony.jpg";
 import receptionImg from "@/assets/reception.jpg";
