@@ -10,9 +10,12 @@ export function gateSessionConfig() {
     cookie: {
       httpOnly: true,
       secure: true,
-      sameSite: "lax" as const,
+      // "none" so the session survives inside the Lovable preview iframe
+      // (a cross-site context, where "lax" cookies are dropped).
+      sameSite: "none" as const,
       path: "/",
     },
+
   };
 }
 
