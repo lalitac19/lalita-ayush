@@ -97,6 +97,13 @@
   );
   --shadow-soft: 0 18px 50px -24px color-mix(in oklab, var(--ink) 45%, transparent);
   --shadow-lift: 0 30px 70px -30px color-mix(in oklab, var(--ink) 55%, transparent);
+
+  /* Glass system */
+  --glass-tint: color-mix(in oklab, var(--card) 62%, transparent);
+  --glass-tint-strong: color-mix(in oklab, var(--card) 82%, transparent);
+  --glass-border: color-mix(in oklab, var(--gold) 38%, transparent);
+  --glass-highlight: color-mix(in oklab, white 65%, transparent);
+  --glass-blur: 18px;
 }
 
 @layer base {
@@ -110,6 +117,23 @@
     font-family: var(--font-sans);
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(
+        58rem 40rem at 8% -6%,
+        color-mix(in oklab, var(--gold) 22%, transparent),
+        transparent 70%
+      ),
+      radial-gradient(
+        52rem 38rem at 104% 12%,
+        color-mix(in oklab, var(--ocean) 18%, transparent),
+        transparent 70%
+      ),
+      radial-gradient(
+        60rem 44rem at 50% 108%,
+        color-mix(in oklab, var(--primary) 16%, transparent),
+        transparent 70%
+      );
+    background-attachment: fixed;
   }
 
   h1,
@@ -139,9 +163,102 @@
 }
 
 @utility surface-card {
-  background-color: var(--card);
-  border: 1px solid color-mix(in oklab, var(--gold) 35%, transparent);
-  box-shadow: var(--shadow-soft);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: var(--glass-tint);
+  backdrop-filter: blur(var(--glass-blur)) saturate(150%);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    var(--shadow-soft),
+    inset 0 1px 0 var(--glass-highlight);
+  transition:
+    transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+      145deg,
+      color-mix(in oklab, white 30%, transparent),
+      transparent 42%
+    );
+    pointer-events: none;
+  }
+
+  &:hover {
+    border-color: color-mix(in oklab, var(--gold) 70%, transparent);
+    box-shadow:
+      var(--shadow-lift),
+      inset 0 1px 0 var(--glass-highlight);
+  }
+}
+
+@utility glass-panel {
+  background-color: var(--glass-tint-strong);
+  backdrop-filter: blur(22px) saturate(160%);
+  border-color: var(--glass-border);
+}
+
+@utility glass-dark {
+  background-color: color-mix(in oklab, var(--ink) 28%, transparent);
+  backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid color-mix(in oklab, white 28%, transparent);
+  box-shadow:
+    0 20px 60px -28px color-mix(in oklab, var(--ink) 70%, transparent),
+    inset 0 1px 0 color-mix(in oklab, white 35%, transparent);
+}
+
+@utility glass-sheen {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -60%;
+    width: 40%;
+    background: linear-gradient(
+      100deg,
+      transparent,
+      color-mix(in oklab, white 45%, transparent),
+      transparent
+    );
+    transform: skewX(-18deg);
+    opacity: 0;
+    transition: none;
+    pointer-events: none;
+  }
+
+  &:hover::after {
+    animation: glass-sweep 0.9s ease forwards;
+  }
+}
+
+@keyframes glass-sweep {
+  0% {
+    left: -60%;
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.7;
+  }
+  100% {
+    left: 120%;
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glass-sheen:hover::after {
+    animation: none;
+  }
 }
 
 

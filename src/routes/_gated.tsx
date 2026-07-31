@@ -31,9 +31,10 @@ function GatedLayout() {
 
 
   return (
-    <div className="flex min-h-screen flex-col bg-background">
-      <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur">
+    <div className="flex min-h-screen flex-col">
+      <header className="glass-panel sticky top-0 z-50 border-b">
         <div className="mx-auto grid w-full max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-3 lg:flex lg:justify-between">
+
           <Link to="/celebration" className="flex min-w-0 items-center gap-3">
             <Monogram className="h-9 w-auto shrink-0" />
             <span className="truncate font-display text-lg">Lalita &amp; Ayush</span>
@@ -70,7 +71,8 @@ function GatedLayout() {
         </div>
 
         {open ? (
-          <nav className="flex flex-col gap-1 border-t border-border px-5 pb-5 lg:hidden">
+          <nav className="glass-panel flex flex-col gap-1 border-t px-5 pb-5 lg:hidden">
+
             {links.map((l) => (
               <Link
                 key={l.to}
@@ -98,7 +100,7 @@ function GatedLayout() {
         <Outlet />
       </main>
 
-      <footer className="border-t border-border bg-secondary/50">
+      <footer className="glass-panel border-t">
         <div className="mx-auto w-full max-w-6xl px-5 py-12 text-center">
           <Monogram className="mx-auto h-12 w-auto opacity-80" />
           <p className="mt-5 font-display text-2xl">Lalita &amp; Ayush</p>
