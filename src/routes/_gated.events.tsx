@@ -94,25 +94,64 @@ function Events() {
                         className="h-52 w-full object-cover object-top sm:h-72"
                       />
                     ) : null}
-                    <div className="p-6 sm:p-9">
-                      <p className="text-[0.68rem] tracking-[0.26em] text-accent uppercase">
-                        {ev.time}
-                      </p>
-                      <h3 className="mt-2 font-display text-2xl sm:text-3xl">
+                    <div className="p-6 text-center sm:p-9">
+                      <h3 className="font-display text-2xl sm:text-3xl">
                         {ev.title}
                       </h3>
-                      <p className="mt-3 leading-relaxed text-muted-foreground">
+                      <p className="mt-2 text-[0.7rem] tracking-[0.26em] text-accent uppercase">
+                        {ev.time}
+                      </p>
+
+                      {ev.start || ev.mapsUrl ? (
+                        <div className="mt-5 flex flex-wrap justify-center gap-3">
+                          {ev.start ? (
+                            <button
+                              type="button"
+                              onClick={() => downloadIcs(ev)}
+                              className="inline-flex items-center gap-2 rounded-full border border-accent/50 px-5 py-2.5 text-[0.78rem] tracking-wide transition-colors hover:bg-accent/10"
+                            >
+                              <CalendarPlus className="h-4 w-4" aria-hidden />
+                              Add to Calendar
+                            </button>
+                          ) : null}
+                          {ev.mapsUrl ? (
+                            <a
+                              href={ev.mapsUrl}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="inline-flex items-center gap-2 rounded-full border border-accent/50 px-5 py-2.5 text-[0.78rem] tracking-wide transition-colors hover:bg-accent/10"
+                            >
+                              <Navigation className="h-4 w-4" aria-hidden />
+                              Directions
+                            </a>
+                          ) : null}
+                        </div>
+                      ) : null}
+
+                      <p className="mt-5 leading-relaxed text-muted-foreground">
                         {ev.detail}
                       </p>
+
                       {ev.theme ? (
-                        <div className="mt-5 border-l-2 border-accent bg-secondary/60 px-5 py-4">
-                          <p className="text-[0.62rem] tracking-[0.26em] text-muted-foreground uppercase">
-                            Dress code
-                          </p>
-                          <p className="mt-1.5 font-display text-lg leading-snug">
+                        <p className="mt-4 inline-flex items-start justify-center gap-2 text-[0.95rem] leading-relaxed">
+                          <Shirt
+                            className="mt-1 h-4 w-4 shrink-0 text-accent"
+                            aria-hidden
+                          />
+                          <span className="font-display text-lg leading-snug">
                             {ev.theme}
-                          </p>
-                        </div>
+                          </span>
+                        </p>
+                      ) : null}
+
+                      {ev.location ? (
+                        <p className="mt-4 inline-flex items-start justify-center gap-2 text-[0.9rem] text-muted-foreground">
+                          <MapPin
+                            className="mt-0.5 h-4 w-4 shrink-0 text-accent"
+                            aria-hidden
+                          />
+                          <span>{ev.location}</span>
+                        </p>
                       ) : null}
                     </div>
                   </article>
