@@ -91,7 +91,6 @@ export const weddingContent: WeddingContent = {
           detail:
             "Before you head home, join us for one last buffet breakfast. Share a final coffee, relive the weekend's highlights and say your goodbyes before checking out by 12pm.",
           location: "Mangrove Restaurant, Avani Kalutara Resort",
-          mapsUrl: "https://maps.google.com/?q=Avani+Kalutara+Resort+Sri+Lanka",
         },
       ],
     },
