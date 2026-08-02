@@ -124,24 +124,24 @@ function Events() {
                   key={ev.title}
                   className="surface-card overflow-hidden rounded-sm"
                 >
-                  <div className="p-6 text-center sm:p-9">
-                    <h3 className="font-display text-2xl sm:text-3xl">
+                  <div className="p-5 text-center sm:p-9">
+                    <h3 className="font-display text-xl leading-tight sm:text-3xl">
                       {ev.title}
                     </h3>
-                    <p className="mt-3 inline-flex items-center gap-2 rounded-full bg-accent/15 px-4 py-1.5 font-display text-lg font-semibold text-foreground sm:text-xl">
-                      <Clock className="h-4 w-4 text-accent" aria-hidden />
+                    <p className="mt-3 inline-flex max-w-full items-center justify-center gap-2 rounded-full bg-accent/15 px-3.5 py-1.5 font-display text-base font-semibold text-balance text-foreground sm:px-4 sm:text-xl">
+                      <Clock className="h-4 w-4 shrink-0 text-accent" aria-hidden />
                       {ev.time}
                     </p>
 
                     {ev.start || ev.mapsUrl ? (
-                      <div className="mt-5 flex flex-wrap justify-center gap-3">
+                      <div className="mt-5 flex flex-wrap justify-center gap-2.5 sm:gap-3">
                         {ev.start ? (
                           <button
                             type="button"
                             onClick={() => downloadIcs(ev)}
-                            className="inline-flex items-center gap-2 rounded-full border border-accent/50 px-5 py-2.5 text-[0.78rem] tracking-wide transition-colors hover:bg-accent/10"
+                            className="inline-flex items-center gap-2 rounded-full border border-accent/50 px-4 py-2.5 text-[0.72rem] tracking-wide transition-colors hover:bg-accent/10 sm:px-5 sm:text-[0.78rem]"
                           >
-                            <CalendarPlus className="h-4 w-4" aria-hidden />
+                            <CalendarPlus className="h-4 w-4 shrink-0" aria-hidden />
                             Add to Calendar
                           </button>
                         ) : null}
@@ -150,29 +150,30 @@ function Events() {
                             href={ev.mapsUrl}
                             target="_blank"
                             rel="noreferrer"
-                            className="inline-flex items-center gap-2 rounded-full border border-accent/50 px-5 py-2.5 text-[0.78rem] tracking-wide transition-colors hover:bg-accent/10"
+                            className="inline-flex items-center gap-2 rounded-full border border-accent/50 px-4 py-2.5 text-[0.72rem] tracking-wide transition-colors hover:bg-accent/10 sm:px-5 sm:text-[0.78rem]"
                           >
-                            <Navigation className="h-4 w-4" aria-hidden />
+                            <Navigation className="h-4 w-4 shrink-0" aria-hidden />
                             Directions
                           </a>
                         ) : null}
                       </div>
                     ) : null}
 
-                    <p className="mt-5 leading-relaxed text-muted-foreground">
+                    <p className="mt-5 text-[0.95rem] leading-relaxed text-muted-foreground sm:text-base">
                       {ev.detail}
                     </p>
 
                     {ev.location ? (
-                      <p className="mt-5 inline-flex items-start justify-center gap-2 rounded-sm border border-accent/40 bg-secondary/50 px-4 py-2.5 text-[0.95rem] font-medium text-foreground">
+                      <p className="mt-5 inline-flex max-w-full items-start justify-center gap-2 rounded-sm border border-accent/40 bg-secondary/50 px-3.5 py-2.5 text-left text-[0.88rem] font-medium text-balance text-foreground sm:px-4 sm:text-[0.95rem]">
                         <MapPin
                           className="mt-0.5 h-4 w-4 shrink-0 text-accent"
                           aria-hidden
                         />
-                        <span>{ev.location}</span>
+                        <span className="min-w-0">{ev.location}</span>
                       </p>
                     ) : null}
                   </div>
+
                 </article>
               ))}
             </div>
@@ -187,7 +188,7 @@ function Events() {
           intro="Sri Lanka in February is warm and humid — think breathable fabrics, and heels that can handle sand and grass."
         />
 
-        <div className="mt-10 space-y-8">
+        <div className="mt-10 space-y-6 sm:space-y-8">
           {dressCodes.map((dc) => (
             <article key={dc.title} className="surface-card overflow-hidden rounded-sm">
               <img
@@ -199,12 +200,12 @@ function Events() {
                 decoding="async"
                 className="w-full object-cover"
               />
-              <div className="p-6 text-center sm:p-9">
-                <p className="eyebrow">{dc.event}</p>
-                <h3 className="mt-3 inline-block rounded-full bg-accent/20 px-5 py-2 font-display text-2xl font-semibold text-foreground sm:text-3xl">
+              <div className="p-5 text-center sm:p-9">
+                <p className="eyebrow text-balance">{dc.event}</p>
+                <h3 className="mt-3 inline-block max-w-full rounded-full bg-accent/20 px-4 py-2 font-display text-xl font-semibold text-balance text-foreground sm:px-5 sm:text-3xl">
                   {dc.title}
                 </h3>
-                <p className="mx-auto mt-4 max-w-xl leading-relaxed text-muted-foreground">
+                <p className="mx-auto mt-4 max-w-xl text-[0.95rem] leading-relaxed text-muted-foreground sm:text-base">
                   {dc.detail}
                 </p>
               </div>
