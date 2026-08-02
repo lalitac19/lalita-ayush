@@ -79,12 +79,23 @@ function Celebration() {
           <h1 className="mt-4 font-display text-[2.25rem] leading-[1.08] font-semibold text-background sm:text-6xl">
             We're getting married!
           </h1>
-          <p className="mx-auto mt-5 max-w-xl text-[0.95rem] leading-relaxed text-background/85">
-            After countless flights, adventures, and far too many airport
-            goodbyes, we're finally celebrating our greatest adventure yet.
+          <p className="mx-auto mt-5 max-w-2xl text-[0.95rem] leading-relaxed text-background/85">
+            We are so excited to invite you to celebrate our wedding with us in
+            Kalutara, Sri Lanka.
           </p>
-          <p className="mx-auto mt-3 max-w-xl text-[0.95rem] leading-relaxed text-background/85">
-            We can't wait to celebrate with you in Sri Lanka!
+          <p className="mx-auto mt-3 max-w-2xl text-[0.95rem] leading-relaxed text-background/85">
+            Join us from 20–22 February 2027 for an unforgettable weekend of
+            celebrations. We'll begin with a beachfront civil ceremony, sunset
+            cocktails, dinner and dancing on Saturday, before continuing with a
+            day of poolside fun, a vibrant Sangeet celebration and a farewell
+            breakfast to bring the festivities to a close.
+          </p>
+          <p className="mx-auto mt-3 max-w-2xl text-[0.95rem] leading-relaxed text-background/85">
+            Please note that this will be an adults-only celebration, giving
+            everyone the opportunity to relax, unwind and enjoy the festivities.
+          </p>
+          <p className="mx-auto mt-3 max-w-2xl text-[0.95rem] leading-relaxed text-background/85">
+            We can't wait to celebrate with you!
           </p>
           <div className="mt-12">
             <Countdown light />
