@@ -149,7 +149,23 @@ function Celebration() {
             </Link>
           ))}
         </div>
+
+        <div className="mt-12 flex flex-col items-center gap-3 text-center">
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            Prefer it on paper? Take the whole weekend with you — schedule,
+            dress codes and venue details in one page.
+          </p>
+          <a
+            href="/lalita-ayush-weekend-itinerary.pdf"
+            download
+            className="inline-flex items-center gap-2 rounded-full border border-accent/60 bg-secondary/60 px-6 py-3.5 text-[0.72rem] font-bold tracking-[0.2em] uppercase transition-colors hover:bg-accent/15"
+          >
+            <Download className="h-4 w-4 shrink-0 text-accent" aria-hidden />
+            Download the itinerary (PDF)
+          </a>
+        </div>
       </section>
+
     </>
   );
 }
