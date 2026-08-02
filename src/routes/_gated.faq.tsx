@@ -113,7 +113,7 @@ function Faq() {
           href={content.rsvpUrl}
           target="_blank"
           rel="noreferrer"
-          className="mt-8 inline-block rounded-sm bg-primary px-10 py-4 text-[0.7rem] tracking-[0.3em] text-primary-foreground uppercase transition hover:opacity-90"
+          className="mt-8 inline-block rounded-sm bg-primary px-10 py-4 text-[0.7rem] font-bold tracking-[0.3em] text-primary-foreground uppercase transition hover:opacity-90"
         >
           RSVP Now
         </a>

@@ -84,9 +84,9 @@
 
   --gradient-hero: linear-gradient(
     180deg,
-    color-mix(in oklab, var(--ink) 15%, transparent) 0%,
-    color-mix(in oklab, var(--ink) 45%, transparent) 55%,
-    color-mix(in oklab, var(--ink) 78%, transparent) 100%
+    color-mix(in oklab, var(--ink) 45%, transparent) 0%,
+    color-mix(in oklab, var(--ink) 60%, transparent) 55%,
+    color-mix(in oklab, var(--ink) 88%, transparent) 100%
   );
   --gradient-gold: linear-gradient(
     90deg,
@@ -202,6 +202,11 @@
   background-color: var(--glass-tint-strong);
   backdrop-filter: blur(22px) saturate(160%);
   border-color: var(--glass-border);
+}
+
+@utility on-image {
+  text-shadow: 0 1px 2px color-mix(in oklab, var(--ink) 55%, transparent),
+    0 6px 24px color-mix(in oklab, var(--ink) 45%, transparent);
 }
 
 @utility glass-dark {

@@ -55,7 +55,7 @@ function GatedLayout() {
               href={content.rsvpUrl}
               target="_blank"
               rel="noreferrer"
-              className="rounded-sm bg-primary px-4 py-2 text-[0.68rem] tracking-[0.22em] text-primary-foreground uppercase transition hover:opacity-90"
+              className="rounded-sm bg-primary px-4 py-2 text-[0.68rem] tracking-[0.22em] text-primary-foreground uppercase font-bold transition hover:opacity-90"
             >
               RSVP
             </a>
@@ -88,7 +88,7 @@ function GatedLayout() {
               href={content.rsvpUrl}
               target="_blank"
               rel="noreferrer"
-              className="mt-2 rounded-sm bg-primary px-4 py-3 text-center text-[0.7rem] tracking-[0.22em] text-primary-foreground uppercase"
+              className="mt-2 rounded-sm bg-primary px-4 py-3 text-center text-[0.7rem] font-bold tracking-[0.22em] text-primary-foreground uppercase"
             >
               RSVP
             </a>
@@ -112,7 +112,7 @@ function GatedLayout() {
               href={content.rsvpUrl}
               target="_blank"
               rel="noreferrer"
-              className="transition hover:text-foreground"
+              className="font-bold transition hover:text-foreground"
             >
               RSVP
             </a>
