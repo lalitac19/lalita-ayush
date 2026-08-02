@@ -68,13 +68,13 @@ function Landing() {
         className="absolute inset-0 h-full w-full object-cover object-center"
       />
 
-      <div className="absolute inset-0 bg-[oklch(0.24_0.025_62)]/45" />
+      <div className="absolute inset-0 bg-[oklch(0.24_0.025_62)]/60" />
       <div
         className="absolute inset-0"
         style={{ background: "var(--gradient-hero)" }}
       />
 
-      <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-3xl flex-col items-center justify-center px-5 py-14 text-center sm:px-6 sm:py-16">
+      <div className="on-image relative z-10 mx-auto flex min-h-screen w-full max-w-3xl flex-col items-center justify-center px-5 py-14 text-center sm:px-6 sm:py-16">
         <Monogram light className="h-20 w-auto opacity-95 sm:h-32" />
 
         <p className="eyebrow mt-6 text-background/80 sm:mt-8">{"\n"}</p>
