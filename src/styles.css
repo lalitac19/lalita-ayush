@@ -84,9 +84,9 @@
 
   --gradient-hero: linear-gradient(
     180deg,
-    color-mix(in oklab, var(--ink) 15%, transparent) 0%,
-    color-mix(in oklab, var(--ink) 45%, transparent) 55%,
-    color-mix(in oklab, var(--ink) 78%, transparent) 100%
+    color-mix(in oklab, var(--ink) 45%, transparent) 0%,
+    color-mix(in oklab, var(--ink) 60%, transparent) 55%,
+    color-mix(in oklab, var(--ink) 88%, transparent) 100%
   );
   --gradient-gold: linear-gradient(
     90deg,
