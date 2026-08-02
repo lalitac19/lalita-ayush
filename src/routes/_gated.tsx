@@ -111,7 +111,8 @@ function GatedLayout() {
         <Outlet />
       </main>
 
-      <footer className="glass-panel border-t">
+      <footer className="glass-panel border-t pb-24 lg:pb-0">
+
         <div className="mx-auto w-full max-w-6xl px-5 py-12 text-center">
           <Monogram className="mx-auto h-12 w-auto opacity-80" />
           <p className="mt-5 font-display text-2xl">Lalita &amp; Ayush</p>
