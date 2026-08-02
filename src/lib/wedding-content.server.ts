@@ -20,7 +20,7 @@ export const weddingContent: WeddingContent = {
           time: "1:00 – 3:30 pm",
           title: "Welcome Lunch",
           detail:
-            "Buffet-style lunch as guests arrive and settle in. Come as you are, straight off the plane if you like.",
+            "Whether you've had time to settle in or have come straight from the plane, join us for a relaxed lunch.",
           location: "Mangrove Restaurant, Avani Kalutara Resort",
           mapsUrl: "https://maps.google.com/?q=Avani+Kalutara+Resort+Sri+Lanka",
           start: "20270220T073000Z",
@@ -28,32 +28,14 @@ export const weddingContent: WeddingContent = {
         },
         {
           time: "4:45 pm",
-          title: "Civil Ceremony on the Beach",
+          title: "Civil Ceremony",
           detail:
-            "Barefoot on the sand as the sun goes down. Please be seated a little before 4:45pm.",
+            "Our official 'I do'. Join us as we exchange our vows with the ocean as our backdrop, followed by sunset cocktails and canapés, before enjoying dinner and dancing the night away to a live band. We kindly ask that you are seated by 4:45 pm for the ceremony.",
           theme:
             "Summer formal — colour is very much encouraged. No black, white or red.",
           image: "ceremony",
           location: "The beach, Avani Kalutara Resort",
-          mapsUrl: "https://maps.google.com/?q=Avani+Kalutara+Resort+Sri+Lanka",
           start: "20270220T111500Z",
-          end: "20270220T121500Z",
-        },
-        {
-          time: "After the ceremony",
-          title: "Drinks & Canapés",
-          detail: "Sundowners and canapés on the beach.",
-          location: "The beach, Avani Kalutara Resort",
-          mapsUrl: "https://maps.google.com/?q=Avani+Kalutara+Resort+Sri+Lanka",
-        },
-        {
-          time: "7:30 pm – 1:00 am",
-          title: "Dinner & Dance",
-          detail: "Dinner in the garden with a live band, then dancing.",
-          image: "reception",
-          location: "Avani Kalutara Resort",
-          mapsUrl: "https://maps.google.com/?q=Avani+Kalutara+Resort+Sri+Lanka",
-          start: "20270220T140000Z",
           end: "20270220T193000Z",
         },
       ],
@@ -66,20 +48,20 @@ export const weddingContent: WeddingContent = {
         {
           time: "7:00 – 11:00 am",
           title: "Buffet Breakfast",
-          detail: "A slow start — breakfast whenever you surface.",
+          detail:
+            "Join us for a leisurely breakfast. Recharge, refuel and get ready for round two.",
           location: "Mangrove Restaurant, Avani Kalutara Resort",
-          mapsUrl: "https://maps.google.com/?q=Avani+Kalutara+Resort+Sri+Lanka",
           start: "20270221T013000Z",
           end: "20270221T053000Z",
         },
         {
           time: "11:30 am – 3:30 pm",
           title: "Pool Party",
-          detail: "Food stalls around the pool, music, and a long lazy afternoon.",
+          detail:
+            "Think sunshine, cocktails, pool games, live food stalls and a DJ playing all afternoon. Come ready to relax, have fun and make the most of our final day together before the evening celebrations begin.",
           theme: "Resort beach chic — elegant swimwear, linen shirts, breezy dresses.",
           image: "pool",
           location: "The pool, Avani Kalutara Resort",
-          mapsUrl: "https://maps.google.com/?q=Avani+Kalutara+Resort+Sri+Lanka",
           start: "20270221T060000Z",
           end: "20270221T100000Z",
         },
@@ -87,7 +69,7 @@ export const weddingContent: WeddingContent = {
           time: "7:30 pm until late",
           title: "Sangeet, Dinner & Dance",
           detail:
-            "Buffet dinner, then a DJ and dancing into the small hours.",
+            "The grand finale of our wedding weekend. An evening of vibrant performances, incredible food and a packed dance floor. Join us as we celebrate with dinner, music and dancing late into the early hours of the morning.",
           theme:
             "Bollywood glam — Indian & Indo-Western. Vibrant colour, festive elegance, outfits made for dancing.",
           image: "sangeet",
@@ -95,11 +77,6 @@ export const weddingContent: WeddingContent = {
           mapsUrl: "https://maps.google.com/?q=Anantara+Kalutara+Resort+Sri+Lanka",
           start: "20270221T140000Z",
           end: "20270221T193000Z",
-        },
-        {
-          time: "2:00 am onwards",
-          title: "After After Party",
-          detail: "For those still standing.",
         },
       ],
     },
@@ -109,15 +86,17 @@ export const weddingContent: WeddingContent = {
       label: "Farewell",
       events: [
         {
-          time: "Morning",
+          time: "Breakfast before 11",
           title: "Breakfast & Checkout",
-          detail: "One last breakfast together before goodbyes.",
+          detail:
+            "Before you head home, join us for one last buffet breakfast. Share a final coffee, relive the weekend's highlights and say your goodbyes before checking out by 12pm.",
           location: "Mangrove Restaurant, Avani Kalutara Resort",
           mapsUrl: "https://maps.google.com/?q=Avani+Kalutara+Resort+Sri+Lanka",
         },
       ],
     },
   ],
+
   travel: {
     heading: "Getting There",
     body: "Our wedding celebrations will take place at the beautiful Avani Kalutara Resort, a tropical beachfront escape where the Kalu Ganga River meets the Indian Ocean. Roughly an hour and a half south of Colombo's Bandaranaike International Airport (CMB).",

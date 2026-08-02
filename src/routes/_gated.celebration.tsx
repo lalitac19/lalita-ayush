@@ -28,14 +28,15 @@ export const Route = createFileRoute("/_gated/celebration")({
 
 const cards = [
   {
-    to: "/our-story",
-    label: "Our Story",
-    text: "Miles apart, meant to be — how a swipe right became a wedding.",
-  },
-  {
     to: "/events",
     label: "The Weekend",
     text: "Timeline, ceremonies and what to wear for each event.",
+  },
+  { to: "/faq", label: "Q&A", text: "Kids, gifts, transport and who to call." },
+  {
+    to: "/sri-lanka",
+    label: "About Sri Lanka",
+    text: "Where to go, eat, swim and dance while you're on the island.",
   },
   {
     to: "/getting-there",
@@ -43,16 +44,15 @@ const cards = [
     text: "Flights, transfers and everything about the resort.",
   },
   {
-    to: "/sri-lanka",
-    label: "About Sri Lanka",
-    text: "Where to go, eat, swim and dance while you're on the island.",
+    to: "/our-story",
+    label: "Our Story",
+    text: "Miles apart, meant to be — how a swipe right became a wedding.",
   },
   {
     to: "/moments",
     label: "Moments Together",
     text: "A few of our favourite pictures.",
   },
-  { to: "/faq", label: "Q&A", text: "Kids, gifts, transport and who to call." },
 ] as const;
 
 function Celebration() {
@@ -111,7 +111,15 @@ function Celebration() {
       <section className="mx-auto w-full max-w-6xl px-5 py-14 sm:py-28">
         <SectionHeading
           title="Explore"
-          intro="From travel tips and accommodation to the weekend celebrations, you'll find everything you need below. Please RSVP by 7th November 2026."
+          intro={
+            <>
+              From travel tips and accommodation to the weekend celebrations,
+              you'll find everything you need below.{" "}
+              <strong className="font-semibold text-foreground">
+                Please RSVP by 7th November 2026.
+              </strong>
+            </>
+          }
         />
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {cards.map((c) => (

@@ -17,12 +17,12 @@ export const Route = createFileRoute("/_gated")({
 
 const links = [
   { to: "/celebration", label: "Home" },
-  { to: "/our-story", label: "Our Story" },
   { to: "/events", label: "The Weekend" },
-  { to: "/getting-there", label: "Getting There" },
-  { to: "/sri-lanka", label: "Sri Lanka" },
-  { to: "/moments", label: "Moments" },
   { to: "/faq", label: "Q&A" },
+  { to: "/sri-lanka", label: "Sri Lanka" },
+  { to: "/getting-there", label: "Getting There" },
+  { to: "/our-story", label: "Our Story" },
+  { to: "/moments", label: "Moments" },
 ] as const;
 
 function GatedLayout() {
