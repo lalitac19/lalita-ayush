@@ -61,13 +61,24 @@ function GatedLayout() {
             </a>
           </nav>
 
-          <button
-            onClick={() => setOpen((v) => !v)}
-            className="shrink-0 cursor-pointer rounded-sm border border-border px-3 py-2 text-[0.65rem] tracking-[0.22em] uppercase lg:hidden"
-            aria-expanded={open}
-          >
-            {open ? "Close" : "Menu"}
-          </button>
+          <div className="flex shrink-0 items-center gap-2 lg:hidden">
+            <a
+              href={content.rsvpUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-sm bg-primary px-4 py-2 text-[0.65rem] font-bold tracking-[0.22em] text-primary-foreground uppercase transition hover:opacity-90"
+            >
+              RSVP
+            </a>
+            <button
+              onClick={() => setOpen((v) => !v)}
+              className="cursor-pointer rounded-sm border border-border px-3 py-2 text-[0.65rem] tracking-[0.22em] uppercase"
+              aria-expanded={open}
+            >
+              {open ? "Close" : "Menu"}
+            </button>
+          </div>
+
         </div>
 
         {open ? (
