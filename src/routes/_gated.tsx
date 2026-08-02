@@ -2,6 +2,7 @@ import { createFileRoute, Link, Outlet, redirect } from "@tanstack/react-router"
 import { useState } from "react";
 
 import { Monogram } from "@/components/Monogram";
+import { RsvpBar } from "@/components/RsvpBar";
 import { getWeddingContent } from "@/lib/gate.functions";
 import type { WeddingContent } from "@/lib/wedding-types";
 
