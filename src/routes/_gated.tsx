@@ -141,6 +141,9 @@ function GatedLayout() {
 
         </div>
       </footer>
+
+      <RsvpBar url={content.rsvpUrl} />
     </div>
+
   );
 }
