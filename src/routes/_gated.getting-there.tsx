@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useWedding } from "@/lib/use-wedding";
 
-import venueSmall from "@/assets/opt/avani-watercolour-640.webp.asset.json";
-import venueLarge from "@/assets/opt/avani-watercolour-1440.webp.asset.json";
+import venueSmall from "@/assets/opt/avani-watercolour-640.webp";
+import venueLarge from "@/assets/opt/avani-watercolour-1440.webp";
 import { SectionHeading } from "@/components/SectionHeading";
 
 export const Route = createFileRoute("/_gated/getting-there")({
@@ -36,8 +36,8 @@ function GettingThere() {
       />
 
       <img
-        src={venueSmall.url}
-        srcSet={`${venueSmall.url} 640w, ${venueLarge.url} 1440w`}
+        src={venueSmall}
+        srcSet={`${venueSmall} 640w, ${venueLarge} 1440w`}
         sizes="(max-width: 768px) 92vw, 900px"
         alt="Watercolour illustration of Avani Kalutara Resort between the Kalu river and the Indian Ocean"
         loading="lazy"

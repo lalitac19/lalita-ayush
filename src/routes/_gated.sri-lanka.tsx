@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useWedding } from "@/lib/use-wedding";
 
-import mapSmall from "@/assets/opt/srilanka-guest-map-640.webp.asset.json";
-import mapLarge from "@/assets/opt/srilanka-guest-map-1440.webp.asset.json";
+import mapSmall from "@/assets/opt/srilanka-guest-map-640.webp";
+import mapLarge from "@/assets/opt/srilanka-guest-map-1440.webp";
 import { SectionHeading } from "@/components/SectionHeading";
 
 export const Route = createFileRoute("/_gated/sri-lanka")({
@@ -37,8 +37,8 @@ function SriLanka() {
       />
 
       <img
-        src={mapSmall.url}
-        srcSet={`${mapSmall.url} 640w, ${mapLarge.url} 1440w`}
+        src={mapSmall}
+        srcSet={`${mapSmall} 640w, ${mapLarge} 1440w`}
         sizes="(max-width: 768px) 92vw, 1100px"
         alt="Illustrated guest map of Sri Lanka showing Avani Kalutara Resort and destinations across the island"
         loading="lazy"

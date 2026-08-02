@@ -1,16 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CalendarPlus, Clock, MapPin, Navigation } from "lucide-react";
+import { CalendarPlus, Clock, Download, MapPin, Navigation } from "lucide-react";
 import { useWedding } from "@/lib/use-wedding";
 import type { EventItem } from "@/lib/wedding-types";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { SectionHeading } from "@/components/SectionHeading";
 
-import formalSmall from "@/assets/opt/summer-formal-640.webp.asset.json";
-import formalLarge from "@/assets/opt/summer-formal-1440.webp.asset.json";
-import poolSmall from "@/assets/opt/pool2-640.webp.asset.json";
-import poolLarge from "@/assets/opt/pool2-1440.webp.asset.json";
-import sangeetSmall from "@/assets/opt/sangeet2-640.webp.asset.json";
-import sangeetLarge from "@/assets/opt/sangeet2-1440.webp.asset.json";
+import formalSmall from "@/assets/opt/summer-formal-640.webp";
+import formalLarge from "@/assets/opt/summer-formal-1440.webp";
+import poolSmall from "@/assets/opt/pool2-640.webp";
+import poolLarge from "@/assets/opt/pool2-1440.webp";
+import sangeetSmall from "@/assets/opt/sangeet2-640.webp";
+import sangeetLarge from "@/assets/opt/sangeet2-1440.webp";
 
 function downloadIcs(ev: EventItem) {
   if (!ev.start) return;
@@ -67,8 +67,8 @@ const dressCodes = [
     title: "Summer Formal",
     detail:
       "Pastels, florals and soft colour. Linen suits, flowing dresses and heels that can handle sand. Please avoid black, white and red.",
-    small: formalSmall.url,
-    large: formalLarge.url,
+    small: formalSmall,
+    large: formalLarge,
     alt: "Summer formal dress code illustration — linen suits and floral maxi dresses",
   },
   {
@@ -76,8 +76,8 @@ const dressCodes = [
     title: "Resort Beach Chic",
     detail:
       "Elegant swimwear, kaftans and cover-ups, open linen shirts and swim shorts. Sunglasses essential.",
-    small: poolSmall.url,
-    large: poolLarge.url,
+    small: poolSmall,
+    large: poolLarge,
     alt: "Pool party dress code illustration — swimwear, kaftans and linen shirts",
   },
   {
@@ -85,8 +85,8 @@ const dressCodes = [
     title: "Bollywood Glam",
     detail:
       "Indian and Indo-Western at its most vibrant — sarees, lehengas, bandhgalas and kurtas. The brighter the better, and made for dancing.",
-    small: sangeetSmall.url,
-    large: sangeetLarge.url,
+    small: sangeetSmall,
+    large: sangeetLarge,
     alt: "Sangeet dress code illustration — colourful sarees, lehengas and bandhgalas",
   },
 ];
@@ -101,6 +101,18 @@ function Events() {
         title="The Weekend"
         intro="A beach ceremony, a garden dinner, an afternoon by the pool and a night of Bollywood glam. Everything you need to know for the weekend is below, including the dress code for each event at the bottom of the page."
       />
+
+      <div className="mt-8 flex justify-center">
+        <a
+          href="/lalita-ayush-weekend-itinerary.pdf"
+          download
+          className="inline-flex items-center gap-2 rounded-full border border-accent/60 bg-secondary/60 px-5 py-3 text-[0.72rem] font-bold tracking-[0.2em] uppercase transition-colors hover:bg-accent/15 sm:px-6 sm:text-[0.75rem]"
+        >
+          <Download className="h-4 w-4 shrink-0 text-accent" aria-hidden />
+          Download the itinerary (PDF)
+        </a>
+      </div>
+
 
       <div className="mt-12 space-y-14 sm:space-y-20">
         {content.days.map((day) => (
