@@ -69,11 +69,12 @@ function Celebration() {
           className="absolute inset-0 h-full w-full object-cover"
         />
 
+        <div className="absolute inset-0 bg-[oklch(0.24_0.025_62)]/45" />
         <div
           className="absolute inset-0"
           style={{ background: "var(--gradient-hero)" }}
         />
-        <div className="relative mx-auto w-full max-w-4xl px-5 py-20 text-center sm:px-6 sm:py-32">
+        <div className="on-image relative mx-auto w-full max-w-4xl px-5 py-20 text-center sm:px-6 sm:py-32">
           <p className="eyebrow text-background/80">Welcome</p>
           <h1 className="mt-4 font-display text-[2.25rem] leading-[1.08] font-semibold text-background sm:text-6xl">
             We're getting married!
