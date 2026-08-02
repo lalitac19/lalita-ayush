@@ -238,82 +238,112 @@ export const weddingContent: WeddingContent = {
   areas: [
     {
       area: "Colombo",
-      blurb: "The capital — rooftop bars, serious cocktails and the best dining in the country.",
+      blurb:
+        "The capital — rooftop bars, serious cocktails, colonial arcades and the best dining in the country. Worth a night on the way in or out.",
       spots: [
         {
           name: "Ministry of Crab",
           kind: "Restaurant",
-          note: "Sri Lanka's most famous restaurant. Book weeks ahead for the garlic chilli crab.",
+          note: "Sri Lanka's most famous restaurant, inside the Dutch Hospital. Book weeks ahead for the garlic chilli crab.",
           instagram: "https://www.instagram.com/ministryofcrab/",
         },
         {
           name: "Kaema Sutra",
           kind: "Restaurant",
-          note: "Modern Sri Lankan by Dharshan Munidasa & Bathiya and Santhush.",
+          note: "Modern Sri Lankan by Dharshan Munidasa & Bathiya and Santhush — hoppers and kottu, done beautifully.",
           instagram: "https://www.instagram.com/kaemasutra/",
         },
         {
           name: "Nihonbashi",
           kind: "Restaurant",
-          note: "Exceptional Japanese, and the sister restaurant to Ministry of Crab.",
+          note: "Exceptional Japanese, sister restaurant to Ministry of Crab. The omakase is the move.",
           instagram: "https://www.instagram.com/nihonbashisl/",
         },
         {
-          name: "Smoke & Bitters (Hiriketiya)",
-          kind: "Bar",
-          note: "Regularly named one of Asia's 50 Best Bars — worth the drive.",
-          instagram: "https://www.instagram.com/smokeandbitters/",
+          name: "Paradise Road The Gallery Café",
+          kind: "Restaurant",
+          note: "Geoffrey Bawa's former office turned courtyard café. Go for the black pork curry and the chocolate mousse.",
+          instagram: "https://www.instagram.com/paradiseroadsrilanka/",
         },
         {
-          name: "Cloud Red at Cinnamon Life",
+          name: "Cloud Red, Cinnamon Life",
           kind: "Rooftop bar",
-          note: "Skyline views and a long cocktail list.",
+          note: "Skyline views over the Beira Lake and a long cocktail list. Best at sunset.",
           instagram: "https://www.instagram.com/cinnamonlife/",
         },
         {
           name: "Kama Colombo",
           kind: "Night spot",
-          note: "Late-night Indian small plates and a lively bar crowd.",
+          note: "Late-night Indian small plates, a lively bar crowd and dancing until close.",
           instagram: "https://www.instagram.com/kamacolombo/",
+        },
+        {
+          name: "Re.Public",
+          kind: "Night spot",
+          note: "One of the city's busiest club nights — go late, stay later.",
+          instagram: "https://www.instagram.com/republic.lk/",
+        },
+        {
+          name: "Galle Face Green & Hotel",
+          kind: "Attraction",
+          note: "Sunset kite-flying and street food on the promenade, then a gin at the Chequerboard verandah.",
+          instagram: "https://www.instagram.com/gallefacehotel/",
         },
       ],
     },
     {
       area: "Bentota & Kalutara",
-      blurb: "Our neighbourhood — river, reef and long empty stretches of sand.",
+      blurb:
+        "Our neighbourhood — river, reef and long empty stretches of sand, all within half an hour of the resort.",
       spots: [
         {
           name: "Club Villa",
           kind: "Restaurant",
-          note: "Geoffrey Bawa-designed garden hotel, lovely for a long lunch.",
+          note: "Geoffrey Bawa-designed garden hotel, lovely for a long, slow lunch by the sea.",
           instagram: "https://www.instagram.com/clubvillabentota/",
         },
         {
           name: "Lunuganga Estate",
           kind: "Attraction",
-          note: "Bawa's country garden at Dedduwa — tours and afternoon tea.",
+          note: "Bawa's country garden at Dedduwa — garden tours and a very civilised afternoon tea.",
           instagram: "https://www.instagram.com/geoffreybawatrust/",
+        },
+        {
+          name: "Brief Garden",
+          kind: "Attraction",
+          note: "Bevis Bawa's eccentric jungle garden and art collection, twenty minutes inland.",
+        },
+        {
+          name: "Madu River Boat Safari",
+          kind: "Attraction",
+          note: "Mangrove tunnels, cinnamon islands and monitor lizards. Go early morning.",
         },
         {
           name: "Diya Sisila",
           kind: "Restaurant",
-          note: "River-side seafood, unfussy and excellent.",
+          note: "River-side seafood, unfussy and excellent. Ask for the crab curry.",
         },
         {
           name: "Taprobana Beach Bar",
           kind: "Beach club",
-          note: "Sunset drinks with your feet in the sand.",
+          note: "Sunset drinks with your feet in the sand, five minutes from Avani.",
+        },
+        {
+          name: "Kalutara Bodhiya",
+          kind: "Attraction",
+          note: "The hollow stupa on our doorstep, right beside the Kalu Ganga bridge.",
         },
       ],
     },
     {
       area: "Galle & the South Coast",
-      blurb: "Fort walls, surf towns and the island's best beach clubs.",
+      blurb:
+        "Fort walls, surf towns and the island's best beach clubs — about an hour and a half south of us.",
       spots: [
         {
           name: "Wijaya Beach",
           kind: "Beach club",
-          note: "Thalpe institution — pizza, reef pools and sundowners.",
+          note: "Thalpe institution — wood-fired pizza, reef pools and long sundowners.",
           instagram: "https://www.instagram.com/wijayabeach/",
         },
         {
@@ -325,48 +355,143 @@ export const weddingContent: WeddingContent = {
         {
           name: "Poets Cove, Unawatuna",
           kind: "Beach club",
-          note: "Day beds, cocktails and a very good swim.",
+          note: "Day beds, cocktails and a very good swim in a sheltered bay.",
           instagram: "https://www.instagram.com/poetscove.lk/",
         },
         {
           name: "Verandah at Amangalla",
           kind: "Bar",
-          note: "Colonial elegance and a properly made gin and tonic.",
+          note: "Colonial elegance inside the Fort and a properly made gin and tonic.",
           instagram: "https://www.instagram.com/aman/",
+        },
+        {
+          name: "The Tuna & The Crab",
+          kind: "Restaurant",
+          note: "Japanese-Sri Lankan sashimi and crab in the Fort's old Dutch Hospital.",
+          instagram: "https://www.instagram.com/thetunaandthecrab/",
+        },
+        {
+          name: "Galle Fort Ramparts",
+          kind: "Attraction",
+          note: "Walk the walls at golden hour, from the lighthouse round to Flag Rock.",
         },
       ],
     },
     {
       area: "Weligama, Mirissa & Hiriketiya",
-      blurb: "Surf, sunsets and the island's best late nights.",
+      blurb:
+        "Surf, whales, sunsets and the island's best late nights — the stretch everyone ends up extending their trip for.",
       spots: [
         {
           name: "Smoke & Bitters",
           kind: "Bar",
-          note: "Asia's 50 Best — foraged Sri Lankan ingredients in every glass.",
+          note: "Regularly named one of Asia's 50 Best Bars — foraged Sri Lankan ingredients in every glass.",
           instagram: "https://www.instagram.com/smokeandbitters/",
         },
         {
           name: "Salt House",
           kind: "Restaurant",
-          note: "Hiriketiya favourite for long, slow dinners.",
+          note: "Hiriketiya favourite for long, slow dinners under the palms.",
           instagram: "https://www.instagram.com/salthouse.lk/",
         },
         {
           name: "W15 Weligama",
           kind: "Beach club",
-          note: "Infinity pool over the bay.",
+          note: "Infinity pool over the bay, day passes and a good lunch menu.",
           instagram: "https://www.instagram.com/w15escapes/",
         },
         {
           name: "Cape Weligama",
           kind: "Sunset spot",
-          note: "Cliff-top crescent pool and the best sundowner view in Sri Lanka.",
+          note: "Cliff-top crescent pool and arguably the best sundowner view in Sri Lanka.",
           instagram: "https://www.instagram.com/capeweligama/",
+        },
+        {
+          name: "Doctor's House, Hiriketiya",
+          kind: "Night spot",
+          note: "Live music, DJs and a garden crowd that stays out late.",
+          instagram: "https://www.instagram.com/thedoctorshouse.lk/",
+        },
+        {
+          name: "Whale watching, Mirissa",
+          kind: "Attraction",
+          note: "Blue whales and spinner dolphins between December and April. Boats leave at dawn.",
+        },
+        {
+          name: "Coconut Tree Hill",
+          kind: "Attraction",
+          note: "The headland everyone photographs. Come at first light to have it to yourself.",
+        },
+      ],
+    },
+    {
+      area: "Kandy & the Hill Country",
+      blurb:
+        "Tea estates, waterfalls, cool mountain air and the most beautiful train ride in Asia.",
+      spots: [
+        {
+          name: "Temple of the Sacred Tooth Relic",
+          kind: "Attraction",
+          note: "Sri Lanka's spiritual heart, set beside Kandy Lake. Time your visit for evening puja.",
+        },
+        {
+          name: "Kandy to Ella train",
+          kind: "Attraction",
+          note: "Seven hours through tea country past the Nine Arch Bridge. Book second-class reserved.",
+        },
+        {
+          name: "Ceylon Tea Trails",
+          kind: "Restaurant & stay",
+          note: "Relais & Châteaux bungalows above the Castlereagh reservoir — go for lunch and a tea tasting.",
+          instagram: "https://www.instagram.com/ceylonteatrails/",
+        },
+        {
+          name: "Grand Hotel, Nuwara Eliya",
+          kind: "Bar",
+          note: "Fireplaces, high tea and colonial-era billiards in the hills.",
+        },
+        {
+          name: "Little Adam's Peak & Ravana Falls",
+          kind: "Attraction",
+          note: "An easy sunrise hike above Ella, then a swim under the falls.",
+        },
+      ],
+    },
+    {
+      area: "Wildlife & the Cultural Triangle",
+      blurb:
+        "Leopards, elephants and ancient rock cities — the north-central heart of the island.",
+      spots: [
+        {
+          name: "Yala National Park",
+          kind: "Attraction",
+          note: "The highest density of leopards in the world. Dawn safaris only, book ahead.",
+        },
+        {
+          name: "Udawalawe National Park",
+          kind: "Attraction",
+          note: "Guaranteed elephants, plus the Elephant Transit Home feeding at 10am.",
+        },
+        {
+          name: "Sigiriya Lion Rock",
+          kind: "Attraction",
+          note: "The ancient rock fortress rising out of the jungle. Climb it at sunrise.",
+        },
+        {
+          name: "Dambulla Cave Temples",
+          kind: "Attraction",
+          note: "Five caves of painted Buddhas carved into the hillside, half an hour from Sigiriya.",
+        },
+        {
+          name: "Wild Coast Tented Lodge",
+          kind: "Restaurant & stay",
+          note: "Cocoon tents on the edge of Yala — worth it just for dinner and the beach bar.",
+          instagram: "https://www.instagram.com/resplendentceylon/",
         },
       ],
     },
   ],
+
   rsvpUrl:
     "https://withjoy.com/lalita-and-ayush/rsvp?utm_medium=web&utm_source=joy&utm_campaign=website_overview_copy",
 };

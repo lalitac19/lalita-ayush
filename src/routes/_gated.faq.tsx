@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useWedding } from "@/lib/use-wedding";
 
+import { FaqAccordion } from "@/components/FaqAccordion";
 import { SectionHeading } from "@/components/SectionHeading";
 
 export const Route = createFileRoute("/_gated/faq")({
@@ -33,24 +34,10 @@ function Faq() {
         intro="And if we've missed anything at all, just message us."
       />
 
-      <div className="mt-14 space-y-8">
-        {content.faqs.map((f: { q: string; a: string }) => (
-          <div key={f.q} className="border-b border-border pb-8 last:border-0">
-            <h2 className="font-display text-2xl">{f.q}</h2>
-            <p className="mt-3 leading-relaxed text-muted-foreground">{f.a}</p>
-            {f.q.startsWith("Can I arrive earlier") ? (
-              <a
-                href={content.venue.url}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-3 inline-block text-[0.68rem] tracking-[0.24em] uppercase underline underline-offset-4 transition hover:text-accent"
-              >
-                Book at Avani Kalutara →
-              </a>
-            ) : null}
-          </div>
-        ))}
+      <div className="mt-12">
+        <FaqAccordion faqs={content.faqs} venueUrl={content.venue.url} />
       </div>
+
 
       <section className="mt-16">
         <h2 className="font-display text-3xl sm:text-4xl">

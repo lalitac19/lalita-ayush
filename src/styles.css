@@ -261,10 +261,46 @@
   }
 }
 
+@keyframes accordion-down {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    opacity: 0;
+  }
+}
+
+@utility animate-accordion-down {
+  animation: accordion-down 0.28s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+@utility animate-accordion-up {
+  animation: accordion-up 0.24s cubic-bezier(0.32, 0, 0.67, 0);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .glass-sheen:hover::after {
     animation: none;
   }
+
+  .animate-accordion-down,
+  .animate-accordion-up {
+    animation-duration: 1ms;
+  }
 }
+
 
 

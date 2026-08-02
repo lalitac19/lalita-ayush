@@ -2,6 +2,7 @@ import { createFileRoute, Link, Outlet, redirect } from "@tanstack/react-router"
 import { useState } from "react";
 
 import { Monogram } from "@/components/Monogram";
+import { RsvpBar } from "@/components/RsvpBar";
 import { getWeddingContent } from "@/lib/gate.functions";
 import type { WeddingContent } from "@/lib/wedding-types";
 
@@ -61,13 +62,24 @@ function GatedLayout() {
             </a>
           </nav>
 
-          <button
-            onClick={() => setOpen((v) => !v)}
-            className="shrink-0 cursor-pointer rounded-sm border border-border px-3 py-2 text-[0.65rem] tracking-[0.22em] uppercase lg:hidden"
-            aria-expanded={open}
-          >
-            {open ? "Close" : "Menu"}
-          </button>
+          <div className="flex shrink-0 items-center gap-2 lg:hidden">
+            <a
+              href={content.rsvpUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-sm bg-primary px-4 py-2 text-[0.65rem] font-bold tracking-[0.22em] text-primary-foreground uppercase transition hover:opacity-90"
+            >
+              RSVP
+            </a>
+            <button
+              onClick={() => setOpen((v) => !v)}
+              className="cursor-pointer rounded-sm border border-border px-3 py-2 text-[0.65rem] tracking-[0.22em] uppercase"
+              aria-expanded={open}
+            >
+              {open ? "Close" : "Menu"}
+            </button>
+          </div>
+
         </div>
 
         {open ? (
@@ -100,7 +112,8 @@ function GatedLayout() {
         <Outlet />
       </main>
 
-      <footer className="glass-panel border-t">
+      <footer className="glass-panel border-t pb-24 lg:pb-0">
+
         <div className="mx-auto w-full max-w-6xl px-5 py-12 text-center">
           <Monogram className="mx-auto h-12 w-auto opacity-80" />
           <p className="mt-5 font-display text-2xl">Lalita &amp; Ayush</p>
@@ -129,6 +142,9 @@ function GatedLayout() {
 
         </div>
       </footer>
+
+      <RsvpBar url={content.rsvpUrl} />
     </div>
+
   );
 }

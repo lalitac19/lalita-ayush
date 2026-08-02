@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { CalendarPlus, Clock, MapPin, Navigation } from "lucide-react";
 import { useWedding } from "@/lib/use-wedding";
 import type { EventItem } from "@/lib/wedding-types";
+import { FaqAccordion } from "@/components/FaqAccordion";
 import { SectionHeading } from "@/components/SectionHeading";
 
 import formalSmall from "@/assets/opt/summer-formal-640.webp.asset.json";
@@ -221,15 +222,11 @@ function Events() {
           intro="And if we've missed anything at all, just message us."
         />
 
-        <div className="mx-auto mt-10 max-w-3xl space-y-8">
-          {content.faqs.map((f) => (
-            <div key={f.q} className="border-b border-border pb-8 last:border-0">
-              <h3 className="font-display text-2xl">{f.q}</h3>
-              <p className="mt-3 leading-relaxed text-muted-foreground">{f.a}</p>
-            </div>
-          ))}
+        <div className="mt-10">
+          <FaqAccordion faqs={content.faqs} venueUrl={content.venue.url} />
         </div>
       </section>
+
     </div>
   );
 }
