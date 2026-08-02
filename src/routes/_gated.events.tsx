@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CalendarPlus, Clock, MapPin, Navigation } from "lucide-react";
+import { CalendarPlus, Clock, Download, MapPin, Navigation } from "lucide-react";
 import { useWedding } from "@/lib/use-wedding";
 import type { EventItem } from "@/lib/wedding-types";
 import { FaqAccordion } from "@/components/FaqAccordion";

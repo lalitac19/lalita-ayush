@@ -36,8 +36,8 @@ function GettingThere() {
       />
 
       <img
-        src={venueSmall.url}
-        srcSet={`${venueSmall.url} 640w, ${venueLarge.url} 1440w`}
+        src={venueSmall}
+        srcSet={`${venueSmall} 640w, ${venueLarge} 1440w`}
         sizes="(max-width: 768px) 92vw, 900px"
         alt="Watercolour illustration of Avani Kalutara Resort between the Kalu river and the Indian Ocean"
         loading="lazy"
