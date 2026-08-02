@@ -1,7 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CalendarPlus, MapPin, Navigation, Shirt } from "lucide-react";
+import { CalendarPlus, MapPin, Navigation } from "lucide-react";
 import { useWedding } from "@/lib/use-wedding";
 import type { EventItem } from "@/lib/wedding-types";
+import { SectionHeading } from "@/components/SectionHeading";
+
+import formalSmall from "@/assets/opt/summer-formal-640.webp.asset.json";
+import formalLarge from "@/assets/opt/summer-formal-1440.webp.asset.json";
+import poolSmall from "@/assets/opt/pool2-640.webp.asset.json";
+import poolLarge from "@/assets/opt/pool2-1440.webp.asset.json";
+import sangeetSmall from "@/assets/opt/sangeet2-640.webp.asset.json";
+import sangeetLarge from "@/assets/opt/sangeet2-1440.webp.asset.json";
 
 function downloadIcs(ev: EventItem) {
   if (!ev.start) return;
@@ -32,14 +40,6 @@ function downloadIcs(ev: EventItem) {
   URL.revokeObjectURL(url);
 }
 
-import ceremonyImg from "@/assets/ceremony.jpg";
-import receptionImg from "@/assets/reception.jpg";
-import poolSmall from "@/assets/opt/pool-party-640.webp.asset.json";
-import poolLarge from "@/assets/opt/pool-party-1440.webp.asset.json";
-import sangeetSmall from "@/assets/opt/sangeet-640.webp.asset.json";
-import sangeetLarge from "@/assets/opt/sangeet-1440.webp.asset.json";
-import { SectionHeading } from "@/components/SectionHeading";
-
 export const Route = createFileRoute("/_gated/events")({
   head: () => ({
     meta: [
@@ -47,7 +47,7 @@ export const Route = createFileRoute("/_gated/events")({
       {
         name: "description",
         content:
-          "Timeline of the wedding weekend: beach civil ceremony, garden reception, pool party and Sangeet — with dress code for every event.",
+          "Timeline of the wedding weekend: beach civil ceremony, garden reception, pool party and Sangeet — plus a dress code guide for every event.",
       },
       { property: "og:title", content: "The Weekend — Lalita & Ayush" },
       {
@@ -60,23 +60,35 @@ export const Route = createFileRoute("/_gated/events")({
   component: Events,
 });
 
-const imageMap: Record<
-  string,
-  { src: string; srcSet?: string; alt: string }
-> = {
-  ceremony: { src: ceremonyImg, alt: "Beach ceremony arch at dusk" },
-  reception: { src: receptionImg, alt: "Garden reception under string lights" },
-  pool: {
-    src: poolSmall.url,
-    srcSet: `${poolSmall.url} 640w, ${poolLarge.url} 1440w`,
-    alt: "Pool party dress code illustration — resort beach chic",
+const dressCodes = [
+  {
+    event: "Civil Ceremony · Dinner & Dance",
+    title: "Summer Formal",
+    detail:
+      "Pastels, florals and soft colour. Linen suits, flowing dresses and heels that can handle sand. Please avoid black, white and red.",
+    small: formalSmall.url,
+    large: formalLarge.url,
+    alt: "Summer formal dress code illustration — linen suits and floral maxi dresses",
   },
-  sangeet: {
-    src: sangeetSmall.url,
-    srcSet: `${sangeetSmall.url} 640w, ${sangeetLarge.url} 1440w`,
-    alt: "Sangeet dress code illustration — Indian and Indo-Western glam",
+  {
+    event: "Pool Party",
+    title: "Resort Beach Chic",
+    detail:
+      "Elegant swimwear, kaftans and cover-ups, open linen shirts and swim shorts. Sunglasses essential.",
+    small: poolSmall.url,
+    large: poolLarge.url,
+    alt: "Pool party dress code illustration — swimwear, kaftans and linen shirts",
   },
-};
+  {
+    event: "Sangeet, Dinner & Dance",
+    title: "Bollywood Glam",
+    detail:
+      "Indian and Indo-Western at its most vibrant — sarees, lehengas, bandhgalas and kurtas. The brighter the better, and made for dancing.",
+    small: sangeetSmall.url,
+    large: sangeetLarge.url,
+    alt: "Sangeet dress code illustration — colourful sarees, lehengas and bandhgalas",
+  },
+];
 
 function Events() {
   const { content } = useWedding();
@@ -86,7 +98,7 @@ function Events() {
       <SectionHeading
         eyebrow="20 — 22 February 2027"
         title="The Weekend"
-        intro="A beach ceremony, a garden dinner, an afternoon by the pool and a night of Bollywood glam. Here is how it all unfolds."
+        intro="A beach ceremony, a garden dinner, an afternoon by the pool and a night of Bollywood glam. Here is how it all unfolds — dress codes for every event are at the bottom of this page."
       />
 
       <div className="mt-12 space-y-14 sm:space-y-20">
@@ -107,100 +119,96 @@ function Events() {
             <div className="rule-gold mt-6" />
 
             <div className="mt-8 space-y-6">
-              {day.events.map((ev) => {
-                const img = ev.image ? imageMap[ev.image] : undefined;
-                return (
-                  <article
-                    key={ev.title}
-                    className="surface-card overflow-hidden rounded-sm"
-                  >
-                    {img ? (
-                      <img
-                        src={img.src}
-                        srcSet={img.srcSet}
-                        sizes="(max-width: 768px) 92vw, 900px"
-                        alt={img.alt}
-                        loading="lazy"
-                        decoding="async"
-                        className="h-52 w-full object-cover object-top sm:h-72"
-                      />
+              {day.events.map((ev) => (
+                <article
+                  key={ev.title}
+                  className="surface-card overflow-hidden rounded-sm"
+                >
+                  <div className="p-6 text-center sm:p-9">
+                    <h3 className="font-display text-2xl sm:text-3xl">
+                      {ev.title}
+                    </h3>
+                    <p className="mt-2 text-[0.7rem] tracking-[0.26em] text-accent uppercase">
+                      {ev.time}
+                    </p>
+
+                    {ev.start || ev.mapsUrl ? (
+                      <div className="mt-5 flex flex-wrap justify-center gap-3">
+                        {ev.start ? (
+                          <button
+                            type="button"
+                            onClick={() => downloadIcs(ev)}
+                            className="inline-flex items-center gap-2 rounded-full border border-accent/50 px-5 py-2.5 text-[0.78rem] tracking-wide transition-colors hover:bg-accent/10"
+                          >
+                            <CalendarPlus className="h-4 w-4" aria-hidden />
+                            Add to Calendar
+                          </button>
+                        ) : null}
+                        {ev.mapsUrl ? (
+                          <a
+                            href={ev.mapsUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center gap-2 rounded-full border border-accent/50 px-5 py-2.5 text-[0.78rem] tracking-wide transition-colors hover:bg-accent/10"
+                          >
+                            <Navigation className="h-4 w-4" aria-hidden />
+                            Directions
+                          </a>
+                        ) : null}
+                      </div>
                     ) : null}
-                    <div className="p-6 text-center sm:p-9">
-                      <h3 className="font-display text-2xl sm:text-3xl">
-                        {ev.title}
-                      </h3>
-                      <p className="mt-2 text-[0.7rem] tracking-[0.26em] text-accent uppercase">
-                        {ev.time}
+
+                    <p className="mt-5 leading-relaxed text-muted-foreground">
+                      {ev.detail}
+                    </p>
+
+                    {ev.location ? (
+                      <p className="mt-4 inline-flex items-start justify-center gap-2 text-[0.9rem] text-muted-foreground">
+                        <MapPin
+                          className="mt-0.5 h-4 w-4 shrink-0 text-accent"
+                          aria-hidden
+                        />
+                        <span>{ev.location}</span>
                       </p>
-
-                      {ev.start || ev.mapsUrl ? (
-                        <div className="mt-5 flex flex-wrap justify-center gap-3">
-                          {ev.start ? (
-                            <button
-                              type="button"
-                              onClick={() => downloadIcs(ev)}
-                              className="inline-flex items-center gap-2 rounded-full border border-accent/50 px-5 py-2.5 text-[0.78rem] tracking-wide transition-colors hover:bg-accent/10"
-                            >
-                              <CalendarPlus className="h-4 w-4" aria-hidden />
-                              Add to Calendar
-                            </button>
-                          ) : null}
-                          {ev.mapsUrl ? (
-                            <a
-                              href={ev.mapsUrl}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="inline-flex items-center gap-2 rounded-full border border-accent/50 px-5 py-2.5 text-[0.78rem] tracking-wide transition-colors hover:bg-accent/10"
-                            >
-                              <Navigation className="h-4 w-4" aria-hidden />
-                              Directions
-                            </a>
-                          ) : null}
-                        </div>
-                      ) : null}
-
-                      <p className="mt-5 leading-relaxed text-muted-foreground">
-                        {ev.detail}
-                      </p>
-
-                      {ev.theme ? (
-                        <p className="mt-4 inline-flex items-start justify-center gap-2 text-[0.95rem] leading-relaxed">
-                          <Shirt
-                            className="mt-1 h-4 w-4 shrink-0 text-accent"
-                            aria-hidden
-                          />
-                          <span className="font-display text-lg leading-snug">
-                            {ev.theme}
-                          </span>
-                        </p>
-                      ) : null}
-
-                      {ev.location ? (
-                        <p className="mt-4 inline-flex items-start justify-center gap-2 text-[0.9rem] text-muted-foreground">
-                          <MapPin
-                            className="mt-0.5 h-4 w-4 shrink-0 text-accent"
-                            aria-hidden
-                          />
-                          <span>{ev.location}</span>
-                        </p>
-                      ) : null}
-                    </div>
-                  </article>
-                );
-              })}
+                    ) : null}
+                  </div>
+                </article>
+              ))}
             </div>
           </section>
         ))}
       </div>
 
-      <div className="surface-card mt-20 rounded-sm p-6 sm:p-9 text-center">
-        <p className="eyebrow">A gentle note on outfits</p>
-        <p className="mx-auto mt-4 max-w-xl leading-relaxed text-muted-foreground">
-          Sri Lanka in February is warm and humid — think breathable fabrics, and
-          heels that can handle sand and grass. For the civil ceremony please
-          avoid black, white and red. For the Sangeet, the brighter the better.
-        </p>
-      </div>
+      <section className="mt-20 sm:mt-28">
+        <SectionHeading
+          eyebrow="Dress code"
+          title="What to Wear"
+          intro="Sri Lanka in February is warm and humid — think breathable fabrics, and heels that can handle sand and grass."
+        />
+
+        <div className="mt-10 space-y-8">
+          {dressCodes.map((dc) => (
+            <article key={dc.title} className="surface-card overflow-hidden rounded-sm">
+              <img
+                src={dc.small}
+                srcSet={`${dc.small} 640w, ${dc.large} 1440w`}
+                sizes="(max-width: 768px) 92vw, 900px"
+                alt={dc.alt}
+                loading="lazy"
+                decoding="async"
+                className="w-full object-cover"
+              />
+              <div className="p-6 text-center sm:p-9">
+                <p className="eyebrow">{dc.event}</p>
+                <h3 className="mt-2 font-display text-2xl sm:text-3xl">{dc.title}</h3>
+                <p className="mx-auto mt-4 max-w-xl leading-relaxed text-muted-foreground">
+                  {dc.detail}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
