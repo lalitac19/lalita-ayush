@@ -54,33 +54,33 @@
 :root {
   --radius: 0.25rem;
 
-  --background: oklch(0.978 0.012 88);
-  --foreground: oklch(0.28 0.03 62);
-  --card: oklch(0.992 0.007 90);
-  --card-foreground: oklch(0.28 0.03 62);
-  --popover: oklch(0.992 0.007 90);
-  --popover-foreground: oklch(0.28 0.03 62);
+  --background: oklch(0.971 0.007 81);
+  --foreground: oklch(0.531 0.020 67);
+  --card: oklch(0.985 0.006 81);
+  --card-foreground: oklch(0.531 0.020 67);
+  --popover: oklch(0.985 0.006 81);
+  --popover-foreground: oklch(0.531 0.020 67);
 
-  --primary: oklch(0.38 0.07 163);
-  --primary-foreground: oklch(0.98 0.012 88);
-  --secondary: oklch(0.94 0.025 86);
-  --secondary-foreground: oklch(0.32 0.04 62);
-  --muted: oklch(0.945 0.02 86);
-  --muted-foreground: oklch(0.52 0.03 68);
-  --accent: oklch(0.72 0.105 78);
-  --accent-foreground: oklch(0.24 0.03 62);
+  --primary: oklch(0.758 0.030 134);
+  --primary-foreground: oklch(0.328 0.020 48);
+  --secondary: oklch(0.893 0.028 71);
+  --secondary-foreground: oklch(0.328 0.020 48);
+  --muted: oklch(0.893 0.028 71);
+  --muted-foreground: oklch(0.531 0.020 67);
+  --accent: oklch(0.736 0.082 80);
+  --accent-foreground: oklch(0.328 0.020 48);
   --destructive: oklch(0.55 0.19 27);
-  --destructive-foreground: oklch(0.98 0.012 88);
-  --border: oklch(0.88 0.025 84);
-  --input: oklch(0.88 0.025 84);
-  --ring: oklch(0.72 0.105 78);
+  --destructive-foreground: oklch(0.971 0.007 81);
+  --border: oklch(0.868 0.026 73);
+  --input: oklch(0.868 0.026 73);
+  --ring: oklch(0.736 0.082 80);
 
-  --gold: oklch(0.72 0.105 78);
-  --marigold: oklch(0.7 0.16 55);
-  --ocean: oklch(0.52 0.09 220);
-  --blush: oklch(0.72 0.13 5);
-  --ink: oklch(0.24 0.025 62);
-  --sand: oklch(0.93 0.035 85);
+  --gold: oklch(0.736 0.082 80);
+  --marigold: oklch(0.736 0.082 80);
+  --ocean: oklch(0.758 0.030 134);
+  --blush: oklch(0.893 0.028 71);
+  --ink: oklch(0.328 0.020 48);
+  --sand: oklch(0.893 0.028 71);
 
   --gradient-hero: linear-gradient(
     180deg,
@@ -120,17 +120,17 @@
     background-image:
       radial-gradient(
         58rem 40rem at 8% -6%,
-        color-mix(in oklab, var(--gold) 22%, transparent),
+        color-mix(in oklab, var(--gold) 14%, transparent),
         transparent 70%
       ),
       radial-gradient(
         52rem 38rem at 104% 12%,
-        color-mix(in oklab, var(--ocean) 18%, transparent),
+        color-mix(in oklab, var(--sand) 45%, transparent),
         transparent 70%
       ),
       radial-gradient(
         60rem 44rem at 50% 108%,
-        color-mix(in oklab, var(--primary) 16%, transparent),
+        color-mix(in oklab, var(--sand) 40%, transparent),
         transparent 70%
       );
     background-attachment: fixed;
@@ -140,6 +140,7 @@
   h2,
   h3,
   h4 {
+    color: var(--ink);
     font-family: var(--font-display);
     font-weight: 300;
     letter-spacing: -0.01em;
