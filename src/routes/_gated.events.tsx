@@ -102,6 +102,18 @@ function Events() {
         intro="A beach ceremony, a garden dinner, an afternoon by the pool and a night of Bollywood glam. Everything you need to know for the weekend is below, including the dress code for each event at the bottom of the page."
       />
 
+      <div className="mt-8 flex justify-center">
+        <a
+          href="/lalita-ayush-weekend-itinerary.pdf"
+          download
+          className="inline-flex items-center gap-2 rounded-full border border-accent/60 bg-secondary/60 px-5 py-3 text-[0.72rem] font-bold tracking-[0.2em] uppercase transition-colors hover:bg-accent/15 sm:px-6 sm:text-[0.75rem]"
+        >
+          <Download className="h-4 w-4 shrink-0 text-accent" aria-hidden />
+          Download the itinerary (PDF)
+        </a>
+      </div>
+
+
       <div className="mt-12 space-y-14 sm:space-y-20">
         {content.days.map((day) => (
           <section key={day.date}>
