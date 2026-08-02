@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CalendarPlus, MapPin, Navigation } from "lucide-react";
+import { CalendarPlus, Clock, MapPin, Navigation } from "lucide-react";
 import { useWedding } from "@/lib/use-wedding";
 import type { EventItem } from "@/lib/wedding-types";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -98,7 +98,7 @@ function Events() {
       <SectionHeading
         eyebrow="20 — 22 February 2027"
         title="The Weekend"
-        intro="A beach ceremony, a garden dinner, an afternoon by the pool and a night of Bollywood glam. Here is how it all unfolds — dress codes for every event are at the bottom of this page."
+        intro="A beach ceremony, a garden dinner, an afternoon by the pool and a night of Bollywood glam. Everything you need to know for the weekend is below, including the dress code for each event at the bottom of the page."
       />
 
       <div className="mt-12 space-y-14 sm:space-y-20">
@@ -128,7 +128,8 @@ function Events() {
                     <h3 className="font-display text-2xl sm:text-3xl">
                       {ev.title}
                     </h3>
-                    <p className="mt-2 text-[0.7rem] tracking-[0.26em] text-accent uppercase">
+                    <p className="mt-3 inline-flex items-center gap-2 rounded-full bg-accent/15 px-4 py-1.5 font-display text-lg font-semibold text-foreground sm:text-xl">
+                      <Clock className="h-4 w-4 text-accent" aria-hidden />
                       {ev.time}
                     </p>
 
@@ -163,7 +164,7 @@ function Events() {
                     </p>
 
                     {ev.location ? (
-                      <p className="mt-4 inline-flex items-start justify-center gap-2 text-[0.9rem] text-muted-foreground">
+                      <p className="mt-5 inline-flex items-start justify-center gap-2 rounded-sm border border-accent/40 bg-secondary/50 px-4 py-2.5 text-[0.95rem] font-medium text-foreground">
                         <MapPin
                           className="mt-0.5 h-4 w-4 shrink-0 text-accent"
                           aria-hidden
@@ -200,12 +201,31 @@ function Events() {
               />
               <div className="p-6 text-center sm:p-9">
                 <p className="eyebrow">{dc.event}</p>
-                <h3 className="mt-2 font-display text-2xl sm:text-3xl">{dc.title}</h3>
+                <h3 className="mt-3 inline-block rounded-full bg-accent/20 px-5 py-2 font-display text-2xl font-semibold text-foreground sm:text-3xl">
+                  {dc.title}
+                </h3>
                 <p className="mx-auto mt-4 max-w-xl leading-relaxed text-muted-foreground">
                   {dc.detail}
                 </p>
               </div>
             </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-20 sm:mt-28">
+        <SectionHeading
+          eyebrow="Good to know"
+          title="Q&A"
+          intro="And if we've missed anything at all, just message us."
+        />
+
+        <div className="mx-auto mt-10 max-w-3xl space-y-8">
+          {content.faqs.map((f) => (
+            <div key={f.q} className="border-b border-border pb-8 last:border-0">
+              <h3 className="font-display text-2xl">{f.q}</h3>
+              <p className="mt-3 leading-relaxed text-muted-foreground">{f.a}</p>
+            </div>
           ))}
         </div>
       </section>

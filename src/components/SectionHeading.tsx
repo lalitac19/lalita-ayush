@@ -1,3 +1,5 @@
+import type React from "react";
+
 export function SectionHeading({
   eyebrow,
   title,
@@ -6,7 +8,7 @@ export function SectionHeading({
 }: {
   eyebrow?: string;
   title: string;
-  intro?: string;
+  intro?: React.ReactNode;
   align?: "center" | "left";
 }) {
   return (
