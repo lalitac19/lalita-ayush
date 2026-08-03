@@ -178,10 +178,6 @@ export const weddingContent: WeddingContent = {
       a: "While we adore your little ones, we have chosen to make our wedding celebrations an adults-only occasion. We hope this gives you the opportunity to relax, celebrate, and enjoy the weekend with us.",
     },
     {
-      q: "What is the overall vibe of your wedding?",
-      a: "Bring your appetite, dancing shoes & best outfits.",
-    },
-    {
       q: "Are gifts welcome?",
       a: "Your presence is the only gift we need. If you wish to celebrate us further, a contribution towards our honeymoon fund would mean the world to us. Details are below.",
     },
