@@ -12,6 +12,7 @@ below to match and re-run:
 
 import os
 
+from PIL import Image as PILImage
 from reportlab.lib.colors import Color
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfbase import pdfmetrics
@@ -20,6 +21,9 @@ from reportlab.pdfgen import canvas
 
 OUTPUT_PATH = os.path.join(
     os.path.dirname(__file__), "..", "public", "lalita-ayush-weekend-itinerary.pdf"
+)
+MAP_PATH = os.path.join(
+    os.path.dirname(__file__), "..", "src", "assets", "avani-resort-map.jpeg"
 )
 
 FONT_DIR = "/usr/share/fonts/truetype/dejavu"
@@ -379,6 +383,37 @@ def render_venue_page(flow):
         flow.cursor += row_height + 8.0
 
     draw_text(c, COL_TITLE_X, 300.6, "We can't wait to celebrate with you.", "DejaVuSerif", 12, GOLD)
+
+    map_w, map_h = PILImage.open(MAP_PATH).size
+    image_w = CONTENT_W
+    image_h = image_w * (map_h / map_w)
+
+    flow.cursor = 300.6 + 30.73
+    intro_lines = wrap_text(
+        "Find your way between the ceremony, dinner and party spots at Avani "
+        "Kalutara Resort.",
+        "DejaVuSans",
+        8.8,
+        CONTENT_W,
+    )
+    needed = 17 + 24.1 + len(intro_lines) * BODY_LEADING + 16.35 + image_h
+    if flow.cursor + needed > BOTTOM_LIMIT:
+        flow.force_new_page()
+
+    draw_text(c, CONTENT_L, flow.cursor, "Resort Map", "DejaVuSerif-Bold", 17, DARK)
+    draw_wrapped(c, CONTENT_L, flow.cursor + 24.1, intro_lines, "DejaVuSans", 8.8, MUTED)
+    image_top = flow.cursor + 24.1 + len(intro_lines) * BODY_LEADING + 16.35
+
+    c.setStrokeColor(HAIRLINE)
+    c.setLineWidth(0.75)
+    c.drawImage(
+        MAP_PATH,
+        CONTENT_L,
+        PAGE_H - image_top - image_h,
+        width=image_w,
+        height=image_h,
+    )
+    c.rect(CONTENT_L, PAGE_H - image_top - image_h, image_w, image_h, fill=0, stroke=1)
 
 
 def main():
