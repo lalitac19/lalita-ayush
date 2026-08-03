@@ -66,7 +66,7 @@ const dressCodes = [
     event: "Civil Ceremony · Dinner & Dance",
     title: "Summer Formal",
     detail:
-      "Pastels, florals and soft colour. Linen suits, flowing dresses and heels that can handle sand. Please avoid black, white and red.",
+      "Pastels, florals and soft colour — colour is encouraged. Linen suits, flowing dresses and heels that can handle sand. Please avoid black, white and red.",
     small: formalSmall,
     large: formalLarge,
     alt: "Summer formal dress code illustration — linen suits and floral maxi dresses",

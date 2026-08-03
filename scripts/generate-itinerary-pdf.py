@@ -80,15 +80,16 @@ CONTENT = {
                     "time": "4:45 – 7:30 pm",
                     "title": "Civil Ceremony & Cocktail Hour",
                     "detail": "Our official 'I do'. Join us as we exchange our vows with the "
-                    "ocean as our backdrop, followed by sunset cocktails and canapés, before "
-                    "dinner and dancing to a live band. Please be seated by 4:45 pm.",
+                    "ocean as our backdrop, followed by sunset cocktails and canapés. We "
+                    "kindly ask that you are seated by 4:45 pm for the ceremony.",
                     "location": "The beach, Avani Kalutara Resort",
                 },
                 {
-                    "time": "7:30 pm – 1:00 am",
+                    "time": "8:00 pm – 1:00 am",
                     "title": "Dinner & Dance",
-                    "detail": "Dinner under the stars followed by dancing with a live band.",
-                    "location": "Avani Kalutara Resort",
+                    "detail": "Raise a glass, enjoy dinner, hear a few heartfelt words and "
+                    "dance the night away to the sounds of our live band.",
+                    "location": "The River Mouth, Avani Kalutara Resort",
                 },
             ],
         },
@@ -137,8 +138,8 @@ CONTENT = {
         {
             "eyebrow": "CIVIL CEREMONY · DINNER & DANCE",
             "title": "Summer Formal",
-            "detail": "Pastels, florals and soft colour. Linen suits, flowing dresses and "
-            "heels that can handle sand. Please avoid black, white and red.",
+            "detail": "Pastels, florals and soft colour — colour is encouraged. Linen suits, "
+            "flowing dresses and heels that can handle sand. Please avoid black, white and red.",
         },
         {
             "eyebrow": "POOL PARTY",
