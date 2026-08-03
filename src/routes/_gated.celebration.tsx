@@ -86,10 +86,11 @@ function Celebration() {
           </p>
           <p className="mx-auto mt-3 max-w-2xl text-[0.95rem] leading-relaxed text-background/85">
             Join us from 20–22 February 2027 for an unforgettable weekend of
-            celebrations. We'll begin with a beachfront civil ceremony, sunset
-            cocktails, dinner and dancing on Saturday, before continuing with a
-            day of poolside fun, a vibrant Sangeet celebration and a farewell
-            breakfast to bring the festivities to a close.
+            celebrations. Saturday begins with our beachfront civil ceremony,
+            followed by cocktails, dinner and dancing. On Sunday, enjoy a day
+            by the pool before an evening of Sangeet celebrations, and on
+            Monday, join us for a farewell breakfast before we say our
+            goodbyes.
           </p>
           <p className="mx-auto mt-3 max-w-2xl text-[0.95rem] leading-relaxed text-background/85">
             Please note that this will be an adults-only celebration, giving

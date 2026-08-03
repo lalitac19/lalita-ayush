@@ -11,6 +11,8 @@ import poolSmall from "@/assets/opt/pool2-640.webp";
 import poolLarge from "@/assets/opt/pool2-1440.webp";
 import sangeetSmall from "@/assets/opt/sangeet2-640.webp";
 import sangeetLarge from "@/assets/opt/sangeet2-1440.webp";
+import resortMapSmall from "@/assets/opt/avani-resort-map-640.webp";
+import resortMapLarge from "@/assets/opt/avani-resort-map-1440.webp";
 
 function downloadIcs(ev: EventItem) {
   if (!ev.start) return;
@@ -66,7 +68,7 @@ const dressCodes = [
     event: "Civil Ceremony · Dinner & Dance",
     title: "Summer Formal",
     detail:
-      "Pastels, florals and soft colour. Linen suits, flowing dresses and heels that can handle sand. Please avoid black, white and red.",
+      "Pastels, florals and soft colour — colour is encouraged. Linen suits, flowing dresses and heels that can handle sand. Please avoid black, white and red.",
     small: formalSmall,
     large: formalLarge,
     alt: "Summer formal dress code illustration — linen suits and floral maxi dresses",
@@ -81,7 +83,7 @@ const dressCodes = [
     alt: "Pool party dress code illustration — swimwear, kaftans and linen shirts",
   },
   {
-    event: "Sangeet, Dinner & Dance",
+    event: "Sangeet, Dinner & DJ Night",
     title: "Bollywood Glam",
     detail:
       "Indian and Indo-Western at its most vibrant — sarees, lehengas, bandhgalas and kurtas. The brighter the better, and made for dancing.",
@@ -236,6 +238,25 @@ function Events() {
 
         <div className="mt-10">
           <FaqAccordion faqs={content.faqs} venueUrl={content.venue.url} />
+        </div>
+      </section>
+
+      <section className="mt-20 sm:mt-28">
+        <SectionHeading
+          eyebrow="Getting around"
+          title="Resort Map"
+          intro="Find your way between the ceremony, dinner and party spots at Avani Kalutara Resort."
+        />
+        <div className="mt-10 overflow-hidden rounded-sm border border-accent/40">
+          <img
+            src={resortMapSmall}
+            srcSet={`${resortMapSmall} 640w, ${resortMapLarge} 1440w`}
+            sizes="(max-width: 768px) 92vw, 900px"
+            alt="Illustrated map of Avani Kalutara Resort showing the entrance, reception, restaurants, pool, beach, Anantara Ballroom and River Mouth"
+            loading="lazy"
+            decoding="async"
+            className="w-full"
+          />
         </div>
       </section>
 

@@ -30,13 +30,22 @@ export const weddingContent: WeddingContent = {
           time: "4:45 – 7:30 pm",
           title: "Civil Ceremony & Cocktail Hour",
           detail:
-            "Our official 'I do'. Join us as we exchange our vows with the ocean as our backdrop, followed by sunset cocktails and canapés, before enjoying dinner and dancing the night away to a live band. We kindly ask that you are seated by 4:45 pm for the ceremony.",
+            "Our official 'I do'. Join us as we exchange our vows with the ocean as our backdrop, followed by sunset cocktails and canapés. We kindly ask that you are seated by 4:45 pm for the ceremony.",
           theme:
             "Summer formal — colour is very much encouraged. No black, white or red.",
           image: "ceremony",
           location: "The beach, Avani Kalutara Resort",
           start: "20270220T111500Z",
           end: "20270220T140000Z",
+        },
+        {
+          time: "8:00 pm – 1:00 am",
+          title: "Dinner & Dance",
+          detail:
+            "Raise a glass, enjoy dinner, hear a few heartfelt words and dance the night away to the sounds of our live band.",
+          location: "The River Mouth, Avani Kalutara Resort",
+          start: "20270220T143000Z",
+          end: "20270220T193000Z",
         },
       ],
     },
@@ -67,13 +76,13 @@ export const weddingContent: WeddingContent = {
         },
         {
           time: "7:30 pm until late",
-          title: "Sangeet, Dinner & Dance",
+          title: "Sangeet, Dinner & DJ Night",
           detail:
             "The grand finale of our wedding weekend. An evening of vibrant performances, incredible food and a packed dance floor. Join us as we celebrate with dinner, music and dancing late into the early hours of the morning.",
           theme:
             "Bollywood glam — Indian & Indo-Western. Vibrant colour, festive elegance, outfits made for dancing.",
           image: "sangeet",
-          location: "Anantara Banquet Hall, Avani Kalutara Resort",
+          location: "Anantara Ballroom",
           mapsUrl: "https://maps.google.com/?q=Anantara+Kalutara+Resort+Sri+Lanka",
           start: "20270221T140000Z",
           end: "20270221T193000Z",
