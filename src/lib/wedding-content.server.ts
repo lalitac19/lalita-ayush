@@ -67,13 +67,13 @@ export const weddingContent: WeddingContent = {
         },
         {
           time: "7:30 pm until late",
-          title: "Sangeet, Dinner & Dance",
+          title: "Sangeet, Dinner & DJ Night",
           detail:
             "The grand finale of our wedding weekend. An evening of vibrant performances, incredible food and a packed dance floor. Join us as we celebrate with dinner, music and dancing late into the early hours of the morning.",
           theme:
             "Bollywood glam — Indian & Indo-Western. Vibrant colour, festive elegance, outfits made for dancing.",
           image: "sangeet",
-          location: "Anantara Banquet Hall, Avani Kalutara Resort",
+          location: "Anantara Ballroom",
           mapsUrl: "https://maps.google.com/?q=Anantara+Kalutara+Resort+Sri+Lanka",
           start: "20270221T140000Z",
           end: "20270221T193000Z",

@@ -81,7 +81,7 @@ const dressCodes = [
     alt: "Pool party dress code illustration — swimwear, kaftans and linen shirts",
   },
   {
-    event: "Sangeet, Dinner & Dance",
+    event: "Sangeet, Dinner & DJ Night",
     title: "Bollywood Glam",
     detail:
       "Indian and Indo-Western at its most vibrant — sarees, lehengas, bandhgalas and kurtas. The brighter the better, and made for dancing.",
