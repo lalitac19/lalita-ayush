@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import {
   Accordion,
   AccordionContent,
@@ -6,6 +7,27 @@ import {
 } from "@/components/ui/accordion";
 
 type Faq = { q: string; a: string };
+
+const GETTING_THERE_LABEL = "Getting There";
+
+function renderAnswer(answer: string) {
+  const parts = answer.split(GETTING_THERE_LABEL);
+  if (parts.length === 1) return answer;
+
+  return parts.map((part, i) => (
+    <span key={i}>
+      {part}
+      {i < parts.length - 1 ? (
+        <Link
+          to="/getting-there"
+          className="underline underline-offset-4 transition hover:text-accent"
+        >
+          {GETTING_THERE_LABEL}
+        </Link>
+      ) : null}
+    </span>
+  ));
+}
 
 export function FaqAccordion({
   faqs,
@@ -30,7 +52,7 @@ export function FaqAccordion({
             {f.q}
           </AccordionTrigger>
           <AccordionContent className="pb-6 text-[0.95rem] leading-relaxed text-muted-foreground">
-            <p>{f.a}</p>
+            <p>{renderAnswer(f.a)}</p>
             {venueUrl && f.q.startsWith("Can I arrive earlier") ? (
               <a
                 href={venueUrl}
