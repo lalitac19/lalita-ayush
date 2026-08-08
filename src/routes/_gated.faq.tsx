@@ -35,7 +35,7 @@ function Faq() {
       />
 
       <div className="mt-12">
-        <FaqAccordion faqs={content.faqs} venueUrl={content.venue.url} />
+        <FaqAccordion faqs={content.faqs} />
       </div>
 
 

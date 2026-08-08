@@ -29,13 +29,7 @@ function renderAnswer(answer: string) {
   ));
 }
 
-export function FaqAccordion({
-  faqs,
-  venueUrl,
-}: {
-  faqs: readonly Faq[];
-  venueUrl?: string;
-}) {
+export function FaqAccordion({ faqs }: { faqs: readonly Faq[] }) {
   return (
     <Accordion
       type="single"
@@ -53,16 +47,6 @@ export function FaqAccordion({
           </AccordionTrigger>
           <AccordionContent className="pb-6 text-[0.95rem] leading-relaxed text-muted-foreground">
             <p>{renderAnswer(f.a)}</p>
-            {venueUrl && f.q.startsWith("Can I arrive earlier") ? (
-              <a
-                href={venueUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-4 inline-block text-[0.68rem] tracking-[0.24em] uppercase underline underline-offset-4 transition hover:text-accent"
-              >
-                Book at Avani Kalutara →
-              </a>
-            ) : null}
           </AccordionContent>
         </AccordionItem>
       ))}

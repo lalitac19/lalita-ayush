@@ -186,8 +186,8 @@ export const weddingContent: WeddingContent = {
       a: "For those arriving Saturday and leaving Monday, transportation will be provided. We will be collecting your arrival and departure information closer to the time. You're more than welcome to arrive earlier or leave later — see the Getting There page for more information.",
     },
     {
-      q: "Can I arrive earlier, or stay at Avani longer?",
-      a: "For those wanting to arrive on Friday 19th Feb, or stay an extra night on 22nd Feb 2027, we've negotiated a special rate for you. Enter the promo code XXXX when you book your room directly through the hotel website.",
+      q: "Can I arrive at Avani a day earlier?",
+      a: "For those wanting to arrive on Friday 19th Feb, we've negotiated a special rate for you. You can let us know when you RSVP.",
     },
     {
       q: "Whom should I call with questions?",
