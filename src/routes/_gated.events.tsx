@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { CalendarPlus, Clock, Download, MapPin, Navigation } from "lucide-react";
 import { useWedding } from "@/lib/use-wedding";
 import type { EventItem } from "@/lib/wedding-types";
+import { downloadIcsFile } from "@/lib/download-ics";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { SectionHeading } from "@/components/SectionHeading";
 
@@ -16,31 +17,24 @@ import resortMapLarge from "@/assets/opt/avani-resort-map-1440.webp";
 
 function downloadIcs(ev: EventItem) {
   if (!ev.start) return;
-  const ics = [
-    "BEGIN:VCALENDAR",
-    "VERSION:2.0",
-    "PRODID:-//Lalita and Ayush//Wedding//EN",
-    "BEGIN:VEVENT",
-    `UID:${ev.start}-${ev.title.replace(/\s+/g, "-").toLowerCase()}@lalita-ayush`,
-    `DTSTAMP:${ev.start}`,
-    `DTSTART:${ev.start}`,
-    `DTEND:${ev.end ?? ev.start}`,
-    `SUMMARY:${ev.title} — Lalita & Ayush`,
-    `DESCRIPTION:${ev.detail.replace(/,/g, "\\,")}`,
-    `LOCATION:${(ev.location ?? "Avani Kalutara Resort").replace(/,/g, "\\,")}`,
-    "END:VEVENT",
-    "END:VCALENDAR",
-  ].join("\r\n");
-  const url = URL.createObjectURL(
-    new Blob([ics], { type: "text/calendar;charset=utf-8" }),
+  downloadIcsFile(
+    [
+      "BEGIN:VCALENDAR",
+      "VERSION:2.0",
+      "PRODID:-//Lalita and Ayush//Wedding//EN",
+      "BEGIN:VEVENT",
+      `UID:${ev.start}-${ev.title.replace(/\s+/g, "-").toLowerCase()}@lalita-ayush`,
+      `DTSTAMP:${ev.start}`,
+      `DTSTART:${ev.start}`,
+      `DTEND:${ev.end ?? ev.start}`,
+      `SUMMARY:${ev.title} — Lalita & Ayush`,
+      `DESCRIPTION:${ev.detail.replace(/,/g, "\\,")}`,
+      `LOCATION:${(ev.location ?? "Avani Kalutara Resort").replace(/,/g, "\\,")}`,
+      "END:VEVENT",
+      "END:VCALENDAR",
+    ],
+    `${ev.title.replace(/\s+/g, "-").toLowerCase()}.ics`,
   );
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = `${ev.title.replace(/\s+/g, "-").toLowerCase()}.ics`;
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  URL.revokeObjectURL(url);
 }
 
 export const Route = createFileRoute("/_gated/events")({

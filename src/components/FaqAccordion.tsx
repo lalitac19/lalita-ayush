@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { downloadIcsFile } from "@/lib/download-ics";
 import {
   Accordion,
   AccordionContent,
@@ -10,22 +10,42 @@ type Faq = { q: string; a: string };
 type Contact = { name: string; phone: string };
 type FundOption = { label: string; value: string; url?: string };
 
-const GETTING_THERE_LABEL = "Getting There";
+const TRANSPORT_DEADLINE_LABEL = "10th January 2027.";
+
+function downloadTransportReminder() {
+  downloadIcsFile(
+    [
+      "BEGIN:VCALENDAR",
+      "VERSION:2.0",
+      "PRODID:-//Lalita and Ayush//Wedding//EN",
+      "BEGIN:VEVENT",
+      "UID:20270110-send-flight-information@lalita-ayush",
+      "DTSTAMP:20270110T000000Z",
+      "DTSTART;VALUE=DATE:20270110",
+      "DTEND;VALUE=DATE:20270111",
+      "SUMMARY:Send flight information to Lalita & Ayush",
+      "END:VEVENT",
+      "END:VCALENDAR",
+    ],
+    "send-flight-information.ics",
+  );
+}
 
 function renderAnswer(answer: string) {
-  const parts = answer.split(GETTING_THERE_LABEL);
+  const parts = answer.split(TRANSPORT_DEADLINE_LABEL);
   if (parts.length === 1) return answer;
 
   return parts.map((part, i) => (
     <span key={i}>
       {part}
       {i < parts.length - 1 ? (
-        <Link
-          to="/getting-there"
-          className="underline underline-offset-4 transition hover:text-accent"
+        <button
+          type="button"
+          onClick={downloadTransportReminder}
+          className="inline bg-transparent p-0 font-bold underline underline-offset-4 transition hover:text-accent"
         >
-          {GETTING_THERE_LABEL}
-        </Link>
+          {TRANSPORT_DEADLINE_LABEL}
+        </button>
       ) : null}
     </span>
   ));
