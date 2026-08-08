@@ -14,7 +14,6 @@ import os
 
 from PIL import Image as PILImage
 from reportlab.lib.colors import Color
-from reportlab.lib.utils import ImageReader
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
@@ -327,24 +326,12 @@ def render_itinerary(flow):
     flow.cursor += 30.73 - 11.14
 
 
-DRESS_CODE_IMAGE_H = 220.0
+DRESS_CODE_IMAGE_SCALE = 0.5
 
 
-def cropped_image_for_box(path, target_w, target_h):
-    """Center-crop a source image to exactly fill a target_w x target_h box, like CSS object-cover."""
-    img = PILImage.open(path).convert("RGB")
-    src_w, src_h = img.size
-    target_ratio = target_h / target_w
-    src_ratio = src_h / src_w
-    if src_ratio > target_ratio:
-        new_h = round(src_w * target_ratio)
-        top = (src_h - new_h) // 2
-        img = img.crop((0, top, src_w, top + new_h))
-    else:
-        new_w = round(src_h / target_ratio)
-        left = (src_w - new_w) // 2
-        img = img.crop((left, 0, left + new_w, src_h))
-    return img
+def image_natural_size(path):
+    with PILImage.open(path) as img:
+        return img.size
 
 
 def render_dress_codes(flow):
@@ -365,7 +352,13 @@ def render_dress_codes(flow):
     for dc in CONTENT["dress_codes"]:
         detail_lines = wrap_text(dc["detail"], "DejaVuSans", 8.8, CONTENT_W - 2 * 9)
         text_height = 50.0 + len(detail_lines) * BODY_LEADING
-        height = DRESS_CODE_IMAGE_H + text_height
+
+        src_w, src_h = image_natural_size(dc["image"])
+        image_w = CONTENT_W * DRESS_CODE_IMAGE_SCALE
+        image_h = image_w * (src_h / src_w)
+        image_x = CONTENT_L + (CONTENT_W - image_w) / 2
+
+        height = image_h + text_height
 
         flow.ensure_space(height)
         top = flow.cursor
@@ -373,20 +366,19 @@ def render_dress_codes(flow):
         c.setFillColor(CARD_BG)
         c.rect(CONTENT_L, PAGE_H - top - height, CONTENT_W, height, fill=1, stroke=0)
 
-        image = cropped_image_for_box(dc["image"], CONTENT_W, DRESS_CODE_IMAGE_H)
         c.drawImage(
-            ImageReader(image),
-            CONTENT_L,
-            PAGE_H - top - DRESS_CODE_IMAGE_H,
-            width=CONTENT_W,
-            height=DRESS_CODE_IMAGE_H,
+            dc["image"],
+            image_x,
+            PAGE_H - top - image_h,
+            width=image_w,
+            height=image_h,
         )
 
         c.setStrokeColor(SAGE)
         c.setLineWidth(0.75)
         c.rect(CONTENT_L, PAGE_H - top - height, CONTENT_W, height, fill=0, stroke=1)
 
-        text_top = top + DRESS_CODE_IMAGE_H
+        text_top = top + image_h
         draw_text(c, pad_x, text_top + 6.75, dc["eyebrow"], "DejaVuSans", 7.5, GOLD)
         draw_text(c, pad_x, text_top + 18.35, dc["title"], "DejaVuSerif-Bold", 12, DARK)
         draw_wrapped(c, pad_x, text_top + 47.15, detail_lines, "DejaVuSans", 8.8, MUTED)
