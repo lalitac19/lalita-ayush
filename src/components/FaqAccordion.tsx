@@ -8,6 +8,7 @@ import {
 
 type Faq = { q: string; a: string };
 type Contact = { name: string; phone: string };
+type FundOption = { label: string; value: string; url?: string };
 
 const GETTING_THERE_LABEL = "Getting There";
 
@@ -33,9 +34,11 @@ function renderAnswer(answer: string) {
 export function FaqAccordion({
   faqs,
   contacts,
+  honeymoonFund,
 }: {
   faqs: readonly Faq[];
   contacts?: readonly Contact[];
+  honeymoonFund?: readonly FundOption[];
 }) {
   return (
     <Accordion
@@ -72,6 +75,40 @@ export function FaqAccordion({
                     </span>
                   </a>
                 ))}
+              </div>
+            ) : null}
+            {honeymoonFund && f.q.startsWith("Are gifts welcome") ? (
+              <div className="mt-5 space-y-2.5">
+                {honeymoonFund.map((option) =>
+                  option.url ? (
+                    <a
+                      key={option.label}
+                      href={option.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center justify-between gap-4 rounded-sm border border-accent/40 bg-secondary/40 px-4 py-3 transition hover:bg-secondary"
+                    >
+                      <span className="text-[0.68rem] tracking-[0.16em] text-muted-foreground uppercase">
+                        {option.label}
+                      </span>
+                      <span className="font-display text-base text-foreground underline underline-offset-4">
+                        {option.value}
+                      </span>
+                    </a>
+                  ) : (
+                    <div
+                      key={option.label}
+                      className="flex items-center justify-between gap-4 rounded-sm border border-accent/40 bg-secondary/40 px-4 py-3"
+                    >
+                      <span className="text-[0.68rem] tracking-[0.16em] text-muted-foreground uppercase">
+                        {option.label}
+                      </span>
+                      <span className="font-display text-base text-foreground">
+                        {option.value}
+                      </span>
+                    </div>
+                  ),
+                )}
               </div>
             ) : null}
           </AccordionContent>
