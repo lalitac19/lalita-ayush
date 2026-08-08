@@ -52,7 +52,7 @@ function Faq() {
           {content.travelInfo.map((t) => (
             <div key={t.title} className="surface-card rounded-sm p-6 sm:p-7">
               <h3 className="font-display text-xl leading-snug">{t.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              <p className="mt-3 text-sm leading-relaxed whitespace-pre-line text-muted-foreground">
                 {t.detail}
               </p>
               {t.url ? (
@@ -76,7 +76,7 @@ function Faq() {
         <h2 className="mt-3 font-display text-3xl sm:text-4xl">RSVP</h2>
         <p className="mx-auto mt-5 max-w-xl leading-relaxed text-muted-foreground">
           We can't wait to celebrate with you. Please let us know if you'll be
-          joining us by 1st December 2026, so we can make the necessary
+          joining us by 7th November 2026, so we can make the necessary
           arrangements and ensure you have the best possible weekend with us. If
           we don't hear from you by this date, we'll sadly assume you're not able
           to join.
