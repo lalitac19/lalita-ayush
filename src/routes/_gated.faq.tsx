@@ -35,7 +35,7 @@ function Faq() {
       />
 
       <div className="mt-12">
-        <FaqAccordion faqs={content.faqs} />
+        <FaqAccordion faqs={content.faqs} contacts={content.contacts} />
       </div>
 
 
@@ -66,26 +66,6 @@ function Faq() {
         </div>
       </section>
 
-
-      <div className="surface-card mt-8 rounded-sm p-6 sm:p-9 text-center">
-        <p className="eyebrow">WhatsApp us</p>
-        <div className="mt-5 flex flex-wrap justify-center gap-4">
-          {content.contacts.map((c: { name: string; phone: string }) => (
-            <a
-              key={c.name}
-              href={`https://wa.me/${c.phone.replace(/[^0-9]/g, "")}`}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-sm border border-accent px-7 py-3 transition hover:bg-secondary"
-            >
-              <span className="block font-display text-xl">{c.name}</span>
-              <span className="mt-0.5 block text-[0.7rem] tracking-[0.16em] text-muted-foreground">
-                {c.phone}
-              </span>
-            </a>
-          ))}
-        </div>
-      </div>
 
       <div className="mt-16 text-center">
         <p className="eyebrow">Join our celebration</p>

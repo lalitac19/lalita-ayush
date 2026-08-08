@@ -237,7 +237,7 @@ function Events() {
         />
 
         <div className="mt-10">
-          <FaqAccordion faqs={content.faqs} />
+          <FaqAccordion faqs={content.faqs} contacts={content.contacts} />
         </div>
       </section>
 
