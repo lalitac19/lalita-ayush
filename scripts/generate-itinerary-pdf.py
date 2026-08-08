@@ -14,6 +14,7 @@ import os
 
 from PIL import Image as PILImage
 from reportlab.lib.colors import Color
+from reportlab.lib.utils import ImageReader
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
@@ -25,6 +26,7 @@ OUTPUT_PATH = os.path.join(
 MAP_PATH = os.path.join(
     os.path.dirname(__file__), "..", "src", "assets", "avani-resort-map.jpeg"
 )
+ASSETS_OPT_DIR = os.path.join(os.path.dirname(__file__), "..", "src", "assets", "opt")
 
 FONT_DIR = "/usr/share/fonts/truetype/dejavu"
 pdfmetrics.registerFont(TTFont("DejaVuSerif", f"{FONT_DIR}/DejaVuSerif.ttf"))
@@ -144,18 +146,21 @@ CONTENT = {
             "title": "Summer Formal",
             "detail": "Pastels, florals and soft colour — colour is encouraged. Linen suits, "
             "flowing dresses and heels that can handle sand. Please avoid black, white and red.",
+            "image": os.path.join(ASSETS_OPT_DIR, "summer-formal-1440.webp"),
         },
         {
             "eyebrow": "POOL PARTY",
             "title": "Resort Beach Chic",
             "detail": "Elegant swimwear, kaftans and cover-ups, open linen shirts and swim "
             "shorts. Sunglasses essential.",
+            "image": os.path.join(ASSETS_OPT_DIR, "pool2-1440.webp"),
         },
         {
             "eyebrow": "SANGEET, DINNER & DJ NIGHT",
             "title": "Bollywood Glam",
             "detail": "Indian and Indo-Western at its most vibrant — sarees, lehengas, "
             "bandhgalas and kurtas. The brighter the better, and made for dancing.",
+            "image": os.path.join(ASSETS_OPT_DIR, "sangeet2-1440.webp"),
         },
     ],
     "info_rows": [
@@ -322,6 +327,26 @@ def render_itinerary(flow):
     flow.cursor += 30.73 - 11.14
 
 
+DRESS_CODE_IMAGE_H = 220.0
+
+
+def cropped_image_for_box(path, target_w, target_h):
+    """Center-crop a source image to exactly fill a target_w x target_h box, like CSS object-cover."""
+    img = PILImage.open(path).convert("RGB")
+    src_w, src_h = img.size
+    target_ratio = target_h / target_w
+    src_ratio = src_h / src_w
+    if src_ratio > target_ratio:
+        new_h = round(src_w * target_ratio)
+        top = (src_h - new_h) // 2
+        img = img.crop((0, top, src_w, top + new_h))
+    else:
+        new_w = round(src_h / target_ratio)
+        left = (src_w - new_w) // 2
+        img = img.crop((left, 0, left + new_w, src_h))
+    return img
+
+
 def render_dress_codes(flow):
     c = flow.c
     flow.ensure_space(17 + 24.1 + 27 + 16.35)
@@ -339,20 +364,32 @@ def render_dress_codes(flow):
     pad_x = CONTENT_L + 9
     for dc in CONTENT["dress_codes"]:
         detail_lines = wrap_text(dc["detail"], "DejaVuSans", 8.8, CONTENT_W - 2 * 9)
-        height = 50.0 + len(detail_lines) * BODY_LEADING
+        text_height = 50.0 + len(detail_lines) * BODY_LEADING
+        height = DRESS_CODE_IMAGE_H + text_height
 
         flow.ensure_space(height)
         top = flow.cursor
 
         c.setFillColor(CARD_BG)
         c.rect(CONTENT_L, PAGE_H - top - height, CONTENT_W, height, fill=1, stroke=0)
+
+        image = cropped_image_for_box(dc["image"], CONTENT_W, DRESS_CODE_IMAGE_H)
+        c.drawImage(
+            ImageReader(image),
+            CONTENT_L,
+            PAGE_H - top - DRESS_CODE_IMAGE_H,
+            width=CONTENT_W,
+            height=DRESS_CODE_IMAGE_H,
+        )
+
         c.setStrokeColor(SAGE)
         c.setLineWidth(0.75)
         c.rect(CONTENT_L, PAGE_H - top - height, CONTENT_W, height, fill=0, stroke=1)
 
-        draw_text(c, pad_x, top + 6.75, dc["eyebrow"], "DejaVuSans", 7.5, GOLD)
-        draw_text(c, pad_x, top + 18.35, dc["title"], "DejaVuSerif-Bold", 12, DARK)
-        draw_wrapped(c, pad_x, top + 47.15, detail_lines, "DejaVuSans", 8.8, MUTED)
+        text_top = top + DRESS_CODE_IMAGE_H
+        draw_text(c, pad_x, text_top + 6.75, dc["eyebrow"], "DejaVuSans", 7.5, GOLD)
+        draw_text(c, pad_x, text_top + 18.35, dc["title"], "DejaVuSerif-Bold", 12, DARK)
+        draw_wrapped(c, pad_x, text_top + 47.15, detail_lines, "DejaVuSans", 8.8, MUTED)
 
         flow.cursor = top + height + 6.0
 
