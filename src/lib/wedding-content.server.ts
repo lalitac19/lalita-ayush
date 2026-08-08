@@ -120,11 +120,6 @@ export const weddingContent: WeddingContent = {
           "For those arriving Saturday and leaving Monday, transportation will be provided. We will collect your arrival and departure information closer to the time.",
       },
       {
-        title: "Arriving early or staying on",
-        detail:
-          "You are more than welcome to arrive earlier or leave later — we would love that. Please get in touch with us for more information and room bookings.",
-      },
-      {
         title: "Visas",
         detail:
           "Most nationalities need an ETA (Electronic Travel Authorisation) for Sri Lanka. Apply online before you travel — it only takes a few minutes.",
