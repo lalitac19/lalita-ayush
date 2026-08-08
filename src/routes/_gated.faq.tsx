@@ -35,7 +35,11 @@ function Faq() {
       />
 
       <div className="mt-12">
-        <FaqAccordion faqs={content.faqs} contacts={content.contacts} />
+        <FaqAccordion
+          faqs={content.faqs}
+          contacts={content.contacts}
+          honeymoonFund={content.honeymoonFund}
+        />
       </div>
 
 

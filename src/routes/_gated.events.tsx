@@ -237,7 +237,11 @@ function Events() {
         />
 
         <div className="mt-10">
-          <FaqAccordion faqs={content.faqs} contacts={content.contacts} />
+          <FaqAccordion
+            faqs={content.faqs}
+            contacts={content.contacts}
+            honeymoonFund={content.honeymoonFund}
+          />
         </div>
       </section>
 

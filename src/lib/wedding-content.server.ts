@@ -196,6 +196,11 @@ export const weddingContent: WeddingContent = {
     { name: "Ayush", phone: "+65 8401 8517" },
     { name: "Lalita", phone: "+44 7565 790424" },
   ],
+  honeymoonFund: [
+    { label: "Revolut", value: "revolut.me/lalitac", url: "https://revolut.me/lalitac" },
+    { label: "PayNow", value: "+65 8401 8517" },
+    { label: "GPay", value: "+91 97910 25776" },
+  ],
   attractions: [
     {
       name: "Galle Fort",
