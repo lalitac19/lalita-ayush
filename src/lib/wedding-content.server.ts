@@ -117,7 +117,7 @@ export const weddingContent: WeddingContent = {
       {
         title: "Transfers",
         detail:
-          "For those arriving Saturday and leaving Monday, transportation will be provided. We will collect your arrival and departure information closer to the time.",
+          "If you're arriving on Saturday 20th February and departing on Monday 22nd February, we'll arrange your transportation. We'll be collecting your arrival and departure details by 10th January 2027.",
       },
       {
         title: "Visas",

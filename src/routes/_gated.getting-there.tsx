@@ -4,6 +4,7 @@ import { useWedding } from "@/lib/use-wedding";
 import venueSmall from "@/assets/opt/avani-watercolour-640.webp";
 import venueLarge from "@/assets/opt/avani-watercolour-1440.webp";
 import { SectionHeading } from "@/components/SectionHeading";
+import { TransportDeadlineText } from "@/components/TransportDeadlineText";
 
 export const Route = createFileRoute("/_gated/getting-there")({
   head: () => ({
@@ -53,7 +54,7 @@ function GettingThere() {
           <div key={p.title} className="surface-card rounded-sm p-6 sm:p-8">
             <h3 className="font-display text-2xl">{p.title}</h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              {p.detail}
+              <TransportDeadlineText text={p.detail} />
             </p>
             {p.url ? (
               <a
