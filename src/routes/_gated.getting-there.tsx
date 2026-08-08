@@ -55,6 +55,16 @@ function GettingThere() {
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
               {p.detail}
             </p>
+            {p.url ? (
+              <a
+                href={p.url}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-4 inline-block text-[0.68rem] tracking-[0.24em] uppercase underline underline-offset-4 transition hover:text-accent"
+              >
+                Apply for your ETA →
+              </a>
+            ) : null}
           </div>
         ))}
       </div>

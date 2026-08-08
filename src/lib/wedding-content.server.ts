@@ -123,6 +123,7 @@ export const weddingContent: WeddingContent = {
         title: "Visas",
         detail:
           "Most nationalities need an ETA (Electronic Travel Authorisation) for Sri Lanka. Apply online before you travel — it only takes a few minutes.",
+        url: "https://eta.gov.lk/slvisa/visainfo/center.jsp",
       },
     ],
   },
@@ -150,7 +151,8 @@ export const weddingContent: WeddingContent = {
     {
       title: "Visa & Entry Requirements",
       detail:
-        "All travellers visiting Sri Lanka must apply for an Electronic Travel Authorization (ETA) before arrival. Apply only via the official site https://www.eta.gov.lk/slvisa/visainfo/apply.jsp?locale=en_US — and make sure your passport is valid for at least 6 months beyond your travel dates.",
+        "All travellers visiting Sri Lanka must apply for an Electronic Travel Authorization (ETA) before arrival. Apply only via the official site — and make sure your passport is valid for at least 6 months beyond your travel dates.",
+      url: "https://eta.gov.lk/slvisa/visainfo/center.jsp",
     },
     {
       title: "SIM Cards",
