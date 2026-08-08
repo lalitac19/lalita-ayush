@@ -176,7 +176,7 @@ export const weddingContent: WeddingContent = {
     },
     {
       q: "Are gifts welcome?",
-      a: "Your presence is the only gift we need. If you wish to celebrate us further, a contribution towards our honeymoon fund would mean the world to us. Details are below.",
+      a: "Your presence is the only gift we need. If you wish to celebrate us further, a contribution towards our honeymoon fund would mean the world to us.",
     },
     {
       q: "Is transportation provided?",
@@ -195,13 +195,6 @@ export const weddingContent: WeddingContent = {
   contacts: [
     { name: "Ayush", phone: "+65 8401 8517" },
     { name: "Lalita", phone: "+44 7565 790424" },
-  ],
-  honeymoon: [
-    "Lalita Chopra",
-    "Wio Bank PJSC",
-    "Etihad Airways Centre, 5th Floor, Abu Dhabi, UAE",
-    "IBAN: AE420860000006897094783",
-    "SWIFT/BIC: WIOBAEADXXX",
   ],
   attractions: [
     {

@@ -43,7 +43,6 @@ export type WeddingContent = {
   discover: string[];
   faqs: Faq[];
   contacts: { name: string; phone: string }[];
-  honeymoon: string[];
   areas: Area[];
   attractions: { name: string; note: string }[];
   rsvpUrl: string;
