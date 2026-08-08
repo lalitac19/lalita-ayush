@@ -237,7 +237,7 @@ function Events() {
         />
 
         <div className="mt-10">
-          <FaqAccordion faqs={content.faqs} venueUrl={content.venue.url} />
+          <FaqAccordion faqs={content.faqs} />
         </div>
       </section>
 
