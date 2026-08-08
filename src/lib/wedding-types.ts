@@ -37,9 +37,9 @@ export type WeddingContent = {
   travel: {
     heading: string;
     body: string;
-    points: { title: string; detail: string }[];
+    points: { title: string; detail: string; url?: string }[];
   };
-  travelInfo: { title: string; detail: string }[];
+  travelInfo: { title: string; detail: string; url?: string }[];
   discover: string[];
   faqs: Faq[];
   contacts: { name: string; phone: string }[];
