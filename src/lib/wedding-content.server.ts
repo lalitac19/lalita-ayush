@@ -131,17 +131,12 @@ export const weddingContent: WeddingContent = {
     {
       title: "Ride-Hailing Apps (Most Recommended)",
       detail:
-        "The easiest and most flexible way to reach Bentota is by using Uber or PickMe. Both services are available from the airport.",
+        "The easiest and most flexible way to reach Kalutara is by using Uber or PickMe. Both services are available from the airport.",
     },
     {
       title: "Train (Scenic Coastal Route)",
       detail:
         "For a uniquely Sri Lankan experience, take a train from Colombo Fort Railway Station to Kalutara South Railway Station. The journey takes approximately 1.5–2 hours, offering beautiful coastal views along the way. From the station, the resort is just a short tuk-tuk or taxi ride away.",
-    },
-    {
-      title: "Private Transfers",
-      detail:
-        "If you prefer to arrange a ride in advance, we highly recommend checking out colomboairporttransfers.com",
     },
     {
       title: "Currency Exchange",
@@ -157,7 +152,7 @@ export const weddingContent: WeddingContent = {
     {
       title: "SIM Cards",
       detail:
-        "You can easily purchase a local SIM card upon arrival. Major providers like Dialog and Mobitel have stalls in the arrival lobby at the airport with tourist-friendly data, call and SMS packages.",
+        "Complimentary Wi-Fi is available throughout the hotel. For connectivity while travelling around Sri Lanka, we recommend purchasing an eSIM before you arrive. Popular providers include Airalo and Yesim, although any reputable eSIM provider will work.\n\nAlternatively, you can purchase a local SIM card on arrival. Major providers such as Dialog and Mobitel have kiosks in the airport arrivals hall, offering tourist-friendly packages that include data, calls and SMS.",
     },
   ],
   discover: [
