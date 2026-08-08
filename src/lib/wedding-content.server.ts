@@ -180,7 +180,7 @@ export const weddingContent: WeddingContent = {
     },
     {
       q: "Is transportation provided?",
-      a: "For those arriving Saturday and leaving Monday, transportation will be provided. We will be collecting your arrival and departure information closer to the time. You're more than welcome to arrive earlier or leave later — see the Getting There page for more information.",
+      a: "If you're arriving on Saturday 20th February and departing on Monday 22nd February, we'll arrange your transportation. We'll be collecting your arrival and departure details by 10th January 2027.",
     },
     {
       q: "Can I arrive at Avani a day earlier?",
