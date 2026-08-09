@@ -211,6 +211,8 @@ function Events() {
                 srcSet={`${dc.small} 640w, ${dc.large} 1440w`}
                 sizes="(max-width: 768px) 92vw, 900px"
                 alt={dc.alt}
+                width={dc.width}
+                height={dc.height}
                 loading="lazy"
                 decoding="async"
                 className="w-full object-cover"
