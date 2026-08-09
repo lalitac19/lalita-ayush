@@ -28,7 +28,7 @@ const chapters = [
   {
     number: "I",
     title: "A Swipe Right",
-    photo: "m05",
+    photo: "s01",
     paragraphs: [
       "Like many modern love stories, ours began with a swipe right on Hinge.",
       "Lalita was in Singapore on a work trip while Ayush was away on holiday, so although we matched, we didn't get to meet. Most people would have let the conversation fizzle out. Somehow, we kept talking.",
