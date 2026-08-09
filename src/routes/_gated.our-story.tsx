@@ -28,7 +28,7 @@ const chapters = [
   {
     number: "I",
     title: "A Swipe Right",
-    photo: "m05",
+    photo: "s01",
     paragraphs: [
       "Like many modern love stories, ours began with a swipe right on Hinge.",
       "Lalita was in Singapore on a work trip while Ayush was away on holiday, so although we matched, we didn't get to meet. Most people would have let the conversation fizzle out. Somehow, we kept talking.",
@@ -38,7 +38,7 @@ const chapters = [
   {
     number: "II",
     title: "Long Distance",
-    photo: "m29",
+    photo: "s02",
     paragraphs: [
       "Somewhere between the awkward jokes, endless conversations, and getting to know each other from opposite sides of the world, Ayush stopped trying to impress Lalita and simply got to know her for who she really was.",
       "Then life threw us an unexpected curveball. While we were still 3,500 miles apart, Lalita was injured and unable to walk. It wasn't the romantic chapter we'd imagined, but it became one of the most meaningful. From afar, Ayush made sure her favourite desserts kept arriving at her door and was never more than a WhatsApp video call away (thanks to a VPN).",

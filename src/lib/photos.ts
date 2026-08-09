@@ -66,6 +66,10 @@ import heroS from "@/assets/photos/hero2-640.webp";
 import heroL from "@/assets/photos/hero2-1440.webp";
 import celS from "@/assets/photos/cel-640.webp";
 import celL from "@/assets/photos/cel-1440.webp";
+import s01s from "@/assets/photos/s01-640.webp";
+import s01l from "@/assets/photos/s01-1440.webp";
+import s02s from "@/assets/photos/s02-640.webp";
+import s02l from "@/assets/photos/s02-1440.webp";
 
 export type Photo = { id: string; small: string; large: string; caption: string; ratio: number };
 
@@ -119,4 +123,11 @@ export const photos: Photo[] = [
   { id: "m31", small: m31s, large: m31l, caption: "Out on the water", ratio: 1.3609 },
 ];
 
-export const photoById = (id: string) => photos.find((p) => p.id === id)!;
+// Story-only photos (not shown in the Moments gallery)
+export const storyPhotos: Photo[] = [
+  { id: "s01", small: s01s, large: s01l, caption: "Us", ratio: 0.75 },
+  { id: "s02", small: s02s, large: s02l, caption: "Us", ratio: 0.75 },
+];
+
+export const photoById = (id: string) =>
+  [...photos, ...storyPhotos].find((p) => p.id === id)!;
