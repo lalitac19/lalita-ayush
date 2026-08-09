@@ -259,6 +259,8 @@ function Events() {
             srcSet={`${resortMapSmall} 640w, ${resortMapLarge} 1440w`}
             sizes="(max-width: 768px) 92vw, 900px"
             alt="Illustrated map of Avani Kalutara Resort showing the entrance, reception, restaurants, pool, beach, Anantara Ballroom and River Mouth"
+            width={1440}
+            height={1110}
             loading="lazy"
             decoding="async"
             className="w-full"
