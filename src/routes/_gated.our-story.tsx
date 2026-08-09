@@ -24,11 +24,20 @@ export const Route = createFileRoute("/_gated/our-story")({
   component: OurStory,
 });
 
-const chapters = [
+type Chapter = {
+  number: string;
+  title: string;
+  photo: string;
+  photoFit?: "cover" | "contain";
+  paragraphs: string[];
+};
+
+const chapters: Chapter[] = [
   {
     number: "I",
     title: "A Swipe Right",
     photo: "s01",
+    photoFit: "contain",
     paragraphs: [
       "Like many modern love stories, ours began with a swipe right on Hinge.",
       "Lalita was in Singapore on a work trip while Ayush was away on holiday, so although we matched, we didn't get to meet. Most people would have let the conversation fizzle out. Somehow, we kept talking.",
@@ -39,6 +48,7 @@ const chapters = [
     number: "II",
     title: "Long Distance",
     photo: "s02",
+    photoFit: "contain",
     paragraphs: [
       "Somewhere between the awkward jokes, endless conversations, and getting to know each other from opposite sides of the world, Ayush stopped trying to impress Lalita and simply got to know her for who she really was.",
       "Then life threw us an unexpected curveball. While we were still 3,500 miles apart, Lalita was injured and unable to walk. It wasn't the romantic chapter we'd imagined, but it became one of the most meaningful. From afar, Ayush made sure her favourite desserts kept arriving at her door and was never more than a WhatsApp video call away (thanks to a VPN).",
@@ -87,7 +97,11 @@ function OurStory() {
                   photo={photoById(c.photo)}
                   alt={`Lalita and Ayush — ${c.title}`}
                   sizes="(max-width: 768px) 92vw, 720px"
-                  className="h-full w-full object-cover"
+                  className={
+                    c.photoFit === "contain"
+                      ? "h-full w-full object-contain"
+                      : "h-full w-full object-cover"
+                  }
                 />
               </div>
             </div>
