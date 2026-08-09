@@ -60,6 +60,8 @@ export function PhotoGallery() {
             srcSet={`${active.small} 640w, ${active.large} 1440w`}
             sizes="100vw"
             alt={active.caption}
+            width={1440}
+            height={Math.round(1440 / (active.ratio || 1))}
             decoding="async"
             className="max-h-[80vh] w-auto max-w-full rounded-sm object-contain"
             onClick={(e) => e.stopPropagation()}
