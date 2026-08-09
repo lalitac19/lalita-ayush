@@ -65,6 +65,8 @@ const dressCodes = [
       "Pastels, florals and soft colour — colour is encouraged. Linen suits, flowing dresses and heels that can handle sand. Please avoid black, white and red.",
     small: formalSmall,
     large: formalLarge,
+    width: 1440,
+    height: 723,
     alt: "Summer formal dress code illustration — linen suits and floral maxi dresses",
   },
   {
@@ -74,6 +76,8 @@ const dressCodes = [
       "Elegant swimwear, kaftans and cover-ups, open linen shirts and swim shorts. Sunglasses essential.",
     small: poolSmall,
     large: poolLarge,
+    width: 1440,
+    height: 962,
     alt: "Pool party dress code illustration — swimwear, kaftans and linen shirts",
   },
   {
@@ -83,6 +87,8 @@ const dressCodes = [
       "Indian and Indo-Western at its most vibrant — sarees, lehengas, bandhgalas and kurtas. The brighter the better, and made for dancing.",
     small: sangeetSmall,
     large: sangeetLarge,
+    width: 1440,
+    height: 739,
     alt: "Sangeet dress code illustration — colourful sarees, lehengas and bandhgalas",
   },
 ];
