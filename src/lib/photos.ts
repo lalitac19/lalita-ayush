@@ -120,9 +120,14 @@ export const photos: Photo[] = [
   { id: "m28", small: m28s, large: m28l, caption: "Cheers to us", ratio: 1.4998 },
   { id: "m29", small: m29s, large: m29l, caption: "Golden hour", ratio: 1.4998 },
   { id: "m30", small: m30s, large: m30l, caption: "Palm trees and champagne", ratio: 0.6667 },
+  { id: "m31", small: m31s, large: m31l, caption: "Out on the water", ratio: 1.3609 },
+];
+
+// Story-only photos (not shown in the Moments gallery)
+export const storyPhotos: Photo[] = [
   { id: "s01", small: s01s, large: s01l, caption: "Us", ratio: 0.75 },
   { id: "s02", small: s02s, large: s02l, caption: "Us", ratio: 0.75 },
 ];
 
-
-export const photoById = (id: string) => photos.find((p) => p.id === id)!;
+export const photoById = (id: string) =>
+  [...photos, ...storyPhotos].find((p) => p.id === id)!;
