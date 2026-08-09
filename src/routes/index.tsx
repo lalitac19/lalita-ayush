@@ -11,6 +11,16 @@ import { unlockSite } from "@/lib/gate.functions";
 
 export const Route = createFileRoute("/")({
   head: () => ({
+    links: [
+      {
+        rel: "preload",
+        as: "image",
+        href: heroPhoto.small,
+        imagesrcset: `${heroPhoto.small} 640w, ${heroPhoto.large} 1440w`,
+        imagesizes: "100vw",
+        fetchpriority: "high",
+      },
+    ],
     meta: [
       { title: "Lalita & Ayush — 20–22 February 2027, Sri Lanka" },
       {
