@@ -13,7 +13,9 @@ export function Monogram({
       src={light ? monoLight : monoDark}
       alt="Lalita and Ayush monogram"
       className={className}
-      loading="lazy"
+      loading="eager"
+      decoding="async"
+      fetchPriority="high"
     />
   );
 }
