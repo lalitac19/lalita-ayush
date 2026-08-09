@@ -66,6 +66,10 @@ import heroS from "@/assets/photos/hero2-640.webp";
 import heroL from "@/assets/photos/hero2-1440.webp";
 import celS from "@/assets/photos/cel-640.webp";
 import celL from "@/assets/photos/cel-1440.webp";
+import s01s from "@/assets/photos/s01-640.webp";
+import s01l from "@/assets/photos/s01-1440.webp";
+import s02s from "@/assets/photos/s02-640.webp";
+import s02l from "@/assets/photos/s02-1440.webp";
 
 export type Photo = { id: string; small: string; large: string; caption: string; ratio: number };
 
