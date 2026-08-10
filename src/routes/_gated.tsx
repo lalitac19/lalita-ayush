@@ -52,25 +52,21 @@ function GatedLayout() {
                 {l.label}
               </Link>
             ))}
-            <a
-              href={content.rsvpUrl}
-              target="_blank"
-              rel="noreferrer"
+            <Link
+              to="/rsvp"
               className="rounded-sm bg-primary px-4 py-2 text-[0.68rem] tracking-[0.22em] text-primary-foreground uppercase font-bold transition hover:opacity-90"
             >
               RSVP
-            </a>
+            </Link>
           </nav>
 
           <div className="flex shrink-0 items-center gap-2 lg:hidden">
-            <a
-              href={content.rsvpUrl}
-              target="_blank"
-              rel="noreferrer"
+            <Link
+              to="/rsvp"
               className="rounded-sm bg-primary px-4 py-2 text-[0.65rem] font-bold tracking-[0.22em] text-primary-foreground uppercase transition hover:opacity-90"
             >
               RSVP
-            </a>
+            </Link>
             <button
               onClick={() => setOpen((v) => !v)}
               className="cursor-pointer rounded-sm border border-border px-3 py-2 text-[0.65rem] tracking-[0.22em] uppercase"
@@ -96,14 +92,13 @@ function GatedLayout() {
                 {l.label}
               </Link>
             ))}
-            <a
-              href={content.rsvpUrl}
-              target="_blank"
-              rel="noreferrer"
+            <Link
+              to="/rsvp"
+              onClick={() => setOpen(false)}
               className="mt-2 rounded-sm bg-primary px-4 py-3 text-center text-[0.7rem] font-bold tracking-[0.22em] text-primary-foreground uppercase"
             >
               RSVP
-            </a>
+            </Link>
           </nav>
         ) : null}
       </header>
@@ -121,14 +116,12 @@ function GatedLayout() {
             20 — 22 February 2027 · {content.venue.location}
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-[0.68rem] tracking-[0.2em] text-muted-foreground uppercase">
-            <a
-              href={content.rsvpUrl}
-              target="_blank"
-              rel="noreferrer"
+            <Link
+              to="/rsvp"
               className="font-bold transition hover:text-foreground"
             >
               RSVP
-            </a>
+            </Link>
             <span aria-hidden>·</span>
             <a
               href={content.venue.url}
@@ -143,7 +136,7 @@ function GatedLayout() {
         </div>
       </footer>
 
-      <RsvpBar url={content.rsvpUrl} />
+      <RsvpBar />
     </div>
 
   );

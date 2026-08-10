@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useWedding } from "@/lib/use-wedding";
 
 import { FaqAccordion } from "@/components/FaqAccordion";
@@ -81,14 +81,12 @@ function Faq() {
           we don't hear from you by this date, we'll sadly assume you're not able
           to join.
         </p>
-        <a
-          href={content.rsvpUrl}
-          target="_blank"
-          rel="noreferrer"
+        <Link
+          to="/rsvp"
           className="mt-8 inline-block rounded-sm bg-primary px-10 py-4 text-[0.7rem] font-bold tracking-[0.3em] text-primary-foreground uppercase transition hover:opacity-90"
         >
           RSVP Now
-        </a>
+        </Link>
       </div>
     </div>
   );

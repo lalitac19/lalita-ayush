@@ -13,6 +13,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as GatedRouteImport } from './routes/_gated'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as GatedSriLankaRouteImport } from './routes/_gated.sri-lanka'
+import { Route as GatedRsvpRouteImport } from './routes/_gated.rsvp'
 import { Route as GatedOurStoryRouteImport } from './routes/_gated.our-story'
 import { Route as GatedMomentsRouteImport } from './routes/_gated.moments'
 import { Route as GatedGettingThereRouteImport } from './routes/_gated.getting-there'
@@ -37,6 +38,11 @@ const IndexRoute = IndexRouteImport.update({
 const GatedSriLankaRoute = GatedSriLankaRouteImport.update({
   id: '/sri-lanka',
   path: '/sri-lanka',
+  getParentRoute: () => GatedRoute,
+} as any)
+const GatedRsvpRoute = GatedRsvpRouteImport.update({
+  id: '/rsvp',
+  path: '/rsvp',
   getParentRoute: () => GatedRoute,
 } as any)
 const GatedOurStoryRoute = GatedOurStoryRouteImport.update({
@@ -79,6 +85,7 @@ export interface FileRoutesByFullPath {
   '/getting-there': typeof GatedGettingThereRoute
   '/moments': typeof GatedMomentsRoute
   '/our-story': typeof GatedOurStoryRoute
+  '/rsvp': typeof GatedRsvpRoute
   '/sri-lanka': typeof GatedSriLankaRoute
 }
 export interface FileRoutesByTo {
@@ -90,6 +97,7 @@ export interface FileRoutesByTo {
   '/getting-there': typeof GatedGettingThereRoute
   '/moments': typeof GatedMomentsRoute
   '/our-story': typeof GatedOurStoryRoute
+  '/rsvp': typeof GatedRsvpRoute
   '/sri-lanka': typeof GatedSriLankaRoute
 }
 export interface FileRoutesById {
@@ -103,6 +111,7 @@ export interface FileRoutesById {
   '/_gated/getting-there': typeof GatedGettingThereRoute
   '/_gated/moments': typeof GatedMomentsRoute
   '/_gated/our-story': typeof GatedOurStoryRoute
+  '/_gated/rsvp': typeof GatedRsvpRoute
   '/_gated/sri-lanka': typeof GatedSriLankaRoute
 }
 export interface FileRouteTypes {
@@ -116,6 +125,7 @@ export interface FileRouteTypes {
     | '/getting-there'
     | '/moments'
     | '/our-story'
+    | '/rsvp'
     | '/sri-lanka'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -127,6 +137,7 @@ export interface FileRouteTypes {
     | '/getting-there'
     | '/moments'
     | '/our-story'
+    | '/rsvp'
     | '/sri-lanka'
   id:
     | '__root__'
@@ -139,6 +150,7 @@ export interface FileRouteTypes {
     | '/_gated/getting-there'
     | '/_gated/moments'
     | '/_gated/our-story'
+    | '/_gated/rsvp'
     | '/_gated/sri-lanka'
   fileRoutesById: FileRoutesById
 }
@@ -176,6 +188,13 @@ declare module '@tanstack/react-router' {
       path: '/sri-lanka'
       fullPath: '/sri-lanka'
       preLoaderRoute: typeof GatedSriLankaRouteImport
+      parentRoute: typeof GatedRoute
+    }
+    '/_gated/rsvp': {
+      id: '/_gated/rsvp'
+      path: '/rsvp'
+      fullPath: '/rsvp'
+      preLoaderRoute: typeof GatedRsvpRouteImport
       parentRoute: typeof GatedRoute
     }
     '/_gated/our-story': {
@@ -230,6 +249,7 @@ interface GatedRouteChildren {
   GatedGettingThereRoute: typeof GatedGettingThereRoute
   GatedMomentsRoute: typeof GatedMomentsRoute
   GatedOurStoryRoute: typeof GatedOurStoryRoute
+  GatedRsvpRoute: typeof GatedRsvpRoute
   GatedSriLankaRoute: typeof GatedSriLankaRoute
 }
 
@@ -240,6 +260,7 @@ const GatedRouteChildren: GatedRouteChildren = {
   GatedGettingThereRoute: GatedGettingThereRoute,
   GatedMomentsRoute: GatedMomentsRoute,
   GatedOurStoryRoute: GatedOurStoryRoute,
+  GatedRsvpRoute: GatedRsvpRoute,
   GatedSriLankaRoute: GatedSriLankaRoute,
 }
 
@@ -253,13 +274,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

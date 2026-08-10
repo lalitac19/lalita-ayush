@@ -1,0 +1,364 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
+import { useState } from "react";
+
+import { SectionHeading } from "@/components/SectionHeading";
+import { submitRsvp, type RsvpInput } from "@/lib/rsvp.functions";
+
+export const Route = createFileRoute("/_gated/rsvp")({
+  head: () => ({
+    meta: [
+      { title: "RSVP — Lalita & Ayush" },
+      {
+        name: "description",
+        content:
+          "Let Lalita & Ayush know if you'll join their Sri Lanka wedding weekend, choose your dinner and request a song.",
+      },
+      { property: "og:title", content: "RSVP — Lalita & Ayush" },
+      {
+        property: "og:description",
+        content: "Reply by 7th November 2026 for the Sri Lanka wedding weekend.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: RsvpPage,
+});
+
+const STARTERS = [
+  "Smashed feta and spinach-stuffed homemade tortellini in creamy tomato sauce (V)",
+  "Slice of prawn roulade with lime and mango chutney with crunchy vegetable avocado salad",
+  "Herb marinated lamb shoulder chop with mushroom & mint ragout and seasonal vegetable and green apple salad",
+];
+
+const MAINS = [
+  "Baked vegetable lasagna with cheesy tomato sauce and spinach coulis (V)",
+  "Herb-crusted baked mullet fish fillet with Italian vegetable caponata and creamy mashed potato with lemon-garlic cream and olive-basil oil",
+  "Chicken roulade with vegetable ratatouille, Italian-spiced roasted potato wedges, mushroom ragout and tomato-basil oil",
+];
+
+const EMPTY: RsvpInput = {
+  fullName: "",
+  attending: "",
+  starter: "",
+  main: "",
+  dietary: "",
+  alcoholDessert: "",
+  arriving19th: "",
+  song: "",
+  email: "",
+  whatsapp: "",
+};
+
+const inputClass =
+  "mt-3 w-full rounded-sm border border-border bg-background/70 px-4 py-3 text-sm outline-none transition focus:border-accent";
+
+function Choice({
+  name,
+  value,
+  current,
+  onSelect,
+  children,
+}: {
+  name: string;
+  value: string;
+  current: string;
+  onSelect: (v: string) => void;
+  children: React.ReactNode;
+}) {
+  const active = current === value;
+  return (
+    <label
+      className={`flex cursor-pointer items-start gap-3 rounded-sm border px-4 py-3 text-sm leading-relaxed transition ${
+        active
+          ? "border-accent bg-accent/15 text-foreground"
+          : "border-border bg-background/60 text-muted-foreground hover:border-accent/60"
+      }`}
+    >
+      <input
+        type="radio"
+        name={name}
+        value={value}
+        checked={active}
+        onChange={() => onSelect(value)}
+        className="mt-1 accent-[var(--color-accent)]"
+      />
+      <span>{children}</span>
+    </label>
+  );
+}
+
+function Section({
+  step,
+  title,
+  hint,
+  children,
+}: {
+  step: number;
+  title: string;
+  hint?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <section className="glass-panel rounded-sm border p-5 sm:p-7">
+      <p className="eyebrow">Step {step}</p>
+      <h2 className="mt-2 font-display text-2xl sm:text-3xl">{title}</h2>
+      {hint ? <p className="mt-2 text-sm text-muted-foreground">{hint}</p> : null}
+      <div className="mt-5 space-y-4">{children}</div>
+    </section>
+  );
+}
+
+function RsvpPage() {
+  const send = useServerFn(submitRsvp);
+  const [form, setForm] = useState<RsvpInput>(EMPTY);
+  const [error, setError] = useState<string | null>(null);
+  const [saving, setSaving] = useState(false);
+  const [done, setDone] = useState(false);
+
+  const set = <K extends keyof RsvpInput>(key: K, value: RsvpInput[K]) =>
+    setForm((f) => ({ ...f, [key]: value }));
+
+  const coming = form.attending === "Yes, count me in";
+  const declined = form.attending === "No, I can't make it";
+
+  async function onSubmit(event: React.FormEvent) {
+    event.preventDefault();
+    setError(null);
+    setSaving(true);
+    try {
+      await send({ data: form });
+      setDone(true);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  if (done) {
+    return (
+      <div className="mx-auto w-full max-w-2xl px-5 py-20 text-center sm:py-32">
+        <p className="eyebrow">Thank you</p>
+        <h1 className="mt-4 font-display text-4xl sm:text-5xl">
+          {coming ? "You're on the list!" : "We'll miss you"}
+        </h1>
+        <p className="mt-5 leading-relaxed text-muted-foreground">
+          {coming
+            ? "Your RSVP is in. We can't wait to celebrate with you in Sri Lanka — we'll be in touch with everything else closer to the date."
+            : "Thank you for letting us know. We'll be raising a glass to you from the beach."}
+        </p>
+        <Link
+          to="/celebration"
+          className="mt-10 inline-block rounded-sm bg-primary px-10 py-4 text-[0.7rem] font-bold tracking-[0.3em] text-primary-foreground uppercase transition hover:opacity-90"
+        >
+          Back to the weekend
+        </Link>
+      </div>
+    );
+  }
+
+  return (
+    <div className="mx-auto w-full max-w-3xl px-5 py-14 sm:py-24">
+      <SectionHeading eyebrow="Join us" title="RSVP" />
+      <p className="mt-5 leading-relaxed text-muted-foreground">
+        A few quick questions — it takes two minutes. Please reply by 7th November 2026.
+      </p>
+
+      <form onSubmit={onSubmit} className="mt-10 space-y-5">
+        <Section step={1} title="Who's replying?">
+          <label className="block text-sm">
+            <span className="font-medium">What is your full name?</span>
+            <input
+              required
+              value={form.fullName}
+              onChange={(e) => set("fullName", e.target.value)}
+              className={inputClass}
+              placeholder="Full name"
+            />
+          </label>
+        </Section>
+
+        <Section step={2} title="Will you be joining us in Sri Lanka?">
+          <div className="grid gap-3 sm:grid-cols-2">
+            <Choice
+              name="attending"
+              value="Yes, count me in"
+              current={form.attending}
+              onSelect={(v) => set("attending", v)}
+            >
+              Yes, count me in
+            </Choice>
+            <Choice
+              name="attending"
+              value="No, I can't make it"
+              current={form.attending}
+              onSelect={(v) => set("attending", v)}
+            >
+              No, I can't make it
+            </Choice>
+          </div>
+        </Section>
+
+        {coming ? (
+          <>
+            <Section
+              step={3}
+              title="Dinner: your starter"
+              hint="Please select one starter for the wedding dinner."
+            >
+              <div className="space-y-3">
+                {STARTERS.map((s) => (
+                  <Choice
+                    key={s}
+                    name="starter"
+                    value={s}
+                    current={form.starter}
+                    onSelect={(v) => set("starter", v)}
+                  >
+                    {s}
+                  </Choice>
+                ))}
+              </div>
+            </Section>
+
+            <Section
+              step={4}
+              title="Dinner: your main course"
+              hint="Please select one main course for the wedding dinner."
+            >
+              <div className="space-y-3">
+                {MAINS.map((m) => (
+                  <Choice
+                    key={m}
+                    name="main"
+                    value={m}
+                    current={form.main}
+                    onSelect={(v) => set("main", v)}
+                  >
+                    {m}
+                  </Choice>
+                ))}
+              </div>
+            </Section>
+
+            <Section step={5} title="The finer details">
+              <label className="block text-sm">
+                <span className="font-medium">
+                  Any food allergies or dietary preferences we should know about?
+                </span>
+                <textarea
+                  required
+                  rows={3}
+                  value={form.dietary}
+                  onChange={(e) => set("dietary", e.target.value)}
+                  className={inputClass}
+                  placeholder="Tell us here — or write 'None'"
+                />
+              </label>
+
+              <div className="pt-2 text-sm">
+                <span className="font-medium">Are you okay with alcohol in your dessert?</span>
+                <div className="mt-3 grid gap-3 sm:grid-cols-2">
+                  {["Yes", "No"].map((v) => (
+                    <Choice
+                      key={v}
+                      name="alcoholDessert"
+                      value={v}
+                      current={form.alcoholDessert}
+                      onSelect={(val) => set("alcoholDessert", val)}
+                    >
+                      {v}
+                    </Choice>
+                  ))}
+                </div>
+              </div>
+
+              <div className="pt-2 text-sm">
+                <span className="font-medium">
+                  Are you planning to arrive on 19th February 2027?
+                </span>
+                <p className="mt-1 text-muted-foreground">
+                  If yes, we'll send you a link closer to the date to book your room at our
+                  preferred hotel rate.
+                </p>
+                <div className="mt-3 grid gap-3 sm:grid-cols-2">
+                  {["Yes", "No"].map((v) => (
+                    <Choice
+                      key={v}
+                      name="arriving19th"
+                      value={v}
+                      current={form.arriving19th}
+                      onSelect={(val) => set("arriving19th", val)}
+                    >
+                      {v}
+                    </Choice>
+                  ))}
+                </div>
+              </div>
+            </Section>
+
+            <Section step={6} title="Your song request" hint="What would get you on the dancefloor?">
+              <label className="block text-sm">
+                <span className="font-medium">
+                  What song would you love to hear at our wedding?
+                </span>
+                <input
+                  required
+                  value={form.song}
+                  onChange={(e) => set("song", e.target.value)}
+                  className={inputClass}
+                  placeholder="Song and artist"
+                />
+              </label>
+            </Section>
+
+            <Section step={7} title="How we reach you">
+              <label className="block text-sm">
+                <span className="font-medium">What is your email address?</span>
+                <input
+                  required
+                  type="email"
+                  value={form.email}
+                  onChange={(e) => set("email", e.target.value)}
+                  className={inputClass}
+                  placeholder="you@email.com"
+                />
+              </label>
+              <label className="block text-sm">
+                <span className="font-medium">
+                  What is your WhatsApp number? (include the country code)
+                </span>
+                <input
+                  required
+                  value={form.whatsapp}
+                  onChange={(e) => set("whatsapp", e.target.value)}
+                  className={inputClass}
+                  placeholder="+44 7565 790424"
+                />
+              </label>
+            </Section>
+          </>
+        ) : null}
+
+        {declined ? (
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            Sorry to hear it — just send your reply below and we'll take care of the rest.
+          </p>
+        ) : null}
+
+        {error ? <p className="text-sm font-medium text-destructive">{error}</p> : null}
+
+        <button
+          type="submit"
+          disabled={saving || !form.attending}
+          className="w-full cursor-pointer rounded-sm bg-primary px-10 py-4 text-[0.7rem] font-bold tracking-[0.3em] text-primary-foreground uppercase transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
+        >
+          {saving ? "Sending…" : "Send my RSVP"}
+        </button>
+      </form>
+    </div>
+  );
+}
