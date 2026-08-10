@@ -92,7 +92,7 @@ export const submitRsvp = createServerFn({ method: "POST" })
 
     const url =
       `https://connector-gateway.lovable.dev/google_sheets/v4/spreadsheets/${SPREADSHEET_ID}` +
-      `/values/RSVP!A2:J2:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`;
+      `/values/RSVP!A2:J2:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS`;
 
     const response = await fetch(url, {
       method: "POST",
