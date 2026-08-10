@@ -487,6 +487,5 @@ export const weddingContent: WeddingContent = {
     },
   ],
 
-  rsvpUrl:
-    "https://withjoy.com/lalita-and-ayush/rsvp?utm_medium=web&utm_source=joy&utm_campaign=website_overview_copy",
+  rsvpUrl: "/rsvp",
 };

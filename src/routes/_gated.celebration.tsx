@@ -109,14 +109,12 @@ function Celebration() {
             >
               The Weekend Celebrations
             </Link>
-            <a
-              href={content.rsvpUrl}
-              target="_blank"
-              rel="noreferrer"
+            <Link
+              to="/rsvp"
               className="rounded-sm border border-background/50 px-8 py-3.5 text-[0.7rem] font-bold tracking-[0.3em] text-background uppercase transition hover:bg-background/10"
             >
               RSVP
-            </a>
+            </Link>
           </div>
         </div>
       </section>
