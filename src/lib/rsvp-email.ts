@@ -6,6 +6,8 @@ const ESPRESSO = "#3E322C";
 const TAUPE = "#746A60";
 const GOLD = "#C5A46D";
 const SAGE = "#A9B5A2";
+const LOGO_URL =
+  "https://www.thedamanis.com/__l5e/assets-v1/93b8c14c-62d8-412c-9d15-6ea45dc43ccb/wedding-logo.jpg";
 
 function esc(value: string): string {
   return value
@@ -41,19 +43,19 @@ export function buildRsvpEmail(data: RsvpInput, editUrl: string) {
 
   const html = `<!doctype html>
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
-<body style="margin:0;padding:0;background-color:#ffffff;">
+<body style="margin:0;padding:0;background-color:${IVORY};">
   <div style="display:none;max-height:0;overflow:hidden;">Your RSVP for Lalita &amp; Ayush, 20–22 February 2027.</div>
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:${IVORY};padding:32px 16px;">
     <tr><td align="center">
-      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background-color:#ffffff;border:1px solid ${CHAMPAGNE};border-radius:4px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background-color:${IVORY};border:1px solid ${CHAMPAGNE};border-radius:4px;">
         <tr><td style="background-color:${ESPRESSO};padding:28px 24px;text-align:center;">
-          <div style="font-family:Georgia,'Times New Roman',serif;font-size:30px;letter-spacing:6px;color:${IVORY};">L &amp; A</div>
-          <div style="margin-top:8px;font-family:Georgia,'Times New Roman',serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:${GOLD};">20–22 February 2027 · Sri Lanka</div>
+          <img src="${LOGO_URL}" width="96" height="96" alt="Lalita &amp; Ayush" style="display:block;margin:0 auto;width:96px;height:auto;border:0;" />
+          <div style="margin-top:14px;font-family:Georgia,'Times New Roman',serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:${GOLD};">20–22 February 2027 · Sri Lanka</div>
         </td></tr>
         <tr><td style="padding:32px 28px 8px 28px;">
-          <h1 style="margin:0 0 18px 0;font-family:Georgia,'Times New Roman',serif;font-weight:normal;font-size:28px;color:${ESPRESSO};">Hi ${esc(firstName)},</h1>
+          <h1 style="margin:0 0 18px 0;font-family:Georgia,'Times New Roman',serif;font-weight:bold;font-size:28px;color:${ESPRESSO};">Hi ${esc(firstName)},</h1>
           <p style="margin:0 0 16px 0;font-family:Georgia,'Times New Roman',serif;font-size:16px;line-height:1.7;color:${TAUPE};">
-            Thank you for RSVPing! We can't wait to celebrate with you at Avani Kalutara from 20–22 February 2027.
+            Thank you for RSVPing! We can't wait to celebrate with you in Sri Lanka from 20–22 February 2027.
           </p>
           <p style="margin:0 0 10px 0;font-family:Georgia,'Times New Roman',serif;font-size:16px;line-height:1.7;color:${TAUPE};">Here's what you told us:</p>
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${rows}</table>
@@ -67,7 +69,8 @@ export function buildRsvpEmail(data: RsvpInput, editUrl: string) {
           <p style="margin:0 0 28px 0;font-family:Georgia,'Times New Roman',serif;font-size:20px;color:${ESPRESSO};">Lalita &amp; Ayush</p>
         </td></tr>
         <tr><td style="background-color:${CHAMPAGNE};padding:16px 24px;text-align:center;font-family:Georgia,'Times New Roman',serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:${TAUPE};">
-          Avani Kalutara Resort · Sri Lanka
+          Avani Kalutara Resort · Sri Lanka<br />
+          <a href="https://www.thedamanis.com" style="color:${ESPRESSO};text-decoration:none;font-weight:bold;letter-spacing:2px;">thedamanis.com</a>
         </td></tr>
       </table>
     </td></tr>
@@ -77,7 +80,7 @@ export function buildRsvpEmail(data: RsvpInput, editUrl: string) {
   const text = [
     `Hi ${firstName},`,
     "",
-    "Thank you for RSVPing! We can't wait to celebrate with you at Avani Kalutara from 20-22 February 2027.",
+    "Thank you for RSVPing! We can't wait to celebrate with you in Sri Lanka from 20-22 February 2027.",
     "",
     "Here's what you told us:",
     `Attending: ${data.attending}`,
@@ -95,6 +98,8 @@ export function buildRsvpEmail(data: RsvpInput, editUrl: string) {
     "",
     "We can't wait to celebrate with you!",
     "Lalita & Ayush",
+    "",
+    "thedamanis.com",
   ]
     .filter(Boolean)
     .join("\n");

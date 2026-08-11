@@ -7,9 +7,8 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { loadRsvp, submitRsvp, type RsvpInput } from "@/lib/rsvp.functions";
 
 export const Route = createFileRoute("/rsvp")({
-  validateSearch: (search: Record<string, unknown>) => ({
-    edit: typeof search["edit"] === "string" ? (search["edit"] as string) : undefined,
-  }),
+  validateSearch: (search: Record<string, unknown>): { edit?: string } =>
+    typeof search["edit"] === "string" ? { edit: search["edit"] as string } : {},
   head: () => ({
     meta: [
       { title: "RSVP — Lalita & Ayush" },
@@ -56,7 +55,7 @@ const EMPTY: RsvpInput = {
 };
 
 const inputClass =
-  "mt-3 w-full rounded-sm border border-border bg-background/70 px-4 py-3 text-sm outline-none transition focus:border-accent";
+  "mt-3 w-full rounded-sm border border-border bg-background/70 px-4 py-3 text-base outline-none transition focus:border-accent sm:text-sm";
 
 function Choice({
   name,
@@ -74,7 +73,7 @@ function Choice({
   const active = current === value;
   return (
     <label
-      className={`flex cursor-pointer items-start gap-3 rounded-sm border px-4 py-3 text-sm leading-relaxed transition ${
+      className={`flex min-h-12 cursor-pointer items-start gap-3 rounded-sm border px-3.5 py-3.5 text-[0.95rem] leading-relaxed transition sm:px-4 sm:py-3 sm:text-sm ${
         active
           ? "border-accent bg-accent/15 text-foreground"
           : "border-border bg-background/60 text-muted-foreground hover:border-accent/60"
@@ -86,7 +85,7 @@ function Choice({
         value={value}
         checked={active}
         onChange={() => onSelect(value)}
-        className="mt-1 accent-[var(--color-accent)]"
+        className="mt-1 h-4 w-4 shrink-0 accent-[var(--color-accent)]"
       />
       <span>{children}</span>
     </label>
@@ -105,9 +104,9 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section className="glass-panel rounded-sm border p-5 sm:p-7">
+    <section className="glass-panel rounded-sm border p-4 sm:p-7">
       <p className="eyebrow">Step {step}</p>
-      <h2 className="mt-2 font-display text-2xl font-bold sm:text-3xl">{title}</h2>
+      <h2 className="mt-2 font-display text-xl leading-snug font-bold sm:text-3xl">{title}</h2>
       {hint ? <p className="mt-2 text-sm text-muted-foreground">{hint}</p> : null}
       <div className="mt-5 space-y-4">{children}</div>
     </section>
@@ -159,7 +158,6 @@ function RsvpPage() {
     setForm((f) => ({ ...f, [key]: value }));
 
   const coming = form.attending === "Yes, count me in";
-  const declined = form.attending === "No, I can't make it";
 
   async function onSubmit(event: React.FormEvent) {
     event.preventDefault();
@@ -182,14 +180,14 @@ function RsvpPage() {
 
   if (done) {
     return (
-      <div className="mx-auto w-full max-w-2xl px-5 py-20 text-center sm:py-32">
+      <div className="mx-auto w-full max-w-2xl px-4 py-16 text-center sm:px-5 sm:py-32">
         <p className="eyebrow">Thank you</p>
-        <h1 className="mt-4 font-display text-4xl sm:text-5xl">
-          {coming ? "You're on the list!" : "We'll miss you"}
+        <h1 className="mt-4 font-display text-3xl sm:text-5xl">
+          {coming ? "Your RSVP is in!" : "We'll miss you"}
         </h1>
         <p className="mt-5 leading-relaxed text-muted-foreground">
           {coming
-            ? "Your RSVP is in. We can't wait to celebrate with you in Sri Lanka — we'll be in touch with everything else closer to the date."
+            ? "We'll follow up with more details closer to the date. In the meantime, feel free to check our website for more information."
             : "Thank you for letting us know. We'll be raising a glass to you from the beach."}
         </p>
         {coming && editUrl ? (
@@ -216,7 +214,7 @@ function RsvpPage() {
   }
 
   return (
-    <div className="mx-auto w-full max-w-3xl px-5 py-14 sm:py-24">
+    <div className="mx-auto w-full max-w-3xl px-4 pt-10 pb-28 sm:px-5 sm:py-24 lg:pb-24">
       <Link to="/" className="mx-auto mb-10 block w-fit">
         <Monogram className="h-12 w-auto opacity-80" />
       </Link>
@@ -232,7 +230,7 @@ function RsvpPage() {
         </p>
       ) : null}
 
-      <form onSubmit={onSubmit} className="mt-10 space-y-5">
+      <form onSubmit={onSubmit} className="mt-8 space-y-4 sm:mt-10 sm:space-y-5">
         <Section step={1} title="What is your full name?">
           <label className="block text-sm">
             <input
@@ -405,12 +403,6 @@ function RsvpPage() {
               </label>
             </Section>
           </>
-        ) : null}
-
-        {declined ? (
-          <p className="text-sm leading-relaxed text-muted-foreground">
-            Sorry to hear it — just send your reply below and we'll take care of the rest.
-          </p>
         ) : null}
 
         {error ? <p className="text-sm font-medium text-destructive">{error}</p> : null}
