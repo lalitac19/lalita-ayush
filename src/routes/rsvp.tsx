@@ -7,9 +7,8 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { loadRsvp, submitRsvp, type RsvpInput } from "@/lib/rsvp.functions";
 
 export const Route = createFileRoute("/rsvp")({
-  validateSearch: (search: Record<string, unknown>) => ({
-    edit: typeof search["edit"] === "string" ? (search["edit"] as string) : undefined,
-  }),
+  validateSearch: (search: Record<string, unknown>): { edit?: string } =>
+    typeof search["edit"] === "string" ? { edit: search["edit"] as string } : {},
   head: () => ({
     meta: [
       { title: "RSVP — Lalita & Ayush" },
