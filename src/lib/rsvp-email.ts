@@ -69,7 +69,8 @@ export function buildRsvpEmail(data: RsvpInput, editUrl: string) {
           <p style="margin:0 0 28px 0;font-family:Georgia,'Times New Roman',serif;font-size:20px;color:${ESPRESSO};">Lalita &amp; Ayush</p>
         </td></tr>
         <tr><td style="background-color:${CHAMPAGNE};padding:16px 24px;text-align:center;font-family:Georgia,'Times New Roman',serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:${TAUPE};">
-          Avani Kalutara Resort · Sri Lanka
+          Avani Kalutara Resort · Sri Lanka<br />
+          <a href="https://www.thedamanis.com" style="color:${ESPRESSO};text-decoration:none;font-weight:bold;letter-spacing:2px;">thedamanis.com</a>
         </td></tr>
       </table>
     </td></tr>
@@ -79,7 +80,7 @@ export function buildRsvpEmail(data: RsvpInput, editUrl: string) {
   const text = [
     `Hi ${firstName},`,
     "",
-    "Thank you for RSVPing! We can't wait to celebrate with you at Avani Kalutara from 20-22 February 2027.",
+    "Thank you for RSVPing! We can't wait to celebrate with you in Sri Lanka from 20-22 February 2027.",
     "",
     "Here's what you told us:",
     `Attending: ${data.attending}`,
@@ -97,6 +98,8 @@ export function buildRsvpEmail(data: RsvpInput, editUrl: string) {
     "",
     "We can't wait to celebrate with you!",
     "Lalita & Ayush",
+    "",
+    "thedamanis.com",
   ]
     .filter(Boolean)
     .join("\n");
