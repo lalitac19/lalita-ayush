@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { SectionHeading } from "@/components/SectionHeading";
 import { loadRsvp, submitRsvp, type RsvpInput } from "@/lib/rsvp.functions";
 
-export const Route = createFileRoute("/_gated/rsvp")({
+export const Route = createFileRoute("/rsvp")({
   validateSearch: (search: Record<string, unknown>) => ({
     edit: typeof search["edit"] === "string" ? (search["edit"] as string) : undefined,
   }),
@@ -116,7 +116,7 @@ function Section({
 function RsvpPage() {
   const send = useServerFn(submitRsvp);
   const fetchExisting = useServerFn(loadRsvp);
-  const { edit } = useSearch({ from: "/_gated/rsvp" });
+  const { edit } = useSearch({ from: "/rsvp" });
   const [form, setForm] = useState<RsvpInput>(EMPTY);
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
