@@ -404,10 +404,10 @@ function RsvpPage() {
 
         <button
           type="submit"
-          disabled={saving || !form.attending}
+          disabled={saving || loading || !form.attending}
           className="w-full cursor-pointer rounded-sm bg-primary px-10 py-4 text-[0.7rem] font-bold tracking-[0.3em] text-primary-foreground uppercase transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
         >
-          {saving ? "Sending…" : "Send my RSVP"}
+          {saving ? "Sending…" : loading ? "Loading…" : edit ? "Update my RSVP" : "Send my RSVP"}
         </button>
       </form>
     </div>
