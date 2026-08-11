@@ -1,11 +1,27 @@
 import { useEffect, useState } from "react";
 
 import { PhotoImage } from "@/components/PhotoImage";
-import { photos } from "@/lib/photos";
+import { photos as allPhotos } from "@/lib/photos";
+
+/** Fisher-Yates shuffle so the album feels different on every visit. */
+function shuffle<T>(items: T[]): T[] {
+  const next = [...items];
+  for (let i = next.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [next[i], next[j]] = [next[j], next[i]];
+  }
+  return next;
+}
 
 export function PhotoGallery() {
+  // Start with the stable order for SSR, then shuffle once on the client.
+  const [photos, setPhotos] = useState(allPhotos);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const active = openIndex === null ? null : photos[openIndex];
+
+  useEffect(() => {
+    setPhotos(shuffle(allPhotos));
+  }, []);
 
   useEffect(() => {
     if (active === null) return;
@@ -20,7 +36,7 @@ export function PhotoGallery() {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [active]);
+  }, [active, photos.length]);
 
   return (
     <>
