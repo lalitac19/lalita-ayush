@@ -2,6 +2,7 @@ import { createFileRoute, Link, useSearch } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useEffect, useState } from "react";
 
+import { Monogram } from "@/components/Monogram";
 import { SectionHeading } from "@/components/SectionHeading";
 import { loadRsvp, submitRsvp, type RsvpInput } from "@/lib/rsvp.functions";
 
@@ -207,6 +208,9 @@ function RsvpPage() {
 
   return (
     <div className="mx-auto w-full max-w-3xl px-5 py-14 sm:py-24">
+      <Link to="/" className="mx-auto mb-10 block w-fit">
+        <Monogram className="h-12 w-auto opacity-80" />
+      </Link>
       <SectionHeading eyebrow="Join us" title="RSVP" />
       <p className="mt-5 leading-relaxed text-muted-foreground">
         We hope you can join us! Please take a moment to RSVP by{" "}
