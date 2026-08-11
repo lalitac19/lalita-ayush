@@ -1,11 +1,14 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useSearch } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { SectionHeading } from "@/components/SectionHeading";
-import { submitRsvp, type RsvpInput } from "@/lib/rsvp.functions";
+import { loadRsvp, submitRsvp, type RsvpInput } from "@/lib/rsvp.functions";
 
 export const Route = createFileRoute("/_gated/rsvp")({
+  validateSearch: (search: Record<string, unknown>) => ({
+    edit: typeof search["edit"] === "string" ? (search["edit"] as string) : undefined,
+  }),
   head: () => ({
     meta: [
       { title: "RSVP — Lalita & Ayush" },
@@ -103,7 +106,7 @@ function Section({
   return (
     <section className="glass-panel rounded-sm border p-5 sm:p-7">
       <p className="eyebrow">Step {step}</p>
-      <h2 className="mt-2 font-display text-2xl sm:text-3xl">{title}</h2>
+      <h2 className="mt-2 font-display text-2xl font-bold sm:text-3xl">{title}</h2>
       {hint ? <p className="mt-2 text-sm text-muted-foreground">{hint}</p> : null}
       <div className="mt-5 space-y-4">{children}</div>
     </section>
@@ -112,10 +115,35 @@ function Section({
 
 function RsvpPage() {
   const send = useServerFn(submitRsvp);
+  const fetchExisting = useServerFn(loadRsvp);
+  const { edit } = useSearch({ from: "/_gated/rsvp" });
   const [form, setForm] = useState<RsvpInput>(EMPTY);
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const [done, setDone] = useState(false);
+  const [loading, setLoading] = useState(Boolean(edit));
+  const [editUrl, setEditUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!edit) return;
+    let cancelled = false;
+    setLoading(true);
+    fetchExisting({ data: { token: edit } })
+      .then((existing) => {
+        if (cancelled) return;
+        if (existing) setForm({ ...EMPTY, ...existing });
+        else setError("We couldn't find that RSVP — please fill the form in again.");
+      })
+      .catch(() => {
+        if (!cancelled) setError("We couldn't load your RSVP. Please try again.");
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [edit, fetchExisting]);
 
   const set = <K extends keyof RsvpInput>(key: K, value: RsvpInput[K]) =>
     setForm((f) => ({ ...f, [key]: value }));
@@ -128,7 +156,11 @@ function RsvpPage() {
     setError(null);
     setSaving(true);
     try {
-      await send({ data: form });
+      const result = await send({ data: form });
+      if (result?.token) {
+        setForm((f) => ({ ...f, token: result.token }));
+        setEditUrl(`${window.location.origin}/rsvp?edit=${result.token}`);
+      }
       setDone(true);
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (err) {
@@ -150,6 +182,19 @@ function RsvpPage() {
             ? "Your RSVP is in. We can't wait to celebrate with you in Sri Lanka — we'll be in touch with everything else closer to the date."
             : "Thank you for letting us know. We'll be raising a glass to you from the beach."}
         </p>
+        {coming && editUrl ? (
+          <p className="mt-8 text-sm leading-relaxed text-muted-foreground">
+            Need to change something? Use your personal link any time before 7th November 2026:
+            <br />
+            <a
+              href={editUrl}
+              className="mt-2 inline-block font-bold break-all text-accent underline"
+            >
+              Edit my RSVP
+            </a>
+          </p>
+        ) : null}
+
         <Link
           to="/celebration"
           className="mt-10 inline-block rounded-sm bg-primary px-10 py-4 text-[0.7rem] font-bold tracking-[0.3em] text-primary-foreground uppercase transition hover:opacity-90"
@@ -164,13 +209,19 @@ function RsvpPage() {
     <div className="mx-auto w-full max-w-3xl px-5 py-14 sm:py-24">
       <SectionHeading eyebrow="Join us" title="RSVP" />
       <p className="mt-5 leading-relaxed text-muted-foreground">
-        A few quick questions — it takes two minutes. Please reply by 7th November 2026.
+        We hope you can join us! Please take a moment to RSVP by{" "}
+        <strong className="font-bold text-foreground">7th November 2026</strong>.
       </p>
 
+      {edit && !loading ? (
+        <p className="mt-4 text-sm text-muted-foreground">
+          You're editing an RSVP you already sent — change anything below and send it again.
+        </p>
+      ) : null}
+
       <form onSubmit={onSubmit} className="mt-10 space-y-5">
-        <Section step={1} title="Who's replying?">
+        <Section step={1} title="What is your full name?">
           <label className="block text-sm">
-            <span className="font-medium">What is your full name?</span>
             <input
               required
               value={form.fullName}
@@ -246,7 +297,7 @@ function RsvpPage() {
 
             <Section step={5} title="The finer details">
               <label className="block text-sm">
-                <span className="font-medium">
+                <span className="font-bold">
                   Any food allergies or dietary preferences we should know about?
                 </span>
                 <textarea
@@ -260,7 +311,7 @@ function RsvpPage() {
               </label>
 
               <div className="pt-2 text-sm">
-                <span className="font-medium">Are you okay with alcohol in your dessert?</span>
+                <span className="font-bold">Are you okay with alcohol in your dessert?</span>
                 <div className="mt-3 grid gap-3 sm:grid-cols-2">
                   {["Yes", "No"].map((v) => (
                     <Choice
@@ -277,7 +328,7 @@ function RsvpPage() {
               </div>
 
               <div className="pt-2 text-sm">
-                <span className="font-medium">
+                <span className="font-bold">
                   Are you planning to arrive on 19th February 2027?
                 </span>
                 <p className="mt-1 text-muted-foreground">
@@ -302,7 +353,7 @@ function RsvpPage() {
 
             <Section step={6} title="Your song request" hint="What would get you on the dancefloor?">
               <label className="block text-sm">
-                <span className="font-medium">
+                <span className="font-bold">
                   What song would you love to hear at our wedding?
                 </span>
                 <input
@@ -317,7 +368,7 @@ function RsvpPage() {
 
             <Section step={7} title="How we reach you">
               <label className="block text-sm">
-                <span className="font-medium">What is your email address?</span>
+                <span className="font-bold">What is your email address?</span>
                 <input
                   required
                   type="email"
@@ -328,7 +379,7 @@ function RsvpPage() {
                 />
               </label>
               <label className="block text-sm">
-                <span className="font-medium">
+                <span className="font-bold">
                   What is your WhatsApp number? (include the country code)
                 </span>
                 <input
