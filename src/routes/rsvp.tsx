@@ -129,14 +129,22 @@ function RsvpPage() {
     if (!edit) return;
     let cancelled = false;
     setLoading(true);
+    setError(null);
+    // Keep the token even if the lookup fails, so re-sending updates the same row
+    // instead of creating a duplicate entry.
+    setForm((f) => ({ ...f, token: edit }));
     fetchExisting({ data: { token: edit } })
       .then((existing) => {
         if (cancelled) return;
-        if (existing) setForm({ ...EMPTY, ...existing });
+        if (existing) setForm({ ...EMPTY, ...existing, token: edit });
         else setError("We couldn't find that RSVP — please fill the form in again.");
       })
       .catch(() => {
-        if (!cancelled) setError("We couldn't load your RSVP. Please try again.");
+        if (!cancelled) {
+          setError(
+            "We couldn't load your saved answers just now. Please refresh the page, or fill the form in again — your reply will still update your existing RSVP.",
+          );
+        }
       })
       .finally(() => {
         if (!cancelled) setLoading(false);
@@ -145,6 +153,7 @@ function RsvpPage() {
       cancelled = true;
     };
   }, [edit, fetchExisting]);
+
 
   const set = <K extends keyof RsvpInput>(key: K, value: RsvpInput[K]) =>
     setForm((f) => ({ ...f, [key]: value }));

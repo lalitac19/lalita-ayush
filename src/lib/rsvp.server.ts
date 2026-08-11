@@ -19,18 +19,31 @@ function sheetsHeaders() {
   };
 }
 
+const RETRY_DELAYS_MS = [600, 1500, 3000];
+
 async function sheetsFetch(path: string, init?: RequestInit) {
-  const response = await fetch(`${SHEETS_BASE}${path}`, {
-    ...init,
-    headers: sheetsHeaders(),
-  });
-  if (!response.ok) {
-    const body = await response.text();
-    console.error(`Sheets request failed [${response.status}]: ${body}`);
-    throw new Error("We couldn't reach the guest list just now. Please try again.");
+  let lastStatus = 0;
+  let lastBody = "";
+  for (let attempt = 0; attempt <= RETRY_DELAYS_MS.length; attempt += 1) {
+    const response = await fetch(`${SHEETS_BASE}${path}`, {
+      ...init,
+      headers: sheetsHeaders(),
+    });
+    if (response.ok) return (await response.json()) as { values?: string[][] };
+
+    lastStatus = response.status;
+    lastBody = await response.text();
+    console.error(`Sheets request failed [${lastStatus}]: ${lastBody}`);
+
+    // Retry transient failures only (rate limit / upstream hiccup).
+    const retryable = lastStatus === 429 || lastStatus >= 500;
+    const delay = RETRY_DELAYS_MS[attempt];
+    if (!retryable || delay === undefined) break;
+    await new Promise((resolve) => setTimeout(resolve, delay));
   }
-  return (await response.json()) as { values?: string[][] };
+  throw new Error("We couldn't reach the guest list just now. Please try again in a moment.");
 }
+
 
 export function newToken(): string {
   const bytes = crypto.getRandomValues(new Uint8Array(12));
