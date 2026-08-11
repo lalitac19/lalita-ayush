@@ -62,6 +62,14 @@ import m30s from "@/assets/photos/m30-640.webp";
 import m30l from "@/assets/photos/m30-1440.webp";
 import m31s from "@/assets/photos/m31-640.webp";
 import m31l from "@/assets/photos/m31-1440.webp";
+import m32s from "@/assets/photos/m32-640.webp";
+import m32l from "@/assets/photos/m32-1440.webp";
+import m33s from "@/assets/photos/m33-640.webp";
+import m33l from "@/assets/photos/m33-1440.webp";
+import m34s from "@/assets/photos/m34-640.webp";
+import m34l from "@/assets/photos/m34-1440.webp";
+import m35s from "@/assets/photos/m35-640.webp";
+import m35l from "@/assets/photos/m35-1440.webp";
 import heroS from "@/assets/photos/hero2-640.webp";
 import heroL from "@/assets/photos/hero2-1440.webp";
 import celS from "@/assets/photos/cel-640.webp";
@@ -121,6 +129,10 @@ export const photos: Photo[] = [
   { id: "m29", small: m29s, large: m29l, caption: "Golden hour", ratio: 1.4998 },
   { id: "m30", small: m30s, large: m30l, caption: "Palm trees and champagne", ratio: 0.6667 },
   { id: "m31", small: m31s, large: m31l, caption: "Out on the water", ratio: 1.3609 },
+  { id: "m32", small: m32s, large: m32l, caption: "Just the two of us", ratio: 0.6667 },
+  { id: "m33", small: m33s, large: m33l, caption: "Among the roses", ratio: 0.9369 },
+  { id: "m34", small: m34s, large: m34l, caption: "Everyday adventures", ratio: 0.9333 },
+  { id: "m35", small: m35s, large: m35l, caption: "Golden days", ratio: 0.75 },
 ];
 
 // Story-only photos (not shown in the Moments gallery)
