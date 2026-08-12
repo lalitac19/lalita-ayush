@@ -268,8 +268,8 @@ function RsvpPage() {
           <>
             <Section
               step={3}
-              title="Dinner: your starter"
-              hint="Please select one starter for the wedding dinner."
+              title="Choose your starter"
+              hint="Select your preferred starter for the wedding dinner."
             >
               <div className="space-y-3">
                 {STARTERS.map((s) => (
@@ -288,8 +288,8 @@ function RsvpPage() {
 
             <Section
               step={4}
-              title="Dinner: your main course"
-              hint="Please select one main course for the wedding dinner."
+              title="Choose your main course"
+              hint="Select your preferred main course for the wedding dinner."
             >
               <div className="space-y-3">
                 {MAINS.map((m) => (
@@ -362,7 +362,7 @@ function RsvpPage() {
               </div>
             </Section>
 
-            <Section step={6} title="Your song request" hint="What would get you on the dancefloor?">
+            <Section step={6} title="Your song request">
               <label className="block text-sm">
                 <span className="font-bold">
                   What song would you love to hear at our wedding?
