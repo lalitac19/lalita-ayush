@@ -7,7 +7,7 @@ const TAUPE = "#746A60";
 const GOLD = "#C5A46D";
 const SAGE = "#A9B5A2";
 const LOGO_URL =
-  "https://www.thedamanis.com/__l5e/assets-v1/93b8c14c-62d8-412c-9d15-6ea45dc43ccb/wedding-logo.jpg";
+  "https://www.thedamanis.com/__l5e/assets-v1/e00427f1-db3e-4e88-9942-6048167285da/wedding-logo.png";
 
 function esc(value: string): string {
   return value
@@ -49,7 +49,7 @@ export function buildRsvpEmail(data: RsvpInput, editUrl: string) {
     <tr><td align="center">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background-color:${IVORY};border:1px solid ${CHAMPAGNE};border-radius:4px;">
         <tr><td style="background-color:${ESPRESSO};padding:28px 24px;text-align:center;">
-          <img src="${LOGO_URL}" width="96" height="96" alt="Lalita &amp; Ayush" style="display:block;margin:0 auto;width:96px;height:auto;border:0;" />
+          <img src="${LOGO_URL}" width="110" alt="Lalita &amp; Ayush" style="display:block;margin:0 auto;width:110px;height:auto;border:0;" />
           <div style="margin-top:14px;font-family:Georgia,'Times New Roman',serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:${GOLD};">20–22 February 2027 · Sri Lanka</div>
         </td></tr>
         <tr><td style="padding:32px 28px 8px 28px;">
