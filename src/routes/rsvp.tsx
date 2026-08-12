@@ -187,7 +187,7 @@ function RsvpPage() {
         </h1>
         <p className="mt-5 leading-relaxed text-muted-foreground">
           {coming
-            ? "We'll follow up with more details closer to the date. In the meantime, feel free to check our website for more information."
+            ? "A confirmation email with your submitted details is on its way to you! If you don't see it, be sure to check your spam folder. In the meantime, feel free to explore the website for everything you need to know about the celebrations."
             : "Thank you for letting us know. We'll be raising a glass to you from the beach."}
         </p>
         {coming && editUrl ? (
