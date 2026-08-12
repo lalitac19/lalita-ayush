@@ -7,7 +7,7 @@ const TAUPE = "#746A60";
 const GOLD = "#C5A46D";
 const SAGE = "#A9B5A2";
 const LOGO_URL =
-  "https://www.thedamanis.com/__l5e/assets-v1/93b8c14c-62d8-412c-9d15-6ea45dc43ccb/wedding-logo.jpg";
+  "https://www.thedamanis.com/__l5e/assets-v1/e00427f1-db3e-4e88-9942-6048167285da/wedding-logo.png";
 
 function esc(value: string): string {
   return value
