@@ -58,7 +58,7 @@ const chapters: Chapter[] = [
   {
     number: "III",
     title: "The First Meeting",
-    photo: "m22",
+    photo: "g09",
     paragraphs: [
       "Months later, and with a little encouragement from his best friend's wife (thank you, Alisha!), Ayush finally booked a flight to Dubai. We met for the first time on Valentine's Day.",
       "The moment we met, everything just clicked. Since then, we've shared countless flights, adventures, new cities, and memories we'll treasure forever.",
@@ -117,7 +117,7 @@ function OurStory() {
         <div className="surface-card mt-10 overflow-hidden rounded-sm">
           <div className="aspect-4/3 sm:aspect-16/9">
             <PhotoImage
-              photo={photoById("m24")}
+              photo={photoById("g04")}
               alt="Lalita and Ayush just after the proposal"
               sizes="(max-width: 768px) 92vw, 720px"
               className="h-full w-full object-cover"
