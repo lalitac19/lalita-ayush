@@ -82,11 +82,11 @@ CONTENT = {
                     "location": "Mangrove Restaurant, Avani Kalutara Resort",
                 },
                 {
-                    "time": "4:45 – 7:30 pm",
+                    "time": "4:30 – 7:30 pm",
                     "title": "Civil Ceremony & Cocktail Hour",
                     "detail": "Our official 'I do'. Join us as we exchange our vows with the "
                     "ocean as our backdrop, followed by sunset cocktails and canapés. We "
-                    "kindly ask that you are seated by 4:45 pm for the ceremony.",
+                    "kindly ask that you are seated by 4:30 pm for the ceremony.",
                     "location": "The beach, Avani Kalutara Resort",
                 },
                 {
@@ -110,14 +110,14 @@ CONTENT = {
                     "location": "Mangrove Restaurant, Avani Kalutara Resort",
                 },
                 {
-                    "time": "11:30 am – 3:30 pm",
+                    "time": "12:00 – 3:30 pm",
                     "title": "Pool Party",
                     "detail": "Sunshine, cocktails, pool games, live food stalls and a DJ "
                     "playing all afternoon.",
                     "location": "The pool, Avani Kalutara Resort",
                 },
                 {
-                    "time": "7:30 pm until late",
+                    "time": "7:00 pm until late",
                     "title": "Sangeet, Dinner & DJ Night",
                     "detail": "The grand finale: vibrant performances, incredible food and a "
                     "packed dance floor, late into the early hours.",
@@ -144,7 +144,9 @@ CONTENT = {
             "eyebrow": "CIVIL CEREMONY · DINNER & DANCE",
             "title": "Summer Formal",
             "detail": "Pastels, florals and soft colour — colour is encouraged. Linen suits, "
-            "flowing dresses and heels that can handle sand. Please avoid black, white and red.",
+            "flowing dresses and heels that can handle sand. Please avoid black, white and red. "
+            "The ceremony will take place on the beach, so we recommend wearing "
+            "comfortable, sand-friendly footwear.",
             "image": os.path.join(ASSETS_OPT_DIR, "summer-formal-1440.webp"),
         },
         {
@@ -180,7 +182,7 @@ CONTENT = {
             "flight details closer to the time.",
         ),
         ("Adults only", "This is an adults-only celebration."),
-        ("RSVP", "Please RSVP by 7 November 2026."),
+        ("RSVP", "Please RSVP via thedamanis.com."),
         ("Weather", "Warm and humid, around 30°C. Light, breathable fabrics recommended."),
     ],
 }

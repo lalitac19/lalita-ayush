@@ -76,10 +76,8 @@ function Faq() {
         <h2 className="mt-3 font-display text-3xl sm:text-4xl">RSVP</h2>
         <p className="mx-auto mt-5 max-w-xl leading-relaxed text-muted-foreground">
           We can't wait to celebrate with you. Please let us know if you'll be
-          joining us by 7th November 2026, so we can make the necessary
-          arrangements and ensure you have the best possible weekend with us. If
-          we don't hear from you by this date, we'll sadly assume you're not able
-          to join.
+          joining us, so we can make the necessary
+          arrangements and ensure you have the best possible weekend with us. 
         </p>
         <Link
           to="/rsvp"

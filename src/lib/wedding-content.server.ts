@@ -27,15 +27,15 @@ export const weddingContent: WeddingContent = {
           end: "20270220T100000Z",
         },
         {
-          time: "4:45 – 7:30 pm",
+          time: "4:30 – 7:30 pm",
           title: "Civil Ceremony & Cocktail Hour",
           detail:
-            "Our official 'I do'. Join us as we exchange our vows with the ocean as our backdrop, followed by sunset cocktails and canapés. We kindly ask that you are seated by 4:45 pm for the ceremony.",
+            "Our official 'I do'. Join us as we exchange our vows with the ocean as our backdrop, followed by sunset cocktails and canapés. We kindly ask that you are seated by 4:30 pm for the ceremony.",
           theme:
-            "Summer formal — colour is very much encouraged. No black, white or red.",
+            "Summer formal — colour is very much encouraged. No black, white or red. The ceremony will take place on the beach, so we recommend wearing comfortable, sand-friendly footwear.",
           image: "ceremony",
           location: "The beach, Avani Kalutara Resort",
-          start: "20270220T111500Z",
+          start: "20270220T110000Z",
           end: "20270220T140000Z",
         },
         {
@@ -64,18 +64,18 @@ export const weddingContent: WeddingContent = {
           end: "20270221T053000Z",
         },
         {
-          time: "11:30 am – 3:30 pm",
+          time: "12:00 – 3:30 pm",
           title: "Pool Party",
           detail:
             "Think sunshine, cocktails, pool games, live food stalls and a DJ playing all afternoon. Come ready to relax, have fun and make the most of our final day together before the evening celebrations begin.",
           theme: "Resort beach chic — elegant swimwear, linen shirts, breezy dresses.",
           image: "pool",
           location: "The pool, Avani Kalutara Resort",
-          start: "20270221T060000Z",
+          start: "20270221T063000Z",
           end: "20270221T100000Z",
         },
         {
-          time: "7:30 pm until late",
+          time: "7:00 pm until late",
           title: "Sangeet, Dinner & DJ Night",
           detail:
             "The grand finale of our wedding weekend. An evening of vibrant performances, incredible food and a packed dance floor. Join us as we celebrate with dinner, music and dancing late into the early hours of the morning.",
@@ -84,7 +84,7 @@ export const weddingContent: WeddingContent = {
           image: "sangeet",
           location: "Anantara Ballroom",
           mapsUrl: "https://maps.google.com/?q=Anantara+Kalutara+Resort+Sri+Lanka",
-          start: "20270221T140000Z",
+          start: "20270221T133000Z",
           end: "20270221T193000Z",
         },
       ],

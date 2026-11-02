@@ -127,7 +127,7 @@ function Celebration() {
               From travel tips and accommodation to the weekend celebrations,
               you'll find everything you need below.{" "}
               <strong className="font-semibold text-foreground">
-                Please RSVP by 7th November 2026.
+                Please RSVP.
               </strong>
             </>
           }
