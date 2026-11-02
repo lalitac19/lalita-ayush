@@ -9,21 +9,25 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as RsvpRouteImport } from './routes/rsvp'
-import { Route as GatedRouteImport } from './routes/_gated'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as GatedSriLankaRouteImport } from './routes/_gated.sri-lanka'
-import { Route as GatedOurStoryRouteImport } from './routes/_gated.our-story'
-import { Route as GatedMomentsRouteImport } from './routes/_gated.moments'
-import { Route as GatedGettingThereRouteImport } from './routes/_gated.getting-there'
-import { Route as GatedFaqRouteImport } from './routes/_gated.faq'
-import { Route as GatedEventsRouteImport } from './routes/_gated.events'
+import { Route as GatedRouteImport } from './routes/_gated'
+import { Route as RsvpRouteImport } from './routes/rsvp'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as GatedCelebrationRouteImport } from './routes/_gated.celebration'
+import { Route as GatedEventsRouteImport } from './routes/_gated.events'
+import { Route as GatedFaqRouteImport } from './routes/_gated.faq'
+import { Route as GatedGettingThereRouteImport } from './routes/_gated.getting-there'
+import { Route as GatedMomentsRouteImport } from './routes/_gated.moments'
+import { Route as GatedOurStoryRouteImport } from './routes/_gated.our-story'
+import { Route as GatedSriLankaRouteImport } from './routes/_gated.sri-lanka'
 
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GatedRoute = GatedRouteImport.update({
+  id: '/_gated',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RsvpRoute = RsvpRouteImport.update({
@@ -31,38 +35,14 @@ const RsvpRoute = RsvpRouteImport.update({
   path: '/rsvp',
   getParentRoute: () => rootRouteImport,
 } as any)
-const GatedRoute = GatedRouteImport.update({
-  id: '/_gated',
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GatedSriLankaRoute = GatedSriLankaRouteImport.update({
-  id: '/sri-lanka',
-  path: '/sri-lanka',
-  getParentRoute: () => GatedRoute,
-} as any)
-const GatedOurStoryRoute = GatedOurStoryRouteImport.update({
-  id: '/our-story',
-  path: '/our-story',
-  getParentRoute: () => GatedRoute,
-} as any)
-const GatedMomentsRoute = GatedMomentsRouteImport.update({
-  id: '/moments',
-  path: '/moments',
-  getParentRoute: () => GatedRoute,
-} as any)
-const GatedGettingThereRoute = GatedGettingThereRouteImport.update({
-  id: '/getting-there',
-  path: '/getting-there',
-  getParentRoute: () => GatedRoute,
-} as any)
-const GatedFaqRoute = GatedFaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
+const GatedCelebrationRoute = GatedCelebrationRouteImport.update({
+  id: '/celebration',
+  path: '/celebration',
   getParentRoute: () => GatedRoute,
 } as any)
 const GatedEventsRoute = GatedEventsRouteImport.update({
@@ -70,9 +50,29 @@ const GatedEventsRoute = GatedEventsRouteImport.update({
   path: '/events',
   getParentRoute: () => GatedRoute,
 } as any)
-const GatedCelebrationRoute = GatedCelebrationRouteImport.update({
-  id: '/celebration',
-  path: '/celebration',
+const GatedFaqRoute = GatedFaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => GatedRoute,
+} as any)
+const GatedGettingThereRoute = GatedGettingThereRouteImport.update({
+  id: '/getting-there',
+  path: '/getting-there',
+  getParentRoute: () => GatedRoute,
+} as any)
+const GatedMomentsRoute = GatedMomentsRouteImport.update({
+  id: '/moments',
+  path: '/moments',
+  getParentRoute: () => GatedRoute,
+} as any)
+const GatedOurStoryRoute = GatedOurStoryRouteImport.update({
+  id: '/our-story',
+  path: '/our-story',
+  getParentRoute: () => GatedRoute,
+} as any)
+const GatedSriLankaRoute = GatedSriLankaRouteImport.update({
+  id: '/sri-lanka',
+  path: '/sri-lanka',
   getParentRoute: () => GatedRoute,
 } as any)
 
@@ -163,18 +163,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/rsvp': {
-      id: '/rsvp'
-      path: '/rsvp'
-      fullPath: '/rsvp'
-      preLoaderRoute: typeof RsvpRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_gated': {
@@ -184,46 +177,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GatedRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/rsvp': {
+      id: '/rsvp'
+      path: '/rsvp'
+      fullPath: '/rsvp'
+      preLoaderRoute: typeof RsvpRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_gated/sri-lanka': {
-      id: '/_gated/sri-lanka'
-      path: '/sri-lanka'
-      fullPath: '/sri-lanka'
-      preLoaderRoute: typeof GatedSriLankaRouteImport
-      parentRoute: typeof GatedRoute
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/_gated/our-story': {
-      id: '/_gated/our-story'
-      path: '/our-story'
-      fullPath: '/our-story'
-      preLoaderRoute: typeof GatedOurStoryRouteImport
-      parentRoute: typeof GatedRoute
-    }
-    '/_gated/moments': {
-      id: '/_gated/moments'
-      path: '/moments'
-      fullPath: '/moments'
-      preLoaderRoute: typeof GatedMomentsRouteImport
-      parentRoute: typeof GatedRoute
-    }
-    '/_gated/getting-there': {
-      id: '/_gated/getting-there'
-      path: '/getting-there'
-      fullPath: '/getting-there'
-      preLoaderRoute: typeof GatedGettingThereRouteImport
-      parentRoute: typeof GatedRoute
-    }
-    '/_gated/faq': {
-      id: '/_gated/faq'
-      path: '/faq'
-      fullPath: '/faq'
-      preLoaderRoute: typeof GatedFaqRouteImport
+    '/_gated/celebration': {
+      id: '/_gated/celebration'
+      path: '/celebration'
+      fullPath: '/celebration'
+      preLoaderRoute: typeof GatedCelebrationRouteImport
       parentRoute: typeof GatedRoute
     }
     '/_gated/events': {
@@ -233,11 +205,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GatedEventsRouteImport
       parentRoute: typeof GatedRoute
     }
-    '/_gated/celebration': {
-      id: '/_gated/celebration'
-      path: '/celebration'
-      fullPath: '/celebration'
-      preLoaderRoute: typeof GatedCelebrationRouteImport
+    '/_gated/faq': {
+      id: '/_gated/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof GatedFaqRouteImport
+      parentRoute: typeof GatedRoute
+    }
+    '/_gated/getting-there': {
+      id: '/_gated/getting-there'
+      path: '/getting-there'
+      fullPath: '/getting-there'
+      preLoaderRoute: typeof GatedGettingThereRouteImport
+      parentRoute: typeof GatedRoute
+    }
+    '/_gated/moments': {
+      id: '/_gated/moments'
+      path: '/moments'
+      fullPath: '/moments'
+      preLoaderRoute: typeof GatedMomentsRouteImport
+      parentRoute: typeof GatedRoute
+    }
+    '/_gated/our-story': {
+      id: '/_gated/our-story'
+      path: '/our-story'
+      fullPath: '/our-story'
+      preLoaderRoute: typeof GatedOurStoryRouteImport
+      parentRoute: typeof GatedRoute
+    }
+    '/_gated/sri-lanka': {
+      id: '/_gated/sri-lanka'
+      path: '/sri-lanka'
+      fullPath: '/sri-lanka'
+      preLoaderRoute: typeof GatedSriLankaRouteImport
       parentRoute: typeof GatedRoute
     }
   }
