@@ -62,7 +62,7 @@ const dressCodes = [
     event: "Civil Ceremony · Dinner & Dance",
     title: "Summer Formal",
     detail:
-      "Pastels, florals and soft colour — colour is encouraged. Linen suits, flowing dresses and heels that can handle sand. Please avoid black, white and red.",
+      "Pastels, florals and soft colour — colour is encouraged. Linen suits, flowing dresses and heels that can handle sand. Please avoid black, white and red. The ceremony will take place on the beach, so we recommend wearing comfortable, sand-friendly footwear.",
     small: formalSmall,
     large: formalLarge,
     width: 1440,

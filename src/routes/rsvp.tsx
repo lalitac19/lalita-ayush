@@ -20,7 +20,7 @@ export const Route = createFileRoute("/rsvp")({
       { property: "og:title", content: "RSVP — Lalita & Ayush" },
       {
         property: "og:description",
-        content: "Reply by 7th November 2026 for the Sri Lanka wedding weekend.",
+        content: "RSVP for the Sri Lanka wedding weekend.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -192,7 +192,7 @@ function RsvpPage() {
         </p>
         {coming && editUrl ? (
           <p className="mt-8 text-sm leading-relaxed text-muted-foreground">
-            Need to change something? Use your personal link any time before 7th November 2026:
+            Need to change something? Use your personal link any time:
             <br />
             <a
               href={editUrl}
@@ -220,8 +220,7 @@ function RsvpPage() {
       </Link>
       <SectionHeading eyebrow="Join us" title="RSVP" />
       <p className="mt-5 leading-relaxed text-muted-foreground">
-        We hope you can join us! Please take a moment to RSVP by{" "}
-        <strong className="font-bold text-foreground">7th November 2026</strong>.
+        We hope you can join us! Please take a moment to RSVP.
       </p>
 
       {edit && !loading ? (

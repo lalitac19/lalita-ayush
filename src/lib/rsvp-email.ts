@@ -60,7 +60,7 @@ export function buildRsvpEmail(data: RsvpInput, editUrl: string) {
           <p style="margin:0 0 10px 0;font-family:Georgia,'Times New Roman',serif;font-size:16px;line-height:1.7;color:${TAUPE};">Here's what you told us:</p>
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${rows}</table>
           <p style="margin:22px 0 18px 0;font-family:Georgia,'Times New Roman',serif;font-size:16px;line-height:1.7;color:${TAUPE};">
-            If anything needs to be changed, you can update your RSVP any time before <strong style="color:${ESPRESSO};">7th November 2026</strong> using the link below.
+            If anything needs to be changed, you can update your RSVP any time using the link below.
           </p>
           <p style="margin:0 0 26px 0;text-align:center;">
             <a href="${esc(editUrl)}" style="display:inline-block;background-color:${SAGE};color:${ESPRESSO};text-decoration:none;padding:14px 32px;border-radius:3px;font-family:Georgia,'Times New Roman',serif;font-size:12px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;">Edit my RSVP</a>
@@ -93,7 +93,7 @@ export function buildRsvpEmail(data: RsvpInput, editUrl: string) {
     data.email && `Email: ${data.email}`,
     data.whatsapp && `WhatsApp: ${data.whatsapp}`,
     "",
-    "You can update your RSVP any time before 7th November 2026:",
+    "You can update your RSVP any time:",
     editUrl,
     "",
     "We can't wait to celebrate with you!",
